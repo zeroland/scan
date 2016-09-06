@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DictProces>
+  <select ID="GetIcdByStr">
+    SELECT TOP 5 * FROM hzyl_dict_icd where icdcode like '%'+@str+'%' or icdname like '%'+@str+'%' or zjm like '%'+@str+'%' order by icdcode
+  </select>
+  <select ID="GetDeptByStr">
+    SELECT TOP 5 * FROM hzyl_dict_dept where code like '%'+@str+'%' or name like '%'+@str+'%' or zjm like '%'+@str+'%' order by code
+  </select>
+  <select ID="GetOrgByStr">
+    SELECT TOP 5 * FROM hzyl_dict_org where code like '%'+@str+'%' or name like '%'+@str+'%' or zjm like '%'+@str+'%' order by code
+  </select>
+  <!--作第一次分词用-->
+  <select ID="GetItemAll">
+    select * from hzyl_dict_item
+  </select>
+  <select ID="GetItemByStr">
+    select  code, name, zjm, itemtype, (CASE WHEN itemtype='1' THEN '诊疗' WHEN itemtype='0' THEN '药品' ELSE '其他' end  ) itemtypename , feetype, (SELECT x.name FROM hzyl_dict_feetype x WHERE x.code=t.feetype) feetypename, unit, itemsize, forms, PROVPRICE, CITYPRICE, COUNPRICE   from hzyl_dict_item t  where code like '%'+@str+'%' or name like '%'+@str+'%' or zjm like '%'+@str+'%' order by code asc
+  </select>
+
+  <select ID="GetItemByID">
+    select * from hzyl_dict_item where code =@code
+  </select>
+  <select ID="MapItemByName">
+    SELECT top 1 * FROM hzyl_dict_item t  WHERE @str LIKE  '%'+t.name+'%'
+  </select>
+  <select ID="GetItemDictByFRcodeKeyWord">
+    SELECT  * FROM  itemdict t  WHERE charindex(t.keyword, @str ,0) >0  and centercode is not null  and  centercode!='' and sdx=@frcode  order by  weight DESC
+  </select>
+  <select ID="GetItemDictByFRcodeScanName">
+    SELECT  * FROM  itemdict t  WHERE (scanname=@scanname  or showname=@scanname )  and centercode is not null and  centercode!='' and sdx=@frcode order by  weight DESC
+  </select>
+  <select ID="GetItemDictByKeyWord">
+    <!--@str LIKE  '%'+t.keyword+'%'-->
+    SELECT  * FROM  itemdict t  WHERE charindex(t.keyword, @str ,0) >0  and centercode is not null and  centercode!='' and sdx=0  order by  weight DESC
+  </select>
+  <select ID="GetItemDictByScanName">
+    SELECT  * FROM  itemdict t  WHERE (scanname=@scanname  or showname=@scanname )   and centercode is not null and  centercode!='' and sdx=0 order by  weight DESC
+  </select>
+  <select ID="GetStyle">
+    select  * from hzyl_style where frcode=@frcode or frcode='0' order by name
+  </select>
+  <select ID="GetStyleByID">
+    select  * from hzyl_style where id=@id
+  </select>
+  <select ID="GetItemDict">
+    select * from itemdict
+  </select>
+  <insert ID="InsertStyle">
+    INSERT INTO hzyl_style (name, code,frcode)
+    VALUES (@name,@code,@frcode) SELECT @@identity
+  </insert>
+  <delete ID="DelStyle">
+    Delete From hzyl_style Where id=@id
+  </delete>
+</DictProces>

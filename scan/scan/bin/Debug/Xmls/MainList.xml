@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MainList>
+  <select ID="GetMainList">
+    SELECT * FROM hzyl_bc_zyjl 
+  </select>
+  <select ID="InsertZyjl">
+    INSERT INTO hzyl_wz_zyjl (sdx, zyh, yljg, ylzh, name, idcard, jzlx, rysj, cysj, sjzyts, ryks, cyks, jzys, ryzt, cyzt, ryzd, cyzd,guid)
+VALUES (@sdx, @zyh, @yljg, @ylzh, @name, @idcard, @jzlx, @rysj, @cysj, @sjzyts, @ryks,  @cyks,  @jzys, @ryzt, @cyzt, @ryzd, @cyzd,@guid)
+  </select>
+  <select ID="GetZyjlById">
+    SELECT t.* ,(SELECT name FROM hzyl_dict_dept a WHERE a.code=t.ryks) ryksname,(SELECT name FROM hzyl_dict_dept b WHERE b.code=t.cyks) cyksname,(SELECT c.icdname FROM hzyl_dict_icd c WHERE c.icdcode=t.cyzd) cyzdname,(SELECT d.name FROM hzyl_dict_org d WHERE d.code=t.yljg) orgname FROM hzyl_wz_zyjl t WHERE id=@id
+  </select>
+<select ID="GetZyjlByGuid">
+    SELECT t.* ,(SELECT name FROM hzyl_dict_dept a WHERE a.code=t.ryks) ryksname,(SELECT name FROM hzyl_dict_dept b WHERE b.code=t.cyks) cyksname,(SELECT c.icdname FROM hzyl_dict_icd c WHERE c.icdcode=t.cyzd) cyzdname,(SELECT d.name FROM hzyl_dict_org d WHERE d.code=t.yljg) orgname FROM hzyl_wz_zyjl t WHERE guid=@guid
+  </select>
+<insert ID="InsertFymx">
+  INSERT INTO dbo.hzyl_wz_fymx (pid, code, name, spec, unit, quantum, price, totalprice, paydate, centercode, centername, feetype,  itemtype)
+VALUES (@pid, @code, @name, @spec, @unit, @quantum, @price, @totalprice, @paydate, @centercode, @centername, @feetype,  @itemtype)
+</insert>
+  <select ID="GetMainInfoList">
+    SELECT * FROM hzyl_wz_zyjl WHERE isUpload=0 and sdx=@sdx + ' ' +  @str
+  </select>
+  <update ID="UpdateUploadZyjlById">
+    update  hzyl_wz_zyjl set isupload=1 where id=@id
+  </update>
+  <update ID="UpdateUploadFymxByPId">
+    update  hzyl_wz_fymx set isupload=1 where pid=@pid
+  </update>
+  <delete ID="DeleteZyjlById">
+     delete  hzyl_wz_zyjl  where id=@id
+  </delete>
+<delete ID="DeleteFymxById">
+     delete  hzyl_wz_fymx  where pid=@pid
+  </delete>
+</MainList>

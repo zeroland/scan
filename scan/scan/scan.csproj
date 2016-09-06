@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F2EBD588-3429-4E89-8ECF-B8256448E941}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>scan</RootNamespace>
+    <AssemblyName>外诊扫描录入系统</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\scandeploy\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\外诊扫描录入系统.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1EFEA49593123C60DA73A578F066AD554B75A523</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>scan_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>scan.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>scanico.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="AxInterop.FineReaderVisualComponents, Version=11.1.10.100, Culture=neutral, PublicKeyToken=2e1e7aca5d298f96, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ProgramData\ABBYY\SDK\11\FineReader Engine\Inc\.Net interops\v3.5\AxInterop.FineReaderVisualComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.FineReaderVisualComponents, Version=11.1.10.100, Culture=neutral, PublicKeyToken=2e1e7aca5d298f96, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\ProgramData\ABBYY\SDK\11\FineReader Engine\Inc\.Net interops\v3.5\Interop.FineReaderVisualComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.FREngine, Version=11.1.10.100, Culture=neutral, PublicKeyToken=2e1e7aca5d298f96, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\ProgramData\ABBYY\SDK\11\FineReader Engine\Inc\.Net interops\v3.5\Interop.FREngine.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>C:\Users\Administrator\Desktop\log4net等2个文件\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=2.9.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\PanGu.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu.Lucene.Analyzer, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\PanGu.Lucene.Analyzer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\DictProcess.cs" />
+    <Compile Include="Business\ItemProcess.cs" />
+    <Compile Include="Business\MainList.cs" />
+    <Compile Include="InhosList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InhosList.Designer.cs">
+      <DependentUpon>InhosList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DictViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DictViewForm.Designer.cs">
+      <DependentUpon>DictViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EngineLoader.cs" />
+    <Compile Include="Interface\IDcitProcess.cs" />
+    <Compile Include="Interface\IItemProcess.cs" />
+    <Compile Include="Interface\IMainList.cs" />
+    <Compile Include="Interface\IStyleOwner.cs" />
+    <Compile Include="ItemMappingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemMappingForm.Designer.cs">
+      <DependentUpon>ItemMappingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemSearch.designer.cs">
+      <DependentUpon>ItemSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadForm.Designer.cs">
+      <DependentUpon>LoadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainInfoList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainInfoList.Designer.cs">
+      <DependentUpon>MainInfoList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForm.designer.cs">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScanDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScanDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SelectStyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectStyleForm.Designer.cs">
+      <DependentUpon>SelectStyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServer\DictProcess.cs" />
+    <Compile Include="SqlServer\ItemProcess.cs" />
+    <Compile Include="SqlServer\MainList.cs" />
+    <Compile Include="StyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StyleForm.Designer.cs">
+      <DependentUpon>StyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestTimer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestTimer.Designer.cs">
+      <DependentUpon>TestTimer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatePwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatePwd.Designer.cs">
+      <DependentUpon>UpdatePwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\CJKAnalyzer.cs" />
+    <Compile Include="Util\CJKTokenizer.cs" />
+    <Compile Include="Util\SqlHelper.cs" />
+    <Compile Include="Util\Util.cs" />
+    <Compile Include="Util\XmlUtil.cs" />
+    <Compile Include="Web References\WebReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="InhosList.resx">
+      <DependentUpon>InhosList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DictViewForm.resx">
+      <DependentUpon>DictViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemMappingForm.resx">
+      <DependentUpon>ItemMappingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemSearch.resx">
+      <DependentUpon>ItemSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadForm.resx">
+      <DependentUpon>LoadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainInfoList.resx">
+      <DependentUpon>MainInfoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectStyleForm.resx">
+      <DependentUpon>SelectStyleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleForm.resx">
+      <DependentUpon>StyleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatePwd.resx">
+      <DependentUpon>UpdatePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dict\Dict.dct" />
+    <None Include="log4net.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="ScanDataSet.xsc">
+      <DependentUpon>ScanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ScanDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ScanDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ScanDataSet.xss">
+      <DependentUpon>ScanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\HospitalServiceImpService.wsdl" />
+    <None Include="Web References\WebReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dict\ChsDoubleName1.txt" />
+    <Content Include="Dict\ChsDoubleName2.txt" />
+    <Content Include="Dict\ChsSingleName.txt" />
+    <Content Include="Dict\Stopword.txt" />
+    <Content Include="Dict\Synonym.txt" />
+    <Content Include="Dict\Wildcard.txt" />
+    <Content Include="image\01.png" />
+    <Content Include="image\04563117.gif" />
+    <Content Include="image\04563134.gif" />
+    <Content Include="image\04563136.gif" />
+    <Content Include="image\04563140.gif" />
+    <Content Include="image\05375323.gif" />
+    <Content Include="image\053753298.gif" />
+    <Content Include="image\053753299.gif" />
+    <Content Include="image\053753300.gif" />
+    <Content Include="image\053753301.gif" />
+    <Content Include="image\053753308.gif" />
+    <Content Include="image\05375343.gif" />
+    <Content Include="image\10.png" />
+    <Content Include="image\11.png" />
+    <Content Include="image\12.png" />
+    <Content Include="image\25.png" />
+    <Content Include="image\26.png" />
+    <Content Include="image\27.png" />
+    <Content Include="image\29.png" />
+    <Content Include="image\48.png" />
+    <Content Include="image\上传.png" />
+    <Content Include="image\保存.png" />
+    <Content Include="image\分析 %281%29.png" />
+    <Content Include="image\分析 %282%29.png" />
+    <Content Include="image\删除区域.png" />
+    <Content Include="image\扫描.png" />
+    <Content Include="image\扫描一.gif" />
+    <Content Include="image\改变格式.gif" />
+    <Content Include="image\清单.gif" />
+    <Content Include="image\登记 %281%29.png" />
+    <Content Include="image\登记 %282%29.png" />
+    <Content Include="image\表格一.png" />
+    <Content Include="image\表格二.png" />
+    <Content Include="image\识别.png" />
+    <Content Include="image\识别一.gif" />
+    <Content Include="image\选择区域.png" />
+    <Content Include="lib\Lucene.Net.dll" />
+    <Content Include="lib\Lucene.Net.pdb" />
+    <Content Include="lib\Lucene.Net.xml" />
+    <Content Include="lib\PanGu.dll" />
+    <Content Include="lib\PanGu.Lucene.Analyzer.dll" />
+    <Content Include="scanico.ico" />
+    <Content Include="Xmls\200222.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Xmls\DictProcess.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Xmls\ItemProcess.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Xmls\MainList.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Xmls\soap.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://125.46.57.77/xyhnccmp2/HospitalServicePort%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>http://125.46.57.77/xyhnccmp2/HospitalServicePort%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>scan_WebReference_HospitalServiceImpService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="lib\Lucene.Net.xml">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Xmls\200222.xml">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Xmls\DictProcess.xml">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Xmls\ItemProcess.xml">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Xmls\MainList.xml">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Xmls\soap.xml">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadLog\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

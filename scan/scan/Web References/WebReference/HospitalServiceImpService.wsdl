@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservice.hospital.org/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" name="HospitalServiceImpService" targetNamespace="http://webservice.hospital.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://webservice.hospital.org/" version="1.0">
+      <xs:element name="funMain" type="tns:funMain" />
+      <xs:element name="funMainResponse" type="tns:funMainResponse" />
+      <xs:complexType name="funMain">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="funMainResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="funMainResponse">
+    <wsdl:part name="parameters" element="tns:funMainResponse" />
+  </wsdl:message>
+  <wsdl:message name="funMain">
+    <wsdl:part name="parameters" element="tns:funMain" />
+  </wsdl:message>
+  <wsdl:portType name="HospitalService">
+    <wsdl:operation name="funMain">
+      <wsdl:input name="funMain" message="tns:funMain" />
+      <wsdl:output name="funMainResponse" message="tns:funMainResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HospitalServiceImpServiceSoapBinding" type="tns:HospitalService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="funMain">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="funMain">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="funMainResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HospitalServiceImpService">
+    <wsdl:port name="HospitalServicePort" binding="tns:HospitalServiceImpServiceSoapBinding">
+      <soap:address location="http://125.46.57.77:80/xyhnccmp2/HospitalServicePort" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
