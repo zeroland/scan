@@ -2175,9 +2175,12 @@ namespace scan
 
         private void alterToolStripButton_Click(object sender, EventArgs e)
         {
-            MainInfoList mainInfoList = new MainInfoList();
-            mainInfoList.Owner = this;
-            mainInfoList.ShowDialog();
+            //MainInfoList mainInfoList = new MainInfoList();
+            //mainInfoList.Owner = this;
+            //mainInfoList.ShowDialog();
+            InhosList inhosList = new InhosList();
+            inhosList.Owner = this;
+            inhosList.ShowDialog();
         }
         
         private void ScanDocumentViewer_OnActivePageChanged(object sender, AxFineReaderVisualComponents.DIDocumentViewerEvents_OnActivePageChangedEvent e)

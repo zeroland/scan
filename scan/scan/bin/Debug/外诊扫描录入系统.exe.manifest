@@ -70,6 +70,54 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.Data.v8.2.dll" size="620032">
+      <assemblyIdentity name="DevExpress.Data.v8.2" version="8.2.2.0" publicKeyToken="9B171C9FD64DA1D1" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>v69mZ5lo8zQ19rovwYx8E5CMJiY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.Utils.v8.2.dll" size="3923456">
+      <assemblyIdentity name="DevExpress.Utils.v8.2" version="8.2.2.0" publicKeyToken="9B171C9FD64DA1D1" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>liBIO2dmZpvfwMB9jxki0u+8CkA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.XtraEditors.v8.2.dll" size="1500672">
+      <assemblyIdentity name="DevExpress.XtraEditors.v8.2" version="8.2.2.0" publicKeyToken="9B171C9FD64DA1D1" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>qyPaKZMGLqm9twvIe3rctM4z8P4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.XtraTreeList.v8.2.dll" size="573952">
+      <assemblyIdentity name="DevExpress.XtraTreeList.v8.2" version="8.2.2.0" publicKeyToken="9B171C9FD64DA1D1" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>OsqhR9ob9eJVgowez3kR7lAO/AI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.FineReaderVisualComponents.dll" size="335576">
       <assemblyIdentity name="Interop.FineReaderVisualComponents" version="11.1.10.100" publicKeyToken="2E1E7ACA5D298F96" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -142,14 +190,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="359424">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="415744">
       <assemblyIdentity name="外诊扫描录入系统" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Kw22UmllfAVokgkPdp4YrFwiNEI=</dsig:DigestValue>
+        <dsig:DigestValue>tSR6QSeuOgGsv0x7um29meFv5Ao=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -612,13 +660,13 @@
       <dsig:DigestValue>CJWIc65iWU84UTjAxT80ovmI1JA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Xmls\MainList.xml" size="2002">
+  <file name="Xmls\MainList.xml" size="2366">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>whj/Ncj7NpMjNfTy6vDUkXYlY54=</dsig:DigestValue>
+      <dsig:DigestValue>qm/U+9TK6NLGJ/C4wLKhbbO+xnA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Xmls\soap.xml" size="472">
@@ -630,13 +678,13 @@
       <dsig:DigestValue>Ym0zX8G7i8zwXLGqBmVU2VypLhc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="外诊扫描录入系统.exe.config" size="2467">
+  <file name="外诊扫描录入系统.exe.config" size="2432">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>n8DAUBebbX6UDTknEI4QCePcBeU=</dsig:DigestValue>
+      <dsig:DigestValue>+FWslMMK5jO+UpmCP14hMCjjTJY=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

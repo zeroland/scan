@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ScanToolBar = new System.Windows.Forms.ToolStrip();
             this.AddToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -74,6 +74,7 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.DictToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.MapToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.ScanDataGridView = new System.Windows.Forms.DataGridView();
             this.numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -128,7 +129,6 @@
             this.CountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ScanTimer = new System.Windows.Forms.Timer(this.components);
             this.SingleCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.ScanToolBar.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -194,8 +194,8 @@
             this.alterToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("alterToolStripButton.Image")));
             this.alterToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.alterToolStripButton.Name = "alterToolStripButton";
-            this.alterToolStripButton.Size = new System.Drawing.Size(52, 22);
-            this.alterToolStripButton.Text = "修改";
+            this.alterToolStripButton.Size = new System.Drawing.Size(100, 22);
+            this.alterToolStripButton.Text = "住院信息查询";
             this.alterToolStripButton.Click += new System.EventHandler(this.alterToolStripButton_Click);
             // 
             // ScanToolStripSplitButton
@@ -588,6 +588,15 @@
             this.MapToolStripButton.Text = "批量对照";
             this.MapToolStripButton.Click += new System.EventHandler(this.MapToolStripButton_Click);
             // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton4.Text = "toolStripButton4";
+            // 
             // ScanDataGridView
             // 
             this.ScanDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -595,15 +604,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ScanDataGridView.AutoGenerateColumns = false;
             this.ScanDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ScanDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScanDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ScanDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ScanDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numDataGridViewTextBoxColumn,
@@ -642,9 +651,9 @@
             // numDataGridViewTextBoxColumn
             // 
             this.numDataGridViewTextBoxColumn.DataPropertyName = "Num";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.OldLace;
-            this.numDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.OldLace;
+            this.numDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.numDataGridViewTextBoxColumn.Frozen = true;
             this.numDataGridViewTextBoxColumn.HeaderText = "";
             this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
@@ -969,15 +978,6 @@
             this.SingleCheck.HeaderText = "选择";
             this.SingleCheck.Name = "SingleCheck";
             this.SingleCheck.Width = 50;
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 20);
-            this.toolStripButton4.Text = "toolStripButton4";
             // 
             // MainForm
             // 

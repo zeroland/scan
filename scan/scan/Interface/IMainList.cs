@@ -24,6 +24,6 @@ namespace scan.Interface
         bool UpdateUploadZyjlById(string id);
         bool DeleteZyjlById(string id);
         bool UpdateUploadFymxByPId(string id);
-
+        bool DelDetailByID(string id);
     }
 }

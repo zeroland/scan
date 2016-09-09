@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 namespace scan.Util
 {
@@ -31,9 +32,44 @@ namespace scan.Util
 
         public static string GetAppSetting(string key)
         {
-            return System.Configuration.ConfigurationManager.AppSettings[key].ToString();
+            IList list = (IList)System.Configuration.ConfigurationManager.AppSettings.AllKeys;
+            if (list.Contains(key))
+            {
+                string value= System.Configuration.ConfigurationManager.AppSettings[key].ToString();
+                return value;
+            }
+            else
+            {
+                return "";
+            }
         }
-        
+
+        /// <summary>
+        /// 是否需要解密
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="decrypt"></param>
+        /// <returns></returns>
+        public static string GetAppSettingDecrypt(string key,bool decrypt)
+        {
+            IList list = (IList)System.Configuration.ConfigurationManager.AppSettings.AllKeys;
+            if (list.Contains(key))
+            {
+                if (decrypt)
+                {
+                  return  GetDecryptedValue(System.Configuration.ConfigurationManager.AppSettings[key].ToString());
+                }
+                else
+                {
+                    return System.Configuration.ConfigurationManager.AppSettings[key].ToString();
+                }
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         public static string Replace(string str)
         {
             return str.Replace("、,", ".").Replace(" ", "").Replace(",", ".").Replace("，", ".").Replace(":","").Replace("^","").Replace("?","").Replace("？","").Replace("|","");
@@ -150,5 +186,55 @@ namespace scan.Util
             }
 
         }
+
+        /// <summary>
+        /// app.config 节点添加 更新 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <param name="encrypt">是否需要加密:true,加密;false,不需要加密</param>
+
+        public static void WriteAppSetting(string key, string value, bool encrypt)
+        {
+            //key的值为空  则写key value
+            if (String.IsNullOrEmpty(GetAppSetting(key)))
+            {
+                System.Configuration.Configuration configuration = System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None);
+
+                if (encrypt)
+                {
+                    configuration.AppSettings.Settings.Add(key, GetEncryptedValue(value));
+                }
+                else
+                {
+                    configuration.AppSettings.Settings.Add(key, value);
+                }
+
+                configuration.Save(System.Configuration.ConfigurationSaveMode.Modified);
+                //refresh
+                System.Configuration.ConfigurationManager.RefreshSection("appSettings");
+
+            }
+            //key 不为空 更新 value
+            else
+            {
+                System.Configuration.Configuration configuration = System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None);
+                if (encrypt)
+                {
+                    configuration.AppSettings.Settings[key].Value = GetEncryptedValue(value);
+                }
+                else
+                {
+                    configuration.AppSettings.Settings[key].Value = value;
+                   
+                }
+
+                configuration.Save(System.Configuration.ConfigurationSaveMode.Modified);
+                //refresh
+                System.Configuration.ConfigurationManager.RefreshSection("appSettings");
+            }
+
+        }
+          
     }
 }

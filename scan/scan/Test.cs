@@ -122,5 +122,11 @@ namespace scan
             //log4net.ILog log = log4net.LogManager.GetLogger("FileLogger_waizhen");
             //log.Info("abc"+System.DateTime.Now.ToShortDateString());
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Util.Util.WriteAppSetting("cc","11",false);
+            Util.Util.WriteAppSetting("cc", "22", false);
+        }
     }
 }

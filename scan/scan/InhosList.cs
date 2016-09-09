@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,28 +18,21 @@ namespace scan
         int nCurrent = 0;      //当前记录行
         DataTable dtInfo = new DataTable();
         SolidBrush solidBrush;
+
+        public string pid = "";//住院主记录ID 传到费用信息修改窗口  
+
         public InhosList()
         {
             InitializeComponent();
-            solidBrush = new SolidBrush(this.dgvDict.RowHeadersDefaultCellStyle.ForeColor);
+            solidBrush = new SolidBrush(this.dgvInhosList.RowHeadersDefaultCellStyle.ForeColor);
+            loadDataByStr();          
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string str = this.tbName.Text.Trim();
-            if (!String.IsNullOrEmpty(str))
-            {
-                DataSet ds = new Business.DictProcess().GetItemByStr(str);
-                if (ds.Tables.Count > 0)
-                {
-                    dtInfo = ds.Tables[0];
-                    if (dtInfo.Rows.Count > 0)
-                    {
-                        InitDataSet();
-                    }
-                }
-            }
-           
+            loadDataByStr();
+
         }
 
         private void InitDataSet()
@@ -82,8 +76,10 @@ namespace scan
             //bdsInfo.DataSource = dtTemp;
             //bdnInfo.BindingSource = bdsInfo;
             //dgvInfo.DataSource = bdsInfo;
-            dgvDict.AutoGenerateColumns = false;
-            dgvDict.DataSource = dtTemp;
+            dgvInhosList.AutoGenerateColumns = false;
+            dgvInhosList.DataSource = dtTemp;
+
+           
 
             if (pageCurrent <= 1)
             {
@@ -149,27 +145,188 @@ namespace scan
 
         private void dgvDict_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvDict.DefaultCellStyle.Font, solidBrush, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
+            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvInhosList.DefaultCellStyle.Font, solidBrush, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
 
 
         }
 
         private void tbCondition_TextChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.tbName.Text.Trim()))
+            if (!String.IsNullOrEmpty(this.tbName.Text.Trim())|| !String.IsNullOrEmpty(this.tbCard.Text.Trim())|| !String.IsNullOrEmpty(this.tbInhosNum.Text.Trim()))
             {
                 this.button1_Click(null,null);
             }
-            else
+
+            if (String.IsNullOrEmpty(this.tbName.Text.Trim()) && String.IsNullOrEmpty(this.tbCard.Text.Trim()) && String.IsNullOrEmpty(this.tbInhosNum.Text.Trim()))
             {
-                this.dgvDict.DataSource = null;
+                this.button1_Click(null, null);
             }
+            
         }
 
 
-        
+
+        private void loadDataByStr()
+        {
+            string sdx = Util.Util.GetAppSetting("rcode");
+            Hashtable ht = new Hashtable();
+
+            if (!String.IsNullOrEmpty(this.tbName.Text.Trim()))
+            {
+
+                ht.Add("name", this.tbName.Text.Trim());
+            }
+
+
+            if (!String.IsNullOrEmpty(this.tbCard.Text.Trim()))
+            {
+
+                ht.Add("ylzh", this.tbCard.Text.Trim());
+            }
+            if (!String.IsNullOrEmpty(this.tbInhosNum.Text.Trim()))
+            {
+
+                ht.Add("zyh", this.tbInhosNum.Text.Trim());
+            }
+
+
+
+            DataTable dt = new Business.MainList().GetMainInfoList(sdx, ht).Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                dtInfo = dt;
+                InitDataSet();
+                
+            }
+        }
+
+        private void dgvInhosList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //获取行信息
+            if (e.RowIndex < this.dgvInhosList.Rows.Count)
+            {                
+                 DataGridViewRow row= this.dgvInhosList.Rows[e.RowIndex];
+                 this.pid = row.Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
+
+                //主信息id 传入到修改窗口 
+                Form detailForm = new ModifyInfo(this.pid);
+               
+                detailForm.ShowDialog(this);
+
+
+            }
+        }
+
+       
 
       
+
+        private void dgvInhosList_Enter(object sender, EventArgs e)
+        {
+            if (this.dgvInhosList.SelectedRows.Count > 0)
+            {
+                int index= this.dgvInhosList.SelectedRows[0].Index;
+                DataGridViewRow row = this.dgvInhosList.Rows[index];
+                this.pid = row.Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
+
+                //主信息id 传入到修改窗口 
+                Form detailForm = new ModifyInfo(this.pid);
+
+                detailForm.ShowDialog(this);
+
+
+            }
+
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+           
+            if (keyData == Keys.Enter)
+            {
+                // System.Windows.Forms.SendKeys.Send("{TAB}");
+                if (this.dgvInhosList.SelectedRows.Count > 0)
+                {
+                    int index = this.dgvInhosList.SelectedRows[0].Index;
+                    DataGridViewRow row = this.dgvInhosList.Rows[index];
+                    this.pid = row.Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
+
+                    //主信息id 传入到修改窗口 
+                    Form detailForm = new ModifyInfo(this.pid);
+
+                    detailForm.ShowDialog(this);
+                    return true;
+                }
+            }
+            //继续原来base.ProcessCmdKey中的处理　
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.tbCard.Clear();
+            this.tbInhosNum.Clear();
+            this.tbName.Clear();
+        }
+
+        private void dgvInhosList_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+           
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            //判断选中几行
+            try
+            {
+                int count = 0;
+                for (int i = 0; i < this.dgvInhosList.Rows.Count; i++)
+                {
+
+                    if (this.dgvInhosList.Rows[i].Cells[this.dgvInhosList.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
+                    {
+                        count++;
+
+                        string zyID = this.dgvInhosList.Rows[i].Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
+                        bool result = new Business.MainList().DeleteZyjlById(zyID);
+                        if (result)
+                        {
+                            MessageBox.Show("删除成功!");
+                            loadDataByStr();
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败!");
+                            return;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void dgvInhosList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < this.dgvInhosList.Rows.Count)
+            {
+                if (this.dgvInhosList.CurrentCell.ColumnIndex == this.dgvInhosList.Columns["SelectCheck"].Index)
+                {
+                    if (this.dgvInhosList.CurrentCell.EditedFormattedValue.ToString()=="True")
+                    {
+                        this.dgvInhosList.CurrentCell.Value = false;
+                    }
+                    else
+                    {
+                        this.dgvInhosList.CurrentCell.Value = true;
+                    }
+                }
+            }
+        }
     }
 
 }

@@ -82,6 +82,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ProgramData\ABBYY\SDK\11\FineReader Engine\Inc\.Net interops\v3.5\AxInterop.FineReaderVisualComponents.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Data.v8.2, Version=8.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.Utils.v8.2, Version=8.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraEditors.v8.2, Version=8.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraTreeList.v8.2, Version=8.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
     <Reference Include="Interop.FineReaderVisualComponents, Version=11.1.10.100, Culture=neutral, PublicKeyToken=2e1e7aca5d298f96, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -126,6 +130,8 @@
     <Compile Include="Business\DictProcess.cs" />
     <Compile Include="Business\ItemProcess.cs" />
     <Compile Include="Business\MainList.cs" />
+    <Compile Include="Business\OrgInfo.cs" />
+    <Compile Include="Business\UserInfo.cs" />
     <Compile Include="InhosList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,7 +148,9 @@
     <Compile Include="Interface\IDcitProcess.cs" />
     <Compile Include="Interface\IItemProcess.cs" />
     <Compile Include="Interface\IMainList.cs" />
+    <Compile Include="Interface\IOrgInfo.cs" />
     <Compile Include="Interface\IStyleOwner.cs" />
+    <Compile Include="Interface\IUserInfo.cs" />
     <Compile Include="ItemMappingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +180,12 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyInfo.Designer.cs">
+      <DependentUpon>ModifyInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="MainInfoList.cs">
       <SubType>Form</SubType>
@@ -207,6 +221,8 @@
     <Compile Include="SqlServer\DictProcess.cs" />
     <Compile Include="SqlServer\ItemProcess.cs" />
     <Compile Include="SqlServer\MainList.cs" />
+    <Compile Include="SqlServer\OrgInfo.cs" />
+    <Compile Include="SqlServer\UserInfo.cs" />
     <Compile Include="StyleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +246,12 @@
     </Compile>
     <Compile Include="UpdatePwd.Designer.cs">
       <DependentUpon>UpdatePwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManager.Designer.cs">
+      <DependentUpon>UserManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\CJKAnalyzer.cs" />
     <Compile Include="Util\CJKTokenizer.cs" />
@@ -262,6 +284,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModifyInfo.resx">
+      <DependentUpon>ModifyInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainInfoList.resx">
       <DependentUpon>MainInfoList.cs</DependentUpon>
     </EmbeddedResource>
@@ -292,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdatePwd.resx">
       <DependentUpon>UpdatePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManager.resx">
+      <DependentUpon>UserManager.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
@@ -426,62 +454,62 @@
   <ItemGroup>
     <PublishFile Include="lib\Lucene.Net.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Xmls\200222.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Xmls\DictProcess.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Xmls\ItemProcess.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Xmls\MainList.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Xmls\soap.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

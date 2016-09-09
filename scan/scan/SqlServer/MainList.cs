@@ -58,7 +58,7 @@ namespace scan.SqlServer
             }
             // string commandText = xmlHelper.GetTextByAttribute(Util.Util.GetXMLPath(fileName), "select", "ID", "GetMainInfoList");
 
-            string commandText = @" SELECT * FROM hzyl_wz_zyjl WHERE isUpload=0 and sdx=@sdx"+str;
+            string commandText = @" SELECT t.* ,(SELECT name FROM hzyl_dict_dept a WHERE a.code=t.ryks) ryksname,(SELECT name FROM hzyl_dict_dept b WHERE b.code=t.cyks) cyksname,(SELECT c.icdname FROM hzyl_dict_icd c WHERE c.icdcode=t.cyzd) cyzdname,(SELECT d.name FROM hzyl_dict_org d WHERE d.code=t.yljg) orgname FROM hzyl_wz_zyjl t  WHERE isUpload=0 and sdx=@sdx" + str;
 
             SqlParameter[] sqlPrameter = {
                 new SqlParameter("@sdx",sdx)
@@ -333,6 +333,38 @@ namespace scan.SqlServer
             return result;
         }
 
+
+        public bool DelDetailByID(string id)
+        {
+            bool result = true;
+
+            SqlConnection sqlConnection = SqlHelper.GetConnection();
+            CommandType commandType = CommandType.Text;
+         
+            string commandTextDetail = xmlHelper.GetTextByAttribute(Util.Util.GetXMLPath(fileName), "delete", "ID", "DeleteFymxByDetailId");
+
+          
+            SqlParameter[] sqlParametersDetail = new SqlParameter[] {
+                    new SqlParameter("@id",id)
+
+            };
+
+            try
+            {
+               
+                SqlHelper.ExecuteNonQuery(sqlConnection, commandType, commandTextDetail, sqlParametersDetail);
+            }
+            catch (Exception e)
+            {
+                result = false;
+                throw e;
+
+            }
+
+            SqlHelper.CloseConnection(sqlConnection);
+
+            return result;
+        }
 
 
     }

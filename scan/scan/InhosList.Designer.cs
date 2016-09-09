@@ -30,11 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InhosList));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tbInhosNum = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbCard = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.dgvDict = new System.Windows.Forms.DataGridView();
+            this.dgvInhosList = new System.Windows.Forms.DataGridView();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.TotalCounttoolStripLabel = new System.Windows.Forms.ToolStripLabel();
@@ -49,21 +54,25 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NextPagetoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.forms = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbCard = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbInhosNum = new System.Windows.Forms.TextBox();
+            this.ylzh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zyh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rysj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cysj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cyzdname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDict)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInhosList)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -78,6 +87,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnDel);
+            this.splitContainer1.Panel1.Controls.Add(this.btnClear);
             this.splitContainer1.Panel1.Controls.Add(this.tbInhosNum);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
@@ -90,29 +101,73 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(944, 538);
-            this.splitContainer1.SplitterDistance = 42;
+            this.splitContainer1.Size = new System.Drawing.Size(807, 520);
+            this.splitContainer1.SplitterDistance = 40;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // tbInhosNum
+            // 
+            this.tbInhosNum.Location = new System.Drawing.Point(441, 14);
+            this.tbInhosNum.Name = "tbInhosNum";
+            this.tbInhosNum.Size = new System.Drawing.Size(100, 21);
+            this.tbInhosNum.TabIndex = 99;
+            this.tbInhosNum.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(387, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 12);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "住院号:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(221, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "医疗证号:";
+            // 
+            // tbCard
+            // 
+            this.tbCard.Location = new System.Drawing.Point(286, 14);
+            this.tbCard.Name = "tbCard";
+            this.tbCard.Size = new System.Drawing.Size(92, 21);
+            this.tbCard.TabIndex = 99;
+            this.tbCard.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(77, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "姓 名:";
             // 
             // btnSearch
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(655, 11);
+            this.btnSearch.Location = new System.Drawing.Point(557, 14);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 2;
+            this.btnSearch.TabIndex = 99;
+            this.btnSearch.TabStop = false;
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(134, 13);
+            this.tbName.Location = new System.Drawing.Point(124, 14);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(115, 21);
-            this.tbName.TabIndex = 1;
+            this.tbName.Size = new System.Drawing.Size(86, 21);
+            this.tbName.TabIndex = 0;
+            this.tbName.TabStop = false;
             this.tbName.TextChanged += new System.EventHandler(this.tbCondition_TextChanged);
             // 
             // label1
@@ -121,7 +176,7 @@
             this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 10;
             this.label1.Text = "查询条件:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -134,33 +189,48 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.dgvDict);
+            this.splitContainer2.Panel1.Controls.Add(this.dgvInhosList);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.toolStrip2);
             this.splitContainer2.Panel2.Controls.Add(this.toolStrip1);
-            this.splitContainer2.Size = new System.Drawing.Size(944, 492);
-            this.splitContainer2.SplitterDistance = 453;
+            this.splitContainer2.Size = new System.Drawing.Size(807, 476);
+            this.splitContainer2.SplitterDistance = 437;
             this.splitContainer2.TabIndex = 0;
             // 
-            // dgvDict
+            // dgvInhosList
             // 
-            this.dgvDict.AllowUserToAddRows = false;
-            this.dgvDict.AllowUserToDeleteRows = false;
-            this.dgvDict.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDict.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.姓名,
+            this.dgvInhosList.AllowUserToAddRows = false;
+            this.dgvInhosList.AllowUserToDeleteRows = false;
+            this.dgvInhosList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInhosList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SelectCheck,
             this.name,
-            this.forms});
-            this.dgvDict.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDict.Location = new System.Drawing.Point(0, 0);
-            this.dgvDict.Name = "dgvDict";
-            this.dgvDict.ReadOnly = true;
-            this.dgvDict.RowTemplate.Height = 23;
-            this.dgvDict.Size = new System.Drawing.Size(944, 453);
-            this.dgvDict.TabIndex = 0;
-            this.dgvDict.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDict_RowPostPaint);
+            this.ylzh,
+            this.orgname,
+            this.zyh,
+            this.rysj,
+            this.cysj,
+            this.cyzdname,
+            this.id,
+            this.guid});
+            this.dgvInhosList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInhosList.Location = new System.Drawing.Point(0, 0);
+            this.dgvInhosList.MultiSelect = false;
+            this.dgvInhosList.Name = "dgvInhosList";
+            this.dgvInhosList.ReadOnly = true;
+            this.dgvInhosList.RowTemplate.Height = 23;
+            this.dgvInhosList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInhosList.Size = new System.Drawing.Size(807, 437);
+            this.dgvInhosList.StandardTab = true;
+            this.dgvInhosList.TabIndex = 1;
+            this.dgvInhosList.TabStop = false;
+            this.dgvInhosList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInhosList_CellContentClick);
+            this.dgvInhosList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInhosList_CellContentDoubleClick);
+            this.dgvInhosList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDict_RowPostPaint);
+            this.dgvInhosList.Enter += new System.EventHandler(this.dgvInhosList_Enter);
+            this.dgvInhosList.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgvInhosList_PreviewKeyDown);
             // 
             // toolStrip2
             // 
@@ -280,76 +350,115 @@
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
             // 
-            // 姓名
+            // btnClear
             // 
-            this.姓名.DataPropertyName = "code";
-            this.姓名.HeaderText = "项目编码";
-            this.姓名.Name = "姓名";
-            this.姓名.ReadOnly = true;
-            this.姓名.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.btnClear.Location = new System.Drawing.Point(652, 13);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(63, 23);
+            this.btnClear.TabIndex = 100;
+            this.btnClear.TabStop = false;
+            this.btnClear.Text = "重置";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnDel
+            // 
+            this.btnDel.Image = ((System.Drawing.Image)(resources.GetObject("btnDel.Image")));
+            this.btnDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDel.Location = new System.Drawing.Point(730, 12);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(69, 23);
+            this.btnDel.TabIndex = 101;
+            this.btnDel.Text = "删除";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // SelectCheck
+            // 
+            this.SelectCheck.HeaderText = "选择";
+            this.SelectCheck.Name = "SelectCheck";
+            this.SelectCheck.ReadOnly = true;
+            this.SelectCheck.Width = 60;
             // 
             // name
             // 
             this.name.DataPropertyName = "name";
-            this.name.HeaderText = "项目名称";
+            this.name.HeaderText = "姓名";
             this.name.Name = "name";
             this.name.ReadOnly = true;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // forms
+            // ylzh
             // 
-            this.forms.DataPropertyName = "forms";
-            this.forms.HeaderText = "剂型";
-            this.forms.Name = "forms";
-            this.forms.ReadOnly = true;
-            this.forms.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ylzh.DataPropertyName = "ylzh";
+            this.ylzh.HeaderText = "医疗证号";
+            this.ylzh.Name = "ylzh";
+            this.ylzh.ReadOnly = true;
+            this.ylzh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // label2
+            // orgname
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "姓 名:";
+            this.orgname.DataPropertyName = "orgname";
+            this.orgname.HeaderText = "住院机构";
+            this.orgname.Name = "orgname";
+            this.orgname.ReadOnly = true;
+            this.orgname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // tbCard
+            // zyh
             // 
-            this.tbCard.Location = new System.Drawing.Point(320, 13);
-            this.tbCard.Name = "tbCard";
-            this.tbCard.Size = new System.Drawing.Size(140, 21);
-            this.tbCard.TabIndex = 4;
+            this.zyh.DataPropertyName = "zyh";
+            this.zyh.HeaderText = "住院号";
+            this.zyh.Name = "zyh";
+            this.zyh.ReadOnly = true;
+            this.zyh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // label3
+            // rysj
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(255, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "医疗证号:";
+            this.rysj.DataPropertyName = "rysj";
+            this.rysj.HeaderText = "入院时间";
+            this.rysj.Name = "rysj";
+            this.rysj.ReadOnly = true;
+            this.rysj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // label4
+            // cysj
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(466, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 12);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "住院号:";
+            this.cysj.DataPropertyName = "cysj";
+            this.cysj.HeaderText = "出院时间";
+            this.cysj.Name = "cysj";
+            this.cysj.ReadOnly = true;
+            this.cysj.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // tbInhosNum
+            // cyzdname
             // 
-            this.tbInhosNum.Location = new System.Drawing.Point(520, 12);
-            this.tbInhosNum.Name = "tbInhosNum";
-            this.tbInhosNum.Size = new System.Drawing.Size(100, 21);
-            this.tbInhosNum.TabIndex = 7;
+            this.cyzdname.DataPropertyName = "cyzdname";
+            this.cyzdname.HeaderText = "出院诊断";
+            this.cyzdname.Name = "cyzdname";
+            this.cyzdname.ReadOnly = true;
+            this.cyzdname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Visible = false;
+            // 
+            // guid
+            // 
+            this.guid.DataPropertyName = "guid";
+            this.guid.HeaderText = "guid";
+            this.guid.Name = "guid";
+            this.guid.ReadOnly = true;
+            this.guid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.guid.Visible = false;
             // 
             // InhosList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 538);
+            this.ClientSize = new System.Drawing.Size(807, 520);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "InhosList";
@@ -363,7 +472,7 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDict)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInhosList)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -395,14 +504,23 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel TotalCounttoolStripLabel;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
-        private System.Windows.Forms.DataGridView dgvDict;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn forms;
+        private System.Windows.Forms.DataGridView dgvInhosList;
         private System.Windows.Forms.TextBox tbCard;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbInhosNum;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn SelectCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ylzh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zyh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rysj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cysj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cyzdname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn guid;
     }
 }

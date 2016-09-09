@@ -64,6 +64,12 @@ namespace scan.Business
             return iMainList.DeleteZyjlById(id);
         }
 
+        public bool DelDetailByID(string id)
+        {
+            Interface.IMainList iMainList = new SqlServer.MainList();
+            return iMainList.DelDetailByID(id);
+        }
+
         public string UploadZyjl(DataRow dr)
         {
             Hashtable ht = new Hashtable();

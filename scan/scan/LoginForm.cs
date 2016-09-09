@@ -13,32 +13,108 @@ namespace scan
         public LoginForm()
         {
             InitializeComponent();
-            //EnterToTab();
+            EnterToTab();
+            Init();
+        }
+
+        private void Init()
+        {
+            //获取业务模式
+            string immode = Util.Util.GetAppSetting("immode");
+            switch (immode)
+            {
+                case "1":
+                    this.InputRadioButton.Checked = true;
+                    break;
+                case "2":
+                    this.UpdateRadioButton.Checked = true;
+                    break;
+                default:
+                    this.InputRadioButton.Checked = true;
+                    break;
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-           
+            string usercode = this.tbUserCode.Text.Trim();
             string pwd = this.txtPwd.Text.Trim();
-            if (!String.IsNullOrEmpty(pwd))
+            //if (!String.IsNullOrEmpty(pwd))
+            //{
+            //    if (System.Configuration.ConfigurationManager.AppSettings["password"].ToString().Equals(Util.Util.EncrptMd5(pwd)))
+            //    {
+            //        this.DialogResult = DialogResult.OK;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("密码错误！");
+            //    }
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("密码不能为空!");
+            //    return;
+            //}
+            DataRow drUserInfo;
+            if (!String.IsNullOrEmpty(pwd) && !String.IsNullOrEmpty(usercode))
             {
-                if (System.Configuration.ConfigurationManager.AppSettings["password"].ToString().Equals(Util.Util.EncrptMd5(pwd)))
+                ScanDataSet scanDataSet = new Business.UserInfo().GetUserByUserInfo(usercode, pwd);
+                if (scanDataSet.UserInfo.Rows.Count < 1)
                 {
-                    this.DialogResult = DialogResult.OK;
+                    MessageBox.Show("用户名或密码错误!");
+                    return;
                 }
-                else
+
+                //校验启用状态
+                 drUserInfo = scanDataSet.UserInfo.Rows[0];
+                if (!drUserInfo["status"].ToString().Equals("1"))
                 {
-                    MessageBox.Show("密码错误！");
+                    MessageBox.Show("该用户未启用!");
+                    return;
                 }
-                
+
             }
-            else
+            else if (String.IsNullOrEmpty(pwd))
             {
                 MessageBox.Show("密码不能为空!");
                 return;
             }
+            else if (String.IsNullOrEmpty(usercode))
+            {
+                MessageBox.Show("用户名不能为空!");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("登录未知错误!");
+                return;
+            }
+
+            //记录业务模式 计入配置文件中 key: immode value:1,录入;2,修改
+            string immode = "";
+            if (this.InputRadioButton.Checked)
+                immode = "1";
+            if (this.UpdateRadioButton.Checked)
+                immode = "2";
+            Util.Util.WriteAppSetting("immode", immode, false);
+
+
+            //通过用户对应信息 修改配置 
+            this.UpdateConfigByUser(drUserInfo);
+
+            this.DialogResult = DialogResult.OK;
         }
+
+
+        private void UpdateConfigByUser(DataRow dr)
+        {
+            //更新县区编码
+            string frcode = dr["frcode"].ToString();
+            Util.Util.WriteAppSetting("rcode", frcode, false);
+        }
+
 
         private void btnUpdatePwd_Click(object sender, EventArgs e)
         {
@@ -75,5 +151,7 @@ namespace scan
                 this.btnLogin_Click(null,null);
             }
         }
+
+
     }
 }
