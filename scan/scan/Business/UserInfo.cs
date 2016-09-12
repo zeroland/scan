@@ -31,5 +31,15 @@ namespace scan.Business
         {
             return iUserInfo.GetUserByUserInfo(userCode,password);
         }
+
+        public ScanDataSet GetUserByID(string id)
+        {
+            return iUserInfo.GetUserByID(id);
+        }
+
+        public ScanDataSet GetUserByStr(string str)
+        {
+            return iUserInfo.GetUserByStr(str);
+        }
     }
 }

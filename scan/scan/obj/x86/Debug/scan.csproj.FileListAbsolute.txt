@@ -434,7 +434,6 @@ D:\gitrepository\scan\scan\bin\Debug\PanGu.dll
 D:\gitrepository\scan\scan\bin\Debug\PanGu.Lucene.Analyzer.dll
 D:\gitrepository\scan\scan\bin\Debug\Lucene.Net.pdb
 D:\gitrepository\scan\scan\bin\Debug\Lucene.Net.xml
-D:\gitrepository\scan\scan\obj\x86\Debug\scan.csprojResolveAssemblyReference.cache
 D:\gitrepository\scan\scan\obj\x86\Debug\scan.InhosList.resources
 D:\gitrepository\scan\scan\obj\x86\Debug\scan.DictViewForm.resources
 D:\gitrepository\scan\scan\obj\x86\Debug\scan.ItemMappingForm.resources
@@ -463,3 +462,4 @@ D:\gitrepository\scan\scan\bin\Debug\DevExpress.Utils.v8.2.xml
 D:\gitrepository\scan\scan\bin\Debug\DevExpress.XtraEditors.v8.2.xml
 D:\gitrepository\scan\scan\bin\Debug\DevExpress.XtraTreeList.v8.2.xml
 D:\gitrepository\scan\scan\obj\x86\Debug\scan.UserManager.resources
+D:\gitrepository\scan\scan\obj\x86\Debug\scan.AddUser.resources

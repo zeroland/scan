@@ -99,7 +99,7 @@ namespace scan
             if (this.UpdateRadioButton.Checked)
                 immode = "2";
             Util.Util.WriteAppSetting("immode", immode, false);
-
+         
 
             //通过用户对应信息 修改配置 
             this.UpdateConfigByUser(drUserInfo);

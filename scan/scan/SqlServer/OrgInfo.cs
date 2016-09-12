@@ -12,11 +12,10 @@ namespace scan.SqlServer
         public ScanDataSet GetOrgByStr(string str)
         {
             ScanDataSet scanDataSet = new ScanDataSet();
-            bool result = true;
-
+          
             SqlConnection sqlConnection = SqlHelper.GetConnection();
             sqlConnection.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("select * from base_org_info where 1=1 "+str, sqlConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("select * from base_org_info where status=1 "+str, sqlConnection))
             {
                
                 using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())

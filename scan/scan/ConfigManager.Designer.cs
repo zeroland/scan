@@ -1,6 +1,6 @@
 ﻿namespace scan
 {
-    partial class UserManager
+    partial class ConfigManager
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserManager));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigManager));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.OrgGroupBox = new System.Windows.Forms.GroupBox();
             this.OrgTreeView = new System.Windows.Forms.TreeView();
@@ -41,7 +41,15 @@
             this.btnUpdateStatus = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.dgvUserInfo = new System.Windows.Forms.DataGridView();
+            this.dgvConfigInfo = new System.Windows.Forms.DataGridView();
+            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.usercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fremark1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.UpPageToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -54,14 +62,6 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TotalCounttoolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.usercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fremark1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -73,7 +73,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConfigInfo)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -164,7 +164,7 @@
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.dgvUserInfo);
+            this.splitContainer3.Panel2.Controls.Add(this.dgvConfigInfo);
             this.splitContainer3.Size = new System.Drawing.Size(572, 457);
             this.splitContainer3.SplitterDistance = 49;
             this.splitContainer3.TabIndex = 0;
@@ -178,6 +178,7 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "查询条件：";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Visible = false;
             // 
             // btnSearch
             // 
@@ -187,6 +188,7 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tbCondition
@@ -195,6 +197,7 @@
             this.tbCondition.Name = "tbCondition";
             this.tbCondition.Size = new System.Drawing.Size(100, 21);
             this.tbCondition.TabIndex = 3;
+            this.tbCondition.Visible = false;
             this.tbCondition.TextChanged += new System.EventHandler(this.tbCondition_TextChanged);
             // 
             // btnUpdateStatus
@@ -213,7 +216,7 @@
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "修改用户";
+            this.btnUpdate.Text = "修改配置";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -223,16 +226,16 @@
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(75, 23);
             this.btnAddUser.TabIndex = 0;
-            this.btnAddUser.Text = "新增用户";
+            this.btnAddUser.Text = "新增配置";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
-            // dgvUserInfo
+            // dgvConfigInfo
             // 
-            this.dgvUserInfo.AllowUserToAddRows = false;
-            this.dgvUserInfo.AllowUserToDeleteRows = false;
-            this.dgvUserInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUserInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvConfigInfo.AllowUserToAddRows = false;
+            this.dgvConfigInfo.AllowUserToDeleteRows = false;
+            this.dgvConfigInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConfigInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SelectCheck,
             this.usercode,
             this.username,
@@ -241,16 +244,74 @@
             this.id,
             this.status,
             this.fremark1});
-            this.dgvUserInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUserInfo.Location = new System.Drawing.Point(0, 0);
-            this.dgvUserInfo.Name = "dgvUserInfo";
-            this.dgvUserInfo.ReadOnly = true;
-            this.dgvUserInfo.RowTemplate.Height = 23;
-            this.dgvUserInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUserInfo.Size = new System.Drawing.Size(572, 404);
-            this.dgvUserInfo.TabIndex = 0;
-            this.dgvUserInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserInfo_CellContentClick);
-            this.dgvUserInfo.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvUserInfo_RowPostPaint);
+            this.dgvConfigInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvConfigInfo.Location = new System.Drawing.Point(0, 0);
+            this.dgvConfigInfo.Name = "dgvConfigInfo";
+            this.dgvConfigInfo.ReadOnly = true;
+            this.dgvConfigInfo.RowTemplate.Height = 23;
+            this.dgvConfigInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConfigInfo.Size = new System.Drawing.Size(572, 404);
+            this.dgvConfigInfo.TabIndex = 0;
+            this.dgvConfigInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserInfo_CellContentClick);
+            this.dgvConfigInfo.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvUserInfo_RowPostPaint);
+            // 
+            // SelectCheck
+            // 
+            this.SelectCheck.HeaderText = "选择";
+            this.SelectCheck.Name = "SelectCheck";
+            this.SelectCheck.ReadOnly = true;
+            this.SelectCheck.Width = 60;
+            // 
+            // usercode
+            // 
+            this.usercode.DataPropertyName = "usercode";
+            this.usercode.HeaderText = "用户账号";
+            this.usercode.Name = "usercode";
+            this.usercode.ReadOnly = true;
+            // 
+            // username
+            // 
+            this.username.DataPropertyName = "username";
+            this.username.HeaderText = "用户名";
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            // 
+            // orgname
+            // 
+            this.orgname.DataPropertyName = "orgname";
+            this.orgname.HeaderText = "所属机构";
+            this.orgname.Name = "orgname";
+            this.orgname.ReadOnly = true;
+            // 
+            // statusname
+            // 
+            this.statusname.DataPropertyName = "statusname";
+            this.statusname.HeaderText = "启用状态";
+            this.statusname.Name = "statusname";
+            this.statusname.ReadOnly = true;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Visible = false;
+            // 
+            // fremark1
+            // 
+            this.fremark1.DataPropertyName = "fremark1";
+            this.fremark1.HeaderText = "备注";
+            this.fremark1.Name = "fremark1";
+            this.fremark1.ReadOnly = true;
             // 
             // toolStrip2
             // 
@@ -347,71 +408,13 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(44, 22);
             this.toolStripLabel2.Text = "条记录";
             // 
-            // SelectCheck
-            // 
-            this.SelectCheck.HeaderText = "选择";
-            this.SelectCheck.Name = "SelectCheck";
-            this.SelectCheck.ReadOnly = true;
-            this.SelectCheck.Width = 60;
-            // 
-            // usercode
-            // 
-            this.usercode.DataPropertyName = "usercode";
-            this.usercode.HeaderText = "用户账号";
-            this.usercode.Name = "usercode";
-            this.usercode.ReadOnly = true;
-            // 
-            // username
-            // 
-            this.username.DataPropertyName = "username";
-            this.username.HeaderText = "用户名";
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            // 
-            // orgname
-            // 
-            this.orgname.DataPropertyName = "orgname";
-            this.orgname.HeaderText = "所属机构";
-            this.orgname.Name = "orgname";
-            this.orgname.ReadOnly = true;
-            // 
-            // statusname
-            // 
-            this.statusname.DataPropertyName = "statusname";
-            this.statusname.HeaderText = "启用状态";
-            this.statusname.Name = "statusname";
-            this.statusname.ReadOnly = true;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Visible = false;
-            // 
-            // fremark1
-            // 
-            this.fremark1.DataPropertyName = "fremark1";
-            this.fremark1.HeaderText = "备注";
-            this.fremark1.Name = "fremark1";
-            this.fremark1.ReadOnly = true;
-            // 
-            // UserManager
+            // ConfigManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 520);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "UserManager";
+            this.Name = "ConfigManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "用户管理";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -427,7 +430,7 @@
             this.splitContainer3.Panel1.PerformLayout();
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConfigInfo)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -461,7 +464,7 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbCondition;
-        private System.Windows.Forms.DataGridView dgvUserInfo;
+        private System.Windows.Forms.DataGridView dgvConfigInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn usercode;

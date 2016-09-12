@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace scan
 {
-    public partial class UserManager : Form
+    public partial class ConfigManager : Form
     {
         int pageSize = 0;     //每页显示行数
         int nMax = 0;         //总记录数
@@ -22,7 +22,7 @@ namespace scan
         public string flag;//1,新增;2,修改
         public string userID;
         public string orgID;
-        public UserManager()
+        public ConfigManager()
         {
             InitializeComponent();
             this.Init();
@@ -35,7 +35,7 @@ namespace scan
 
         private void InitBrush()
         {
-            solidBrush = new SolidBrush(this.dgvUserInfo.RowHeadersDefaultCellStyle.ForeColor);
+            solidBrush = new SolidBrush(this.dgvConfigInfo.RowHeadersDefaultCellStyle.ForeColor);
         }
 
         private void Init()
@@ -112,7 +112,7 @@ namespace scan
 
         private void dgvUserInfo_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvUserInfo.DefaultCellStyle.Font, solidBrush, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
+            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvConfigInfo.DefaultCellStyle.Font, solidBrush, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
 
         }
 
@@ -223,8 +223,8 @@ namespace scan
             //bdsInfo.DataSource = dtTemp;
             //bdnInfo.BindingSource = bdsInfo;
             //dgvInfo.DataSource = bdsInfo;
-            this.dgvUserInfo.AutoGenerateColumns = false;
-            this.dgvUserInfo.DataSource = dtTemp;
+            this.dgvConfigInfo.AutoGenerateColumns = false;
+            this.dgvConfigInfo.DataSource = dtTemp;
 
 
 
@@ -258,13 +258,13 @@ namespace scan
             {
                 this.flag = "2";
                 int count = 0;
-                for (int i = 0; i < this.dgvUserInfo.Rows.Count; i++)
+                for (int i = 0; i < this.dgvConfigInfo.Rows.Count; i++)
                 {
 
-                    if (this.dgvUserInfo.Rows[i].Cells[this.dgvUserInfo.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
+                    if (this.dgvConfigInfo.Rows[i].Cells[this.dgvConfigInfo.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
                     {
                         count++;
-                        this.userID = this.dgvUserInfo.Rows[i].Cells["id"].Value.ToString();
+                        this.userID = this.dgvConfigInfo.Rows[i].Cells["id"].Value.ToString();
 
                         AddUser addUser = new AddUser();
                         addUser.Owner = this;
@@ -293,14 +293,14 @@ namespace scan
             {
                 int count = 0;
                 bool result=false;
-                for (int i = 0; i < this.dgvUserInfo.Rows.Count; i++)
+                for (int i = 0; i < this.dgvConfigInfo.Rows.Count; i++)
                 {
 
-                    if (this.dgvUserInfo.Rows[i].Cells[this.dgvUserInfo.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
+                    if (this.dgvConfigInfo.Rows[i].Cells[this.dgvConfigInfo.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
                     {
                         count++;
-                        this.userID = this.dgvUserInfo.Rows[i].Cells["id"].Value.ToString();
-                        string status= this.dgvUserInfo.Rows[i].Cells["status"].Value.ToString();
+                        this.userID = this.dgvConfigInfo.Rows[i].Cells["id"].Value.ToString();
+                        string status= this.dgvConfigInfo.Rows[i].Cells["status"].Value.ToString();
                         ScanDataSet scanDataSet= new Business.UserInfo().GetUserByID(this.userID);
                         if (scanDataSet.UserInfo.Rows.Count > 0)
                         {
@@ -330,17 +330,17 @@ namespace scan
 
         private void dgvUserInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < this.dgvUserInfo.Rows.Count)
+            if (e.RowIndex < this.dgvConfigInfo.Rows.Count)
             {
-                if (this.dgvUserInfo.CurrentCell.ColumnIndex == this.dgvUserInfo.Columns["SelectCheck"].Index)
+                if (this.dgvConfigInfo.CurrentCell.ColumnIndex == this.dgvConfigInfo.Columns["SelectCheck"].Index)
                 {
-                    if (this.dgvUserInfo.CurrentCell.EditedFormattedValue.ToString() == "True")
+                    if (this.dgvConfigInfo.CurrentCell.EditedFormattedValue.ToString() == "True")
                     {
-                        this.dgvUserInfo.CurrentCell.Value = false;
+                        this.dgvConfigInfo.CurrentCell.Value = false;
                     }
                     else
                     {
-                        this.dgvUserInfo.CurrentCell.Value = true;
+                        this.dgvConfigInfo.CurrentCell.Value = true;
                     }
                 }
             }

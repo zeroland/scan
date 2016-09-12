@@ -12,5 +12,7 @@ namespace scan.Interface
          bool UpdateUser(DataTable dt);
          bool DelUser(string id);
          ScanDataSet GetUserByUserInfo(string userCode,string password);
+         ScanDataSet GetUserByID(string id);
+         ScanDataSet GetUserByStr(string str);
     }
 }

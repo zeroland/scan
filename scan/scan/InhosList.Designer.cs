@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InhosList));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.tbInhosNum = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,6 +42,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dgvInhosList = new System.Windows.Forms.DataGridView();
+            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ylzh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zyh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rysj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cysj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cyzdname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.TotalCounttoolStripLabel = new System.Windows.Forms.ToolStripLabel();
@@ -54,18 +66,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NextPagetoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnDel = new System.Windows.Forms.Button();
-            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ylzh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zyh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rysj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cysj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cyzdname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -104,6 +104,29 @@
             this.splitContainer1.Size = new System.Drawing.Size(807, 520);
             this.splitContainer1.SplitterDistance = 40;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnDel
+            // 
+            this.btnDel.Image = ((System.Drawing.Image)(resources.GetObject("btnDel.Image")));
+            this.btnDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDel.Location = new System.Drawing.Point(730, 12);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(69, 23);
+            this.btnDel.TabIndex = 101;
+            this.btnDel.Text = "删除";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(652, 13);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(63, 23);
+            this.btnClear.TabIndex = 100;
+            this.btnClear.TabStop = false;
+            this.btnClear.Text = "重置";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // tbInhosNum
             // 
@@ -232,147 +255,6 @@
             this.dgvInhosList.Enter += new System.EventHandler(this.dgvInhosList_Enter);
             this.dgvInhosList.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgvInhosList_PreviewKeyDown);
             // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2,
-            this.TotalCounttoolStripLabel,
-            this.toolStripLabel4});
-            this.toolStrip2.Location = new System.Drawing.Point(26, 1);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(91, 25);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(20, 22);
-            this.toolStripLabel2.Text = "共";
-            // 
-            // TotalCounttoolStripLabel
-            // 
-            this.TotalCounttoolStripLabel.Name = "TotalCounttoolStripLabel";
-            this.TotalCounttoolStripLabel.Size = new System.Drawing.Size(15, 22);
-            this.TotalCounttoolStripLabel.Text = "0";
-            // 
-            // toolStripLabel4
-            // 
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(44, 22);
-            this.toolStripLabel4.Text = "条记录";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator3,
-            this.UpPageToolStripButton,
-            this.toolStripSeparator1,
-            this.CurrentPagetoolStripTextBox,
-            this.toolStripLabel1,
-            this.TotalPagetoolStripLabel,
-            this.toolStripSeparator2,
-            this.NextPagetoolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(280, 4);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(169, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // UpPageToolStripButton
-            // 
-            this.UpPageToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.UpPageToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("UpPageToolStripButton.Image")));
-            this.UpPageToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.UpPageToolStripButton.Name = "UpPageToolStripButton";
-            this.UpPageToolStripButton.Size = new System.Drawing.Size(48, 22);
-            this.UpPageToolStripButton.Text = "上一页";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // CurrentPagetoolStripTextBox
-            // 
-            this.CurrentPagetoolStripTextBox.Enabled = false;
-            this.CurrentPagetoolStripTextBox.Name = "CurrentPagetoolStripTextBox";
-            this.CurrentPagetoolStripTextBox.Size = new System.Drawing.Size(15, 22);
-            this.CurrentPagetoolStripTextBox.Text = "1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(13, 22);
-            this.toolStripLabel1.Text = "/";
-            // 
-            // TotalPagetoolStripLabel
-            // 
-            this.TotalPagetoolStripLabel.Enabled = false;
-            this.TotalPagetoolStripLabel.Name = "TotalPagetoolStripLabel";
-            this.TotalPagetoolStripLabel.Size = new System.Drawing.Size(15, 22);
-            this.TotalPagetoolStripLabel.Text = "1";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // NextPagetoolStripButton
-            // 
-            this.NextPagetoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.NextPagetoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("NextPagetoolStripButton.Image")));
-            this.NextPagetoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.NextPagetoolStripButton.Name = "NextPagetoolStripButton";
-            this.NextPagetoolStripButton.Size = new System.Drawing.Size(48, 22);
-            this.NextPagetoolStripButton.Text = "下一页";
-            // 
-            // toolStripContainer1
-            // 
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(150, 175);
-            this.toolStripContainer1.LeftToolStripPanelVisible = false;
-            this.toolStripContainer1.Location = new System.Drawing.Point(240, 4);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(150, 175);
-            this.toolStripContainer1.TabIndex = 1;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            this.toolStripContainer1.TopToolStripPanelVisible = false;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(652, 13);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(63, 23);
-            this.btnClear.TabIndex = 100;
-            this.btnClear.TabStop = false;
-            this.btnClear.Text = "重置";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnDel
-            // 
-            this.btnDel.Image = ((System.Drawing.Image)(resources.GetObject("btnDel.Image")));
-            this.btnDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDel.Location = new System.Drawing.Point(730, 12);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(69, 23);
-            this.btnDel.TabIndex = 101;
-            this.btnDel.Text = "删除";
-            this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
             // SelectCheck
             // 
             this.SelectCheck.HeaderText = "选择";
@@ -453,6 +335,124 @@
             this.guid.ReadOnly = true;
             this.guid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.guid.Visible = false;
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2,
+            this.TotalCounttoolStripLabel,
+            this.toolStripLabel4});
+            this.toolStrip2.Location = new System.Drawing.Point(26, 1);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(91, 25);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(20, 22);
+            this.toolStripLabel2.Text = "共";
+            // 
+            // TotalCounttoolStripLabel
+            // 
+            this.TotalCounttoolStripLabel.Name = "TotalCounttoolStripLabel";
+            this.TotalCounttoolStripLabel.Size = new System.Drawing.Size(15, 22);
+            this.TotalCounttoolStripLabel.Text = "0";
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(44, 22);
+            this.toolStripLabel4.Text = "条记录";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator3,
+            this.UpPageToolStripButton,
+            this.toolStripSeparator1,
+            this.CurrentPagetoolStripTextBox,
+            this.toolStripLabel1,
+            this.TotalPagetoolStripLabel,
+            this.toolStripSeparator2,
+            this.NextPagetoolStripButton});
+            this.toolStrip1.Location = new System.Drawing.Point(286, 1);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(200, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // UpPageToolStripButton
+            // 
+            this.UpPageToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.UpPageToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("UpPageToolStripButton.Image")));
+            this.UpPageToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UpPageToolStripButton.Name = "UpPageToolStripButton";
+            this.UpPageToolStripButton.Size = new System.Drawing.Size(48, 22);
+            this.UpPageToolStripButton.Text = "上一页";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // CurrentPagetoolStripTextBox
+            // 
+            this.CurrentPagetoolStripTextBox.Enabled = false;
+            this.CurrentPagetoolStripTextBox.Name = "CurrentPagetoolStripTextBox";
+            this.CurrentPagetoolStripTextBox.Size = new System.Drawing.Size(15, 22);
+            this.CurrentPagetoolStripTextBox.Text = "1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(13, 22);
+            this.toolStripLabel1.Text = "/";
+            // 
+            // TotalPagetoolStripLabel
+            // 
+            this.TotalPagetoolStripLabel.Enabled = false;
+            this.TotalPagetoolStripLabel.Name = "TotalPagetoolStripLabel";
+            this.TotalPagetoolStripLabel.Size = new System.Drawing.Size(15, 22);
+            this.TotalPagetoolStripLabel.Text = "1";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // NextPagetoolStripButton
+            // 
+            this.NextPagetoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.NextPagetoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("NextPagetoolStripButton.Image")));
+            this.NextPagetoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.NextPagetoolStripButton.Name = "NextPagetoolStripButton";
+            this.NextPagetoolStripButton.Size = new System.Drawing.Size(48, 22);
+            this.NextPagetoolStripButton.Text = "下一页";
+            // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(150, 175);
+            this.toolStripContainer1.LeftToolStripPanelVisible = false;
+            this.toolStripContainer1.Location = new System.Drawing.Point(240, 4);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            this.toolStripContainer1.RightToolStripPanelVisible = false;
+            this.toolStripContainer1.Size = new System.Drawing.Size(150, 175);
+            this.toolStripContainer1.TabIndex = 1;
+            this.toolStripContainer1.Text = "toolStripContainer1";
+            this.toolStripContainer1.TopToolStripPanelVisible = false;
             // 
             // InhosList
             // 

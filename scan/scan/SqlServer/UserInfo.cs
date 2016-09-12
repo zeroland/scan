@@ -25,7 +25,7 @@ namespace scan.SqlServer
                     using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
                     {
 
-                        SqlCommand insertCommand = new SqlCommand(@"INSERT INTO hzyl_wz_user (usercode, username, password, frcode, fremark1, fremark2) VALUES(@usercode, @username, @password, @frcode, @fremark1, @fremark2)", sqlConnection, sqlTranscation);
+                        SqlCommand insertCommand = new SqlCommand(@"INSERT INTO hzyl_wz_user (usercode, username, password, frcode, fremark1, fremark2,forgid) VALUES(@usercode, @username, @password, @frcode, @fremark1, @fremark2,@forgid)", sqlConnection, sqlTranscation);
 
                         insertCommand.Parameters.Add(new SqlParameter("@usercode", SqlDbType.VarChar, 50, "usercode"));
                         insertCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 50, "username"));
@@ -33,9 +33,32 @@ namespace scan.SqlServer
                         insertCommand.Parameters.Add(new SqlParameter("@frcode", SqlDbType.VarChar, 20, "frcode"));
                         insertCommand.Parameters.Add(new SqlParameter("@fremark1", SqlDbType.VarChar, 20, "fremark1"));
                         insertCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 20, "fremark2"));
-                                         
+                        insertCommand.Parameters.Add(new SqlParameter("@forgid", SqlDbType.VarChar, 20, "forgid"));
 
-                        sqlDataAdapter.InsertCommand = insertCommand;                     
+                        SqlCommand updateCommand = new SqlCommand(@"UPDATE hzyl_wz_user
+SET usercode = @usercode,
+	username = @username,
+	password = @password,
+	frcode = @frcode,
+	fremark1 = @fremark1,
+	fremark2 = @fremark2,
+	status = @status,forgid=@forgid where id = @id", sqlConnection, sqlTranscation);
+
+                        updateCommand.Parameters.Add(new SqlParameter("@usercode", SqlDbType.VarChar, 50, "usercode"));
+                        updateCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 50, "username"));
+                        updateCommand.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar, 20, "password"));
+                        updateCommand.Parameters.Add(new SqlParameter("@frcode", SqlDbType.VarChar, 20, "frcode"));
+                        updateCommand.Parameters.Add(new SqlParameter("@status", SqlDbType.VarChar, 20, "status"));
+                        updateCommand.Parameters.Add(new SqlParameter("@fremark1", SqlDbType.VarChar, 20, "fremark1"));
+                        updateCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 20, "fremark2"));
+                        updateCommand.Parameters.Add(new SqlParameter("@id", SqlDbType.VarChar, 20, "id"));
+                        updateCommand.Parameters.Add(new SqlParameter("@forgid", SqlDbType.VarChar, 20, "forgid"));
+
+
+
+
+                        sqlDataAdapter.InsertCommand = insertCommand;
+                        sqlDataAdapter.UpdateCommand = updateCommand;
 
                         sqlDataAdapter.Update(dt);
                     }
@@ -73,7 +96,7 @@ SET usercode = @usercode,
 	frcode = @frcode,
 	fremark1 = @fremark1,
 	fremark2 = @fremark2,
-	status = @status where id = @id", sqlConnection, sqlTranscation);
+	status = @status,forgid=@forgid where id = @id", sqlConnection, sqlTranscation);
 
                         updateCommand.Parameters.Add(new SqlParameter("@usercode", SqlDbType.VarChar, 50, "usercode"));
                         updateCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 50, "username"));
@@ -83,7 +106,7 @@ SET usercode = @usercode,
                         updateCommand.Parameters.Add(new SqlParameter("@fremark1", SqlDbType.VarChar, 20, "fremark1"));
                         updateCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 20, "fremark2"));
                         updateCommand.Parameters.Add(new SqlParameter("@id", SqlDbType.VarChar, 20, "id"));
-
+                        updateCommand.Parameters.Add(new SqlParameter("@forgid", SqlDbType.VarChar, 20, "forgid"));
 
                         sqlDataAdapter.UpdateCommand = updateCommand;
 
@@ -135,14 +158,56 @@ SET usercode = @usercode,
         public ScanDataSet GetUserByUserInfo(string userCode,string password)
         {
             ScanDataSet scanDataSet = new ScanDataSet();
-            bool result = true;
+           
 
             SqlConnection sqlConnection = SqlHelper.GetConnection();
             sqlConnection.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("select * from hzyl_wz_user where usercode=@usercode and password=@password",sqlConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid usercode=@usercode and password=@password",sqlConnection))
             {
                 sqlCommand.Parameters.Add("@usercode", SqlDbType.VarChar, 20).Value=userCode;
                 sqlCommand.Parameters.Add("@password", SqlDbType.VarChar, 20).Value= password;
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                {
+                    sqlDataAdapter.SelectCommand = sqlCommand;
+                    sqlDataAdapter.Fill(scanDataSet, scanDataSet.UserInfo.TableName);
+                }
+            }
+            SqlHelper.CloseConnection(sqlConnection);
+            return scanDataSet;
+        }
+
+        public ScanDataSet GetUserByID(string id)
+        {
+            ScanDataSet scanDataSet = new ScanDataSet();
+
+
+            SqlConnection sqlConnection = SqlHelper.GetConnection();
+            sqlConnection.Open();
+            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ and t1.id=@id", sqlConnection))
+            {
+                sqlCommand.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
+              
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                {
+                    sqlDataAdapter.SelectCommand = sqlCommand;
+                    sqlDataAdapter.Fill(scanDataSet, scanDataSet.UserInfo.TableName);
+                }
+            }
+            SqlHelper.CloseConnection(sqlConnection);
+            return scanDataSet;
+        }
+
+        public ScanDataSet GetUserByStr(string str)
+        {
+            ScanDataSet scanDataSet = new ScanDataSet();
+
+
+            SqlConnection sqlConnection = SqlHelper.GetConnection();
+            sqlConnection.Open();
+            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ " + str, sqlConnection))
+            {
+                
+
                 using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
                 {
                     sqlDataAdapter.SelectCommand = sqlCommand;
