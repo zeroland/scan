@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="scan_WebReference_HospitalServiceImpService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://125.46.57.77:80/xyhnccmp2/HospitalServicePort</Value>
+      <Value Profile="(Default)">http://125.46.57.77:80/xyhnccmp2/HospitalServicePort?wsdl</Value>
     </Setting>
   </Settings>
 </SettingsFile>

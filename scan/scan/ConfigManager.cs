@@ -20,7 +20,7 @@ namespace scan
         private ScanDataSet scanDataSet;
         SolidBrush solidBrush;
         public string flag;//1,新增;2,修改
-        public string userID;
+        public string configID;
         public string orgID;
         public ConfigManager()
         {
@@ -81,7 +81,7 @@ namespace scan
         private void GetChildNodes(TreeView orgTreeView)
         {
             //获取当前选择的节点
-            MessageBox.Show(orgTreeView.SelectedNode.Text);
+            //MessageBox.Show(orgTreeView.SelectedNode.Text);
         }
 
         private void OrgTreeView_AfterSelect(object sender, TreeViewEventArgs e)
@@ -124,11 +124,11 @@ namespace scan
             if (!result) return;
 
             //初始化AddUser 
-            AddUser addUser = new AddUser();
-            addUser.Owner = this;
-            addUser.Init();
+            AddConfigInfo addConfigInfo = new AddConfigInfo();
+            addConfigInfo.Owner = this;
+            addConfigInfo.Init();
 
-            addUser.ShowDialog(this);
+            addConfigInfo.ShowDialog(this);
 
         }
 
@@ -157,6 +157,13 @@ namespace scan
             return true;
         }
 
+
+        //对外公开查询方法
+        public void SearchData()
+        {
+            this.btnSearch_Click(null,null);
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //获取所选机构
@@ -168,10 +175,10 @@ namespace scan
             {
                 str += " and (username like '%" + this.tbCondition.Text.Trim() + "%' or usercode like '%" + this.tbCondition.Text.Trim() + "%' )";
             }
-            ScanDataSet scanDataSet= new Business.UserInfo().GetUserByStr(str);
-            if (scanDataSet.UserInfo.Rows.Count > 0)
+            ScanDataSet scanDataSet= new Business.ConfigInfo().GetConfigInfoByStr(str);
+            if (scanDataSet.ConfigInfo.Rows.Count > 0)
             {
-                dtInfo = scanDataSet.UserInfo;
+                dtInfo = scanDataSet.ConfigInfo;
                 InitDataSet();
             }
             
@@ -264,12 +271,12 @@ namespace scan
                     if (this.dgvConfigInfo.Rows[i].Cells[this.dgvConfigInfo.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
                     {
                         count++;
-                        this.userID = this.dgvConfigInfo.Rows[i].Cells["id"].Value.ToString();
+                        this.configID = this.dgvConfigInfo.Rows[i].Cells["id"].Value.ToString();
 
-                        AddUser addUser = new AddUser();
-                        addUser.Owner = this;
-                        addUser.Init();
-                        addUser.ShowDialog(this);
+                        AddConfigInfo addConfigInfo = new AddConfigInfo();
+                        addConfigInfo.Owner = this;
+                        addConfigInfo.Init();
+                        addConfigInfo.ShowDialog(this);
                         return;
 
                     }
@@ -277,6 +284,11 @@ namespace scan
                 if (count == 0)
                 {
                     MessageBox.Show("请选择要修改的行！");
+                    return;
+                }
+                else if (count > 1)
+                {
+                    MessageBox.Show("请选择一行修改记录！");
                     return;
                 }
             }
@@ -299,14 +311,14 @@ namespace scan
                     if (this.dgvConfigInfo.Rows[i].Cells[this.dgvConfigInfo.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
                     {
                         count++;
-                        this.userID = this.dgvConfigInfo.Rows[i].Cells["id"].Value.ToString();
+                        this.configID = this.dgvConfigInfo.Rows[i].Cells["id"].Value.ToString();
                         string status= this.dgvConfigInfo.Rows[i].Cells["status"].Value.ToString();
-                        ScanDataSet scanDataSet= new Business.UserInfo().GetUserByID(this.userID);
-                        if (scanDataSet.UserInfo.Rows.Count > 0)
+                        ScanDataSet scanDataSet= new Business.ConfigInfo().GetConfigInfoByID(this.configID);
+                        if (scanDataSet.ConfigInfo.Rows.Count > 0)
                         {
-                            ScanDataSet.UserInfoDataTable dt = scanDataSet.UserInfo;
+                            ScanDataSet.ConfigInfoDataTable dt = scanDataSet.ConfigInfo;
                             dt.Rows[0]["status"] = status == "1" ? "0" : "1";
-                            result= new Business.UserInfo().AddUser(dt);
+                            result= new Business.ConfigInfo().AddConfig(dt);
                         }
 
                     }
@@ -314,6 +326,11 @@ namespace scan
                 if (count == 0)
                 {
                     MessageBox.Show("请选择要修改的行！");
+                    return;
+                }
+                else if (count > 1)
+                {
+                    MessageBox.Show("请选择一行修改记录！");
                     return;
                 }
                 if (result)

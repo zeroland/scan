@@ -453,13 +453,8 @@ D:\gitrepository\scan\scan\obj\x86\Debug\scan.csproj.GenerateResource.Cache
 D:\gitrepository\scan\scan\obj\x86\Debug\外诊扫描录入系统.exe.manifest
 D:\gitrepository\scan\scan\obj\x86\Debug\外诊扫描录入系统.application
 D:\gitrepository\scan\scan\obj\x86\Debug\scan.ModifyInfo.resources
-D:\gitrepository\scan\scan\bin\Debug\DevExpress.Data.v8.2.dll
-D:\gitrepository\scan\scan\bin\Debug\DevExpress.Utils.v8.2.dll
-D:\gitrepository\scan\scan\bin\Debug\DevExpress.XtraEditors.v8.2.dll
-D:\gitrepository\scan\scan\bin\Debug\DevExpress.XtraTreeList.v8.2.dll
-D:\gitrepository\scan\scan\bin\Debug\DevExpress.Data.v8.2.xml
-D:\gitrepository\scan\scan\bin\Debug\DevExpress.Utils.v8.2.xml
-D:\gitrepository\scan\scan\bin\Debug\DevExpress.XtraEditors.v8.2.xml
-D:\gitrepository\scan\scan\bin\Debug\DevExpress.XtraTreeList.v8.2.xml
 D:\gitrepository\scan\scan\obj\x86\Debug\scan.UserManager.resources
 D:\gitrepository\scan\scan\obj\x86\Debug\scan.AddUser.resources
+D:\gitrepository\scan\scan\obj\x86\Debug\scan.AddConfigInfo.resources
+D:\gitrepository\scan\scan\obj\x86\Debug\scan.ConfigManager.resources
+D:\gitrepository\scan\scan\obj\x86\Debug\scan.NavForm.resources

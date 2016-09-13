@@ -25,7 +25,7 @@ namespace scan.SqlServer
                     using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
                     {
 
-                        SqlCommand insertCommand = new SqlCommand(@"INSERT INTO hzyl_wz_user (usercode, username, password, frcode, fremark1, fremark2,forgid) VALUES(@usercode, @username, @password, @frcode, @fremark1, @fremark2,@forgid)", sqlConnection, sqlTranscation);
+                        SqlCommand insertCommand = new SqlCommand(@"INSERT INTO hzyl_wz_user (usercode, username, password, frcode, fremark1, fremark2,forgid,site) VALUES(@usercode, @username, @password, @frcode, @fremark1, @fremark2,@forgid,@site)", sqlConnection, sqlTranscation);
 
                         insertCommand.Parameters.Add(new SqlParameter("@usercode", SqlDbType.VarChar, 50, "usercode"));
                         insertCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 50, "username"));
@@ -34,6 +34,7 @@ namespace scan.SqlServer
                         insertCommand.Parameters.Add(new SqlParameter("@fremark1", SqlDbType.VarChar, 20, "fremark1"));
                         insertCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 20, "fremark2"));
                         insertCommand.Parameters.Add(new SqlParameter("@forgid", SqlDbType.VarChar, 20, "forgid"));
+                        insertCommand.Parameters.Add(new SqlParameter("@site", SqlDbType.VarChar, 20, "site"));
 
                         SqlCommand updateCommand = new SqlCommand(@"UPDATE hzyl_wz_user
 SET usercode = @usercode,
@@ -42,6 +43,7 @@ SET usercode = @usercode,
 	frcode = @frcode,
 	fremark1 = @fremark1,
 	fremark2 = @fremark2,
+    site=@site,
 	status = @status,forgid=@forgid where id = @id", sqlConnection, sqlTranscation);
 
                         updateCommand.Parameters.Add(new SqlParameter("@usercode", SqlDbType.VarChar, 50, "usercode"));
@@ -53,7 +55,7 @@ SET usercode = @usercode,
                         updateCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 20, "fremark2"));
                         updateCommand.Parameters.Add(new SqlParameter("@id", SqlDbType.VarChar, 20, "id"));
                         updateCommand.Parameters.Add(new SqlParameter("@forgid", SqlDbType.VarChar, 20, "forgid"));
-
+                        updateCommand.Parameters.Add(new SqlParameter("@site", SqlDbType.VarChar, 20, "site"));
 
 
 
@@ -96,6 +98,7 @@ SET usercode = @usercode,
 	frcode = @frcode,
 	fremark1 = @fremark1,
 	fremark2 = @fremark2,
+    site=@site,
 	status = @status,forgid=@forgid where id = @id", sqlConnection, sqlTranscation);
 
                         updateCommand.Parameters.Add(new SqlParameter("@usercode", SqlDbType.VarChar, 50, "usercode"));
@@ -107,6 +110,7 @@ SET usercode = @usercode,
                         updateCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 20, "fremark2"));
                         updateCommand.Parameters.Add(new SqlParameter("@id", SqlDbType.VarChar, 20, "id"));
                         updateCommand.Parameters.Add(new SqlParameter("@forgid", SqlDbType.VarChar, 20, "forgid"));
+                        updateCommand.Parameters.Add(new SqlParameter("@forgid", SqlDbType.VarChar, 20, "site"));
 
                         sqlDataAdapter.UpdateCommand = updateCommand;
 
@@ -162,7 +166,7 @@ SET usercode = @usercode,
 
             SqlConnection sqlConnection = SqlHelper.GetConnection();
             sqlConnection.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid usercode=@usercode and password=@password",sqlConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid and  usercode=@usercode and password=@password",sqlConnection))
             {
                 sqlCommand.Parameters.Add("@usercode", SqlDbType.VarChar, 20).Value=userCode;
                 sqlCommand.Parameters.Add("@password", SqlDbType.VarChar, 20).Value= password;

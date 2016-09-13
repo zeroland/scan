@@ -15,30 +15,38 @@ namespace scan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //LoginForm loginForm = new LoginForm();
-            //if (loginForm.ShowDialog() == DialogResult.OK)
-            //{
-            //   //第一次修改配置文件之后  需要刷新相应节点
-            //    //读取本地配置文件判断登录录入模式还是修改模式
-            //    string immode = Util.Util.GetAppSetting("immode");
-            //    switch (immode)
-            //    {
-            //        case "1":
-            //            Application.Run(new MainForm());
-            //            break;
-            //        case "2":
-            //            Application.Run(new InhosList());
-            //            break;
-            //        default:
-            //            Application.Run(new MainForm());
-            //            break;
-            //    }
+            LoginForm loginForm = new LoginForm();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                //如果是管理员账号 登陆导航窗口
+                if (loginForm.frcode.Equals("410000"))
+                {
+                    Application.Run(new NavForm());
+                    return;
+                }
 
-            //}
-            //else
-            //{
-            //    Application.Exit();
-            //}
+
+                //第一次修改配置文件之后  需要刷新相应节点
+                //读取本地配置文件判断登录录入模式还是修改模式
+                string immode = Util.Util.GetAppSetting("immode");
+                switch (immode)
+                {
+                    case "1":
+                        Application.Run(new MainForm());
+                        break;
+                    case "2":
+                        Application.Run(new InhosList());
+                        break;
+                    default:
+                        Application.Run(new MainForm());
+                        break;
+                }
+
+            }
+            else
+            {
+                Application.Exit();
+            }
 
             // string result= Util.Util.GetEncryptedValue("Server=125.46.57.165;Database=waizhen;User ID=waizhen;Password=xyh!@#xyh");
 
@@ -58,7 +66,8 @@ namespace scan
             // Application.Run(new MainInfoList());
             // Application.Run(new Test());
             // Application.Run(new InhosList());
-            Application.Run(new UserManager());
+            // Application.Run(new UserManager());
+            // Application.Run(new ConfigManager());
 
         }
     }

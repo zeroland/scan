@@ -42,11 +42,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbOrg = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbSite = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbSite);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.forbidRadioButton);
@@ -105,6 +109,7 @@
             this.startRadioButton.Name = "startRadioButton";
             this.startRadioButton.Size = new System.Drawing.Size(47, 16);
             this.startRadioButton.TabIndex = 9;
+            this.startRadioButton.TabStop = true;
             this.startRadioButton.Text = "启用";
             this.startRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -184,6 +189,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "所属机构：";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(219, 135);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 12);
+            this.label6.TabIndex = 100;
+            this.label6.Text = "站   点：";
+            // 
+            // tbSite
+            // 
+            this.tbSite.Location = new System.Drawing.Point(288, 132);
+            this.tbSite.Name = "tbSite";
+            this.tbSite.Size = new System.Drawing.Size(100, 21);
+            this.tbSite.TabIndex = 101;
+            // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -192,7 +213,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AddUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "新增用户信息";
+            this.Text = "用户信息";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUser_KeyPress);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -216,5 +237,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbOrg;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbSite;
+        private System.Windows.Forms.Label label6;
     }
 }

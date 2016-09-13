@@ -279,6 +279,11 @@ namespace scan
                     MessageBox.Show("请选择要修改的行！");
                     return;
                 }
+                else if (count > 1)
+                {
+                    MessageBox.Show("请选择一行修改记录！");
+                    return;
+                }
             }
             catch (Exception ex)
             {
@@ -314,6 +319,11 @@ namespace scan
                 if (count == 0)
                 {
                     MessageBox.Show("请选择要修改的行！");
+                    return;
+                }
+                else if (count > 1)
+                {
+                    MessageBox.Show("请选择一行修改记录！");
                     return;
                 }
                 if (result)

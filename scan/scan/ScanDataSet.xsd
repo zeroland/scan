@@ -106,6 +106,7 @@
               <xs:element name="fremark1" msprop:Generator_ColumnVarNameInTable="columnfremark1" msprop:Generator_ColumnPropNameInRow="fremark1" msprop:Generator_ColumnPropNameInTable="fremark1Column" msprop:Generator_UserColumnName="fremark1" type="xs:string" minOccurs="0" />
               <xs:element name="fremark2" msprop:Generator_ColumnVarNameInTable="columnfremark2" msprop:Generator_ColumnPropNameInRow="fremark2" msprop:Generator_ColumnPropNameInTable="fremark2Column" msprop:Generator_UserColumnName="fremark2" type="xs:string" minOccurs="0" />
               <xs:element name="forgid" msprop:Generator_ColumnVarNameInTable="columnforgid" msprop:Generator_ColumnPropNameInRow="forgid" msprop:Generator_ColumnPropNameInTable="forgidColumn" msprop:Generator_UserColumnName="forgid" type="xs:string" minOccurs="0" />
+              <xs:element name="site" msprop:Generator_ColumnVarNameInTable="columnsite" msprop:Generator_ColumnPropNameInRow="site" msprop:Generator_ColumnPropNameInTable="siteColumn" msprop:Generator_UserColumnName="site" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -143,6 +144,7 @@
               <xs:element name="Server" msprop:Generator_ColumnVarNameInTable="columnServer" msprop:Generator_ColumnPropNameInRow="Server" msprop:Generator_ColumnPropNameInTable="ServerColumn" msprop:Generator_UserColumnName="Server" type="xs:string" minOccurs="0" />
               <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" type="xs:string" minOccurs="0" />
               <xs:element name="PassWord" msprop:Generator_ColumnVarNameInTable="columnPassWord" msprop:Generator_ColumnPropNameInRow="PassWord" msprop:Generator_ColumnPropNameInTable="PassWordColumn" msprop:Generator_UserColumnName="PassWord" type="xs:string" minOccurs="0" />
+              <xs:element name="DbName" msprop:Generator_ColumnVarNameInTable="columnDbName" msprop:Generator_ColumnPropNameInRow="DbName" msprop:Generator_ColumnPropNameInTable="DbNameColumn" msprop:Generator_UserColumnName="DbName" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

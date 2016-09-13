@@ -24,8 +24,8 @@ namespace scan.SqlServer
                     using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
                     {
 
-                        SqlCommand insertCommand = new SqlCommand(@"INSERT INTO hzyl_wz_config (frcode,forgid, wsurl, sdkpath, sdksn, fremark1, fremark2, site,status,dbtype,server,username,password)
-VALUES (@frcode,@forgid, @wsurl, @sdkpath, @sdksn, @fremark1, @fremark2, @site,@status,@dbtype,@server,@username,@password)", sqlConnection, sqlTranscation);
+                        SqlCommand insertCommand = new SqlCommand(@"INSERT INTO hzyl_wz_config (frcode,forgid, wsurl, sdkpath, sdksn, fremark1, fremark2, site,status,dbtype,server,username,password,dbname)
+VALUES (@frcode,@forgid, @wsurl, @sdkpath, @sdksn, @fremark1, @fremark2, @site,@status,@dbtype,@server,@username,@password,@dbname)", sqlConnection, sqlTranscation);
 
                         insertCommand.Parameters.Add(new SqlParameter("@frcode", SqlDbType.VarChar, 50, "frcode"));
                         insertCommand.Parameters.Add(new SqlParameter("@forgid", SqlDbType.VarChar, 50, "forgid"));
@@ -40,7 +40,7 @@ VALUES (@frcode,@forgid, @wsurl, @sdkpath, @sdksn, @fremark1, @fremark2, @site,@
                         insertCommand.Parameters.Add(new SqlParameter("@server", SqlDbType.VarChar, 20, "server"));
                         insertCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 20, "username"));
                         insertCommand.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar, 20, "password"));
-
+                        insertCommand.Parameters.Add(new SqlParameter("@dbname", SqlDbType.VarChar, 20, "dbname"));
 
 
                         SqlCommand updateCommand = new SqlCommand(@"UPDATE hzyl_wz_config
@@ -54,7 +54,8 @@ SET  wsurl = @wsurl,
     dbtype=@dbtype,
     server=@server,
     username=@username,
-    password=@password 
+    password=@password ,
+   dbname =@dbname 
 	where id=@id
 ", sqlConnection, sqlTranscation);
 
@@ -71,6 +72,7 @@ SET  wsurl = @wsurl,
                         updateCommand.Parameters.Add(new SqlParameter("@server", SqlDbType.VarChar, 20, "server"));
                         updateCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 20, "username"));
                         updateCommand.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar, 20, "password"));
+                        updateCommand.Parameters.Add(new SqlParameter("@dbname", SqlDbType.VarChar, 20, "dbname"));
 
 
                         sqlDataAdapter.InsertCommand = insertCommand;

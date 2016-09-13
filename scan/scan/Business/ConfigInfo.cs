@@ -7,7 +7,7 @@ using scan.Interface;
 
 namespace scan.Business
 {
-    class ConfigInfo
+    public class ConfigInfo
     {
         IConfigInfo iConfigInfo;
         public ConfigInfo()
@@ -19,15 +19,15 @@ namespace scan.Business
             return iConfigInfo.AddConfig(dt);
         }
 
-        bool DelConfigInfo(string id)
+        public bool DelConfigInfo(string id)
         {
             return iConfigInfo.DelConfigInfo(id);
         }
-        ScanDataSet GetConfigInfoByID(string id)
+        public ScanDataSet GetConfigInfoByID(string id)
         {
             return iConfigInfo.GetConfigInfoByID(id);
         }
-        ScanDataSet GetConfigInfoByStr(string str)
+        public ScanDataSet GetConfigInfoByStr(string str)
         {
             return iConfigInfo.GetConfigInfoByStr(str);
         }

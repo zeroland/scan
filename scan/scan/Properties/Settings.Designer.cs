@@ -26,7 +26,7 @@ namespace scan.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://125.46.57.77:80/xyhnccmp2/HospitalServicePort")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://125.46.57.77:80/xyhnccmp2/HospitalServicePort?wsdl")]
         public string scan_WebReference_HospitalServiceImpService {
             get {
                 return ((string)(this["scan_WebReference_HospitalServiceImpService"]));

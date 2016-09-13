@@ -44,6 +44,21 @@ namespace scan.Util
             }
         }
 
+        public static string GeConSetting(string key)
+        {
+            if (System.Configuration.ConfigurationManager.ConnectionStrings[key] != null)
+            {
+                return System.Configuration.ConfigurationManager.ConnectionStrings[key].ConnectionString;
+            }
+            else
+            {
+                return "";
+            }
+            
+        }
+
+
+
         /// <summary>
         /// 是否需要解密
         /// </summary>
@@ -235,6 +250,62 @@ namespace scan.Util
             }
 
         }
-          
+
+        /// <summary>
+        /// app.config connectionStrings 添加 更新 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <param name="encrypt">是否需要加密:true,加密;false,不需要加密</param>
+
+        public static void WriteConSetting(string key, string value, bool encrypt)
+        {
+            //key的值为空  则写key value
+            if (String.IsNullOrEmpty(GeConSetting(key)))
+            {
+                System.Configuration.Configuration configuration = System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None);
+
+                if (encrypt)
+                {
+                    System.Configuration.ConnectionStringSettings conSetting = new System.Configuration.ConnectionStringSettings();
+                    conSetting.ConnectionString.Insert(0, GetEncryptedValue(value));
+
+                    configuration.ConnectionStrings.ConnectionStrings.Add(conSetting);
+                }
+                else
+                {
+                    System.Configuration.ConnectionStringSettings conSetting = new System.Configuration.ConnectionStringSettings();
+                    conSetting.ConnectionString.Insert(0, value);
+
+                    configuration.ConnectionStrings.ConnectionStrings.Add(conSetting);
+                }
+
+                configuration.Save(System.Configuration.ConfigurationSaveMode.Modified);
+                //refresh
+                System.Configuration.ConfigurationManager.RefreshSection("connectionStrings");
+
+            }
+            //key 不为空 更新 value
+            else
+            {
+                System.Configuration.Configuration configuration = System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None);
+                if (encrypt)
+                {
+                  
+
+                    configuration.ConnectionStrings.ConnectionStrings[key].ConnectionString = GetEncryptedValue(value);
+                }
+                else
+                {
+                    configuration.ConnectionStrings.ConnectionStrings[key].ConnectionString = value;
+                }
+
+                configuration.Save(System.Configuration.ConfigurationSaveMode.Modified);
+                //refresh
+                System.Configuration.ConfigurationManager.RefreshSection("connectionStrings");
+            }
+
+        }
+
     }
 }

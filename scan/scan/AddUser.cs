@@ -90,8 +90,8 @@ namespace scan
 
                         this.tbUserCode.Text= userRow["usercode"].ToString();
                         this.tbUserName.Text = userRow["username"].ToString();
-                        this.tbUserPassWord.Text= userRow["password"].ToString();                      
-                      
+                        this.tbUserPassWord.Text= userRow["password"].ToString();
+                        this.tbSite.Text= userRow["site"].ToString();
                         string status = userRow["status"].ToString();
                         switch (status)
                         {
@@ -142,6 +142,7 @@ namespace scan
                         userInfoRow.password = this.tbUserPassWord.Text.Trim();
                         userInfoRow.forgid = ((UserManager)this.Owner).orgID;
                         userInfoRow.frcode = Util.Util.GetAppSetting("rcode").ToString();
+                        userInfoRow.site = this.tbSite.Text.Trim();
                         string status = "";
                         if (this.startRadioButton.Checked)
                             status = "1";
@@ -168,6 +169,7 @@ namespace scan
                             userRow["password"] = this.tbUserPassWord.Text.Trim();
                             userRow["forgid"] = ((UserManager)this.Owner).orgID;
                             userRow["frcode"] = Util.Util.GetAppSetting("rcode").ToString();
+                            userRow["site"] = this.tbSite.Text.Trim();
                             string status = "";
                             if (this.startRadioButton.Checked)
                                 status = "1";

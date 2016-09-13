@@ -2464,6 +2464,8 @@ namespace scan {
             
             private global::System.Data.DataColumn columnforgid;
             
+            private global::System.Data.DataColumn columnsite;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public UserInfoDataTable() {
@@ -2571,6 +2573,14 @@ namespace scan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn siteColumn {
+                get {
+                    return this.columnsite;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2606,7 +2616,7 @@ namespace scan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UserInfoRow AddUserInfoRow(string usercode, string username, string password, string frcode, string status, string fremark1, string fremark2, string forgid) {
+            public UserInfoRow AddUserInfoRow(string usercode, string username, string password, string frcode, string status, string fremark1, string fremark2, string forgid, string site) {
                 UserInfoRow rowUserInfoRow = ((UserInfoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2617,7 +2627,8 @@ namespace scan {
                         status,
                         fremark1,
                         fremark2,
-                        forgid};
+                        forgid,
+                        site};
                 rowUserInfoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUserInfoRow);
                 return rowUserInfoRow;
@@ -2649,6 +2660,7 @@ namespace scan {
                 this.columnfremark1 = base.Columns["fremark1"];
                 this.columnfremark2 = base.Columns["fremark2"];
                 this.columnforgid = base.Columns["forgid"];
+                this.columnsite = base.Columns["site"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2672,6 +2684,8 @@ namespace scan {
                 base.Columns.Add(this.columnfremark2);
                 this.columnforgid = new global::System.Data.DataColumn("forgid", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnforgid);
+                this.columnsite = new global::System.Data.DataColumn("site", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsite);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = 1;
                 this.columnid.AllowDBNull = false;
@@ -3230,6 +3244,8 @@ namespace scan {
             
             private global::System.Data.DataColumn columnPassWord;
             
+            private global::System.Data.DataColumn columnDbName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ConfigInfoDataTable() {
@@ -3377,6 +3393,14 @@ namespace scan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DbNameColumn {
+                get {
+                    return this.columnDbName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3412,7 +3436,7 @@ namespace scan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ConfigInfoRow AddConfigInfoRow(string Frcode, string WsUrl, string SdkPath, string SdkSn, string Site, string Fremark1, string Fremark2, string Status, string Forgid, string DbType, string Server, string UserName, string PassWord) {
+            public ConfigInfoRow AddConfigInfoRow(string Frcode, string WsUrl, string SdkPath, string SdkSn, string Site, string Fremark1, string Fremark2, string Status, string Forgid, string DbType, string Server, string UserName, string PassWord, string DbName) {
                 ConfigInfoRow rowConfigInfoRow = ((ConfigInfoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Frcode,
@@ -3428,7 +3452,8 @@ namespace scan {
                         DbType,
                         Server,
                         UserName,
-                        PassWord};
+                        PassWord,
+                        DbName};
                 rowConfigInfoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfigInfoRow);
                 return rowConfigInfoRow;
@@ -3465,6 +3490,7 @@ namespace scan {
                 this.columnServer = base.Columns["Server"];
                 this.columnUserName = base.Columns["UserName"];
                 this.columnPassWord = base.Columns["PassWord"];
+                this.columnDbName = base.Columns["DbName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3498,6 +3524,8 @@ namespace scan {
                 base.Columns.Add(this.columnUserName);
                 this.columnPassWord = new global::System.Data.DataColumn("PassWord", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPassWord);
+                this.columnDbName = new global::System.Data.DataColumn("DbName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDbName);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = 1;
                 this.columnid.AllowDBNull = false;
@@ -5271,6 +5299,22 @@ namespace scan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string site {
+                get {
+                    try {
+                        return ((string)(this[this.tableUserInfo.siteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“UserInfo”中列“site”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableUserInfo.siteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isfremark1Null() {
                 return this.IsNull(this.tableUserInfo.fremark1Column);
             }
@@ -5303,6 +5347,18 @@ namespace scan {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetforgidNull() {
                 this[this.tableUserInfo.forgidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IssiteNull() {
+                return this.IsNull(this.tableUserInfo.siteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetsiteNull() {
+                this[this.tableUserInfo.siteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5847,6 +5903,22 @@ namespace scan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DbName {
+                get {
+                    try {
+                        return ((string)(this[this.tableConfigInfo.DbNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ConfigInfo”中列“DbName”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableConfigInfo.DbNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFrcodeNull() {
                 return this.IsNull(this.tableConfigInfo.FrcodeColumn);
             }
@@ -5999,6 +6071,18 @@ namespace scan {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPassWordNull() {
                 this[this.tableConfigInfo.PassWordColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDbNameNull() {
+                return this.IsNull(this.tableConfigInfo.DbNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDbNameNull() {
+                this[this.tableConfigInfo.DbNameColumn] = global::System.Convert.DBNull;
             }
         }
         

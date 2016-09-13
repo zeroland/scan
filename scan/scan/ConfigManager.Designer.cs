@@ -42,14 +42,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.dgvConfigInfo = new System.Windows.Forms.DataGridView();
-            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.usercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fremark1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.UpPageToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -62,6 +54,16 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TotalCounttoolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wsurl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdkpath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdksn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.server = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -91,8 +93,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.UserGroupBox);
-            this.splitContainer1.Size = new System.Drawing.Size(791, 520);
-            this.splitContainer1.SplitterDistance = 209;
+            this.splitContainer1.Size = new System.Drawing.Size(854, 520);
+            this.splitContainer1.SplitterDistance = 225;
             this.splitContainer1.TabIndex = 0;
             // 
             // OrgGroupBox
@@ -101,7 +103,7 @@
             this.OrgGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrgGroupBox.Location = new System.Drawing.Point(0, 0);
             this.OrgGroupBox.Name = "OrgGroupBox";
-            this.OrgGroupBox.Size = new System.Drawing.Size(209, 520);
+            this.OrgGroupBox.Size = new System.Drawing.Size(225, 520);
             this.OrgGroupBox.TabIndex = 0;
             this.OrgGroupBox.TabStop = false;
             this.OrgGroupBox.Text = "机构信息";
@@ -111,7 +113,7 @@
             this.OrgTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrgTreeView.Location = new System.Drawing.Point(3, 17);
             this.OrgTreeView.Name = "OrgTreeView";
-            this.OrgTreeView.Size = new System.Drawing.Size(203, 500);
+            this.OrgTreeView.Size = new System.Drawing.Size(219, 500);
             this.OrgTreeView.TabIndex = 0;
             this.OrgTreeView.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.OrgTreeView_AfterExpand);
             this.OrgTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OrgTreeView_AfterSelect);
@@ -122,7 +124,7 @@
             this.UserGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserGroupBox.Location = new System.Drawing.Point(0, 0);
             this.UserGroupBox.Name = "UserGroupBox";
-            this.UserGroupBox.Size = new System.Drawing.Size(578, 520);
+            this.UserGroupBox.Size = new System.Drawing.Size(625, 520);
             this.UserGroupBox.TabIndex = 0;
             this.UserGroupBox.TabStop = false;
             this.UserGroupBox.Text = "用户管理";
@@ -142,7 +144,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.toolStrip2);
             this.splitContainer2.Panel2.Controls.Add(this.toolStrip1);
-            this.splitContainer2.Size = new System.Drawing.Size(572, 500);
+            this.splitContainer2.Size = new System.Drawing.Size(619, 500);
             this.splitContainer2.SplitterDistance = 457;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -165,7 +167,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgvConfigInfo);
-            this.splitContainer3.Size = new System.Drawing.Size(572, 457);
+            this.splitContainer3.Size = new System.Drawing.Size(619, 457);
             this.splitContainer3.SplitterDistance = 49;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -237,81 +239,25 @@
             this.dgvConfigInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConfigInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SelectCheck,
-            this.usercode,
-            this.username,
             this.orgname,
+            this.wsurl,
+            this.sdkpath,
+            this.sdksn,
             this.statusname,
+            this.server,
+            this.username,
             this.id,
-            this.status,
-            this.fremark1});
+            this.status});
             this.dgvConfigInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvConfigInfo.Location = new System.Drawing.Point(0, 0);
             this.dgvConfigInfo.Name = "dgvConfigInfo";
             this.dgvConfigInfo.ReadOnly = true;
             this.dgvConfigInfo.RowTemplate.Height = 23;
             this.dgvConfigInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConfigInfo.Size = new System.Drawing.Size(572, 404);
+            this.dgvConfigInfo.Size = new System.Drawing.Size(619, 404);
             this.dgvConfigInfo.TabIndex = 0;
             this.dgvConfigInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserInfo_CellContentClick);
             this.dgvConfigInfo.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvUserInfo_RowPostPaint);
-            // 
-            // SelectCheck
-            // 
-            this.SelectCheck.HeaderText = "选择";
-            this.SelectCheck.Name = "SelectCheck";
-            this.SelectCheck.ReadOnly = true;
-            this.SelectCheck.Width = 60;
-            // 
-            // usercode
-            // 
-            this.usercode.DataPropertyName = "usercode";
-            this.usercode.HeaderText = "用户账号";
-            this.usercode.Name = "usercode";
-            this.usercode.ReadOnly = true;
-            // 
-            // username
-            // 
-            this.username.DataPropertyName = "username";
-            this.username.HeaderText = "用户名";
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            // 
-            // orgname
-            // 
-            this.orgname.DataPropertyName = "orgname";
-            this.orgname.HeaderText = "所属机构";
-            this.orgname.Name = "orgname";
-            this.orgname.ReadOnly = true;
-            // 
-            // statusname
-            // 
-            this.statusname.DataPropertyName = "statusname";
-            this.statusname.HeaderText = "启用状态";
-            this.statusname.Name = "statusname";
-            this.statusname.ReadOnly = true;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Visible = false;
-            // 
-            // fremark1
-            // 
-            this.fremark1.DataPropertyName = "fremark1";
-            this.fremark1.HeaderText = "备注";
-            this.fremark1.Name = "fremark1";
-            this.fremark1.ReadOnly = true;
             // 
             // toolStrip2
             // 
@@ -408,15 +354,94 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(44, 22);
             this.toolStripLabel2.Text = "条记录";
             // 
+            // SelectCheck
+            // 
+            this.SelectCheck.HeaderText = "选择";
+            this.SelectCheck.Name = "SelectCheck";
+            this.SelectCheck.ReadOnly = true;
+            this.SelectCheck.Width = 60;
+            // 
+            // orgname
+            // 
+            this.orgname.DataPropertyName = "orgname";
+            this.orgname.HeaderText = "所属机构";
+            this.orgname.Name = "orgname";
+            this.orgname.ReadOnly = true;
+            this.orgname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // wsurl
+            // 
+            this.wsurl.DataPropertyName = "wsurl";
+            this.wsurl.HeaderText = "发包地址";
+            this.wsurl.Name = "wsurl";
+            this.wsurl.ReadOnly = true;
+            this.wsurl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // sdkpath
+            // 
+            this.sdkpath.DataPropertyName = "sdkpath";
+            this.sdkpath.HeaderText = "运行路径";
+            this.sdkpath.Name = "sdkpath";
+            this.sdkpath.ReadOnly = true;
+            this.sdkpath.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // sdksn
+            // 
+            this.sdksn.DataPropertyName = "sdksn";
+            this.sdksn.HeaderText = "序列号";
+            this.sdksn.Name = "sdksn";
+            this.sdksn.ReadOnly = true;
+            this.sdksn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // statusname
+            // 
+            this.statusname.DataPropertyName = "statusname";
+            this.statusname.HeaderText = "启用状态";
+            this.statusname.Name = "statusname";
+            this.statusname.ReadOnly = true;
+            this.statusname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // server
+            // 
+            this.server.DataPropertyName = "server";
+            this.server.HeaderText = "服务器";
+            this.server.Name = "server";
+            this.server.ReadOnly = true;
+            this.server.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // username
+            // 
+            this.username.DataPropertyName = "username";
+            this.username.HeaderText = "用户名";
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            this.username.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Visible = false;
+            // 
             // ConfigManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 520);
+            this.ClientSize = new System.Drawing.Size(854, 520);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ConfigManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "用户管理";
+            this.Text = "配置管理";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
@@ -467,12 +492,14 @@
         private System.Windows.Forms.DataGridView dgvConfigInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usercode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewTextBoxColumn orgname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wsurl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdkpath;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdksn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn server;
+        private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fremark1;
     }
 }

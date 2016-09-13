@@ -190,14 +190,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="431616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="505856">
       <assemblyIdentity name="外诊扫描录入系统" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Qz4x9kb3qMexrphG2tFJfb59IDw=</dsig:DigestValue>
+        <dsig:DigestValue>4V5CeqNhKHhOEEIx4mlynMVxtSc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
