@@ -177,7 +177,8 @@ namespace scan.Util
         /// <returns></returns> 
         public static string GetConnSting()
         {
-            return  Util.GetDecryptedValue(ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString);
+            string conString= Util.GetDecryptedValue(ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString);
+            return conString;
         }
         /// <summary> 
         /// 一个有效的数据库连接对象 

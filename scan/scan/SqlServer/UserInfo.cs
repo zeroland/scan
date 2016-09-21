@@ -64,7 +64,7 @@ SET usercode = @usercode,
 
                         sqlDataAdapter.Update(dt);
                     }
-
+                    sqlTranscation.Commit();
                 }
                 catch (Exception e)
                 {
@@ -72,9 +72,13 @@ SET usercode = @usercode,
                     sqlTranscation.Rollback();
                     throw e;
                 }
-                sqlTranscation.Commit();
+                finally
+                {
+                    sqlConnection.Close();
+                }
+              
             }
-            sqlConnection.Close();
+            
             return result;
         }
 
@@ -116,7 +120,7 @@ SET usercode = @usercode,
 
                         sqlDataAdapter.Update(dt);
                     }
-
+                    sqlTranscation.Commit();
                 }
                 catch (Exception e)
                 {
@@ -124,9 +128,12 @@ SET usercode = @usercode,
                     sqlTranscation.Rollback();
                     throw e;
                 }
-                sqlTranscation.Commit();
+                finally
+                {
+                    sqlConnection.Close();
+                }
             }
-            sqlConnection.Close();
+          
             return result;
         }
 
@@ -153,8 +160,10 @@ SET usercode = @usercode,
                 result = false;
                 throw e;
             }
-
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
 
             return result;
         }
@@ -166,17 +175,23 @@ SET usercode = @usercode,
 
             SqlConnection sqlConnection = SqlHelper.GetConnection();
             sqlConnection.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid and  usercode=@usercode and password=@password",sqlConnection))
+            try
             {
-                sqlCommand.Parameters.Add("@usercode", SqlDbType.VarChar, 20).Value=userCode;
-                sqlCommand.Parameters.Add("@password", SqlDbType.VarChar, 20).Value= password;
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid and  usercode=@usercode and password=@password", sqlConnection))
                 {
-                    sqlDataAdapter.SelectCommand = sqlCommand;
-                    sqlDataAdapter.Fill(scanDataSet, scanDataSet.UserInfo.TableName);
+                    sqlCommand.Parameters.Add("@usercode", SqlDbType.VarChar, 20).Value = userCode;
+                    sqlCommand.Parameters.Add("@password", SqlDbType.VarChar, 20).Value = password;
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        sqlDataAdapter.Fill(scanDataSet, scanDataSet.UserInfo.TableName);
+                    }
                 }
             }
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return scanDataSet;
         }
 
@@ -187,17 +202,23 @@ SET usercode = @usercode,
 
             SqlConnection sqlConnection = SqlHelper.GetConnection();
             sqlConnection.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ and t1.id=@id", sqlConnection))
+            try
             {
-                sqlCommand.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
-              
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ and t1.id=@id", sqlConnection))
                 {
-                    sqlDataAdapter.SelectCommand = sqlCommand;
-                    sqlDataAdapter.Fill(scanDataSet, scanDataSet.UserInfo.TableName);
+                    sqlCommand.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
+
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        sqlDataAdapter.Fill(scanDataSet, scanDataSet.UserInfo.TableName);
+                    }
                 }
             }
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return scanDataSet;
         }
 
@@ -205,20 +226,26 @@ SET usercode = @usercode,
         {
             ScanDataSet scanDataSet = new ScanDataSet();
 
-
+            
             SqlConnection sqlConnection = SqlHelper.GetConnection();
             sqlConnection.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ " + str, sqlConnection))
+            try
             {
-                
-
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_user t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ " + str, sqlConnection))
                 {
-                    sqlDataAdapter.SelectCommand = sqlCommand;
-                    sqlDataAdapter.Fill(scanDataSet, scanDataSet.UserInfo.TableName);
+
+
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        sqlDataAdapter.Fill(scanDataSet, scanDataSet.UserInfo.TableName);
+                    }
                 }
             }
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return scanDataSet;
         }
     }

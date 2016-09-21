@@ -4,6 +4,57 @@
         <name>外诊扫描录入系统</name>
     </assembly>
     <members>
+        <member name="F:scan.AddConfigInfo.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.AddConfigInfo.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.AddConfigInfo.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.AddUser.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.AddUser.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.AddUser.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.InhosList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.InhosList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.InhosList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="F:scan.DictViewForm.components">
             <summary>
             Required designer variable.
@@ -147,6 +198,73 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
+        <member name="M:scan.ModifyInfo.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            重写父类处理按键事件  datagridview
+            </summary>
+            <param name="msg"></param>
+            <param name="keyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:scan.ModifyInfo.ScanDataGridView_CellBeginEdit(System.Object,System.Windows.Forms.DataGridViewCellCancelEventArgs)">
+            <summary>
+            获取单元格（名称）编辑之前的数据 用于存储项目字典
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.ModifyInfo.ScanDataGridView_CellEndEdit(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            获取单元格（名称）编辑之后的数据
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.ModifyInfo.getItemDictRowByScanName(System.String)">
+            <summary>
+            通过scanname showname 获取,加载数据的时候，两个值相等
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:scan.ModifyInfo.btnSave_Click(System.Object,System.EventArgs)">
+            <summary>
+            保存方法
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.ModifyInfo.btnUpload_Click(System.Object,System.EventArgs)">
+            <summary>
+            上传方法
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.ModifyInfo.SelectToolStripButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            继续扫描方法
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:scan.ModifyInfo.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.ModifyInfo.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.ModifyInfo.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="M:scan.MainInfoList.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
             <summary>
             重写父类处理按键事件  datagridview
@@ -188,6 +306,23 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:scan.MainInfoList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.NavForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.NavForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.NavForm.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -252,6 +387,21 @@
             Represents the strongly named DataTable class.
             </summary>
         </member>
+        <member name="T:scan.ScanDataSet.UserInfoDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.BaseOrgInfoDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ConfigInfoDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
         <member name="T:scan.ScanDataSet.ScanDataTableRow">
              <summary>
             Represents strongly named DataRow class.
@@ -277,6 +427,21 @@
             Represents strongly named DataRow class.
             </summary>
         </member>
+        <member name="T:scan.ScanDataSet.UserInfoRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.BaseOrgInfoRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ConfigInfoRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
         <member name="T:scan.ScanDataSet.ScanDataTableRowChangeEvent">
              <summary>
             Row event argument class
@@ -298,6 +463,21 @@
             </summary>
         </member>
         <member name="T:scan.ScanDataSet.ScanDetailRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.UserInfoRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.BaseOrgInfoRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ConfigInfoRowChangeEvent">
              <summary>
             Row event argument class
             </summary>
@@ -406,6 +586,40 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:scan.UpdatePwd.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.ConfigManager.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.ConfigManager.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.ConfigManager.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.UserManager.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.UserManager.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.UserManager.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -1527,6 +1741,30 @@
             <param name="spName">存储过程名</param> 
             <param name="includeReturnValueParameter">是否包含返回值参数</param> 
             <returns>返回SqlParameter参数数组</returns> 
+        </member>
+        <member name="M:scan.Util.Util.GetAppSettingDecrypt(System.String,System.Boolean)">
+            <summary>
+            是否需要解密
+            </summary>
+            <param name="key"></param>
+            <param name="decrypt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:scan.Util.Util.WriteAppSetting(System.String,System.String,System.Boolean)">
+            <summary>
+            app.config 节点添加 更新 
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="encrypt">是否需要加密:true,加密;false,不需要加密</param>
+        </member>
+        <member name="M:scan.Util.Util.WriteConSetting(System.String,System.String,System.Boolean)">
+            <summary>
+            app.config connectionStrings 添加 更新 
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="encrypt">是否需要加密:true,加密;false,不需要加密</param>
         </member>
         <!-- Badly formed XML comment ignored for member "F:scan.Util.xmlHelper._FilePath" -->
         <!-- Badly formed XML comment ignored for member "F:scan.Util.xmlHelper._xml" -->

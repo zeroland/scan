@@ -36,7 +36,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
         }
 
@@ -49,16 +52,13 @@ namespace scan.SqlServer
             CommandType commandType = CommandType.Text;
 
             string str = "";
-            if (ht!=null &&  ht.Count > 0)
+            if (ht["condition"]!=null)
             {
-                foreach (string key in ht.Keys)
-                {
-                    str += " and " + key + " like '%"+ht[key].ToString()+"%' ";
-                }
+                str = " and (zyh like '%" + ht["condition"].ToString() + "%' or ylzh like '%" + ht["condition"].ToString() + "%' or name like '%" + ht["condition"].ToString() + "%')";
             }
             // string commandText = xmlHelper.GetTextByAttribute(Util.Util.GetXMLPath(fileName), "select", "ID", "GetMainInfoList");
 
-            string commandText = @" SELECT t.* ,(SELECT name FROM hzyl_dict_dept a WHERE a.code=t.ryks) ryksname,(SELECT name FROM hzyl_dict_dept b WHERE b.code=t.cyks) cyksname,(SELECT c.icdname FROM hzyl_dict_icd c WHERE c.icdcode=t.cyzd) cyzdname,(SELECT d.name FROM hzyl_dict_org d WHERE d.code=t.yljg) orgname FROM hzyl_wz_zyjl t  WHERE isUpload=0 and sdx=@sdx" + str;
+            string commandText = @" SELECT t.* ,(SELECT name FROM hzyl_dict_dept a WHERE a.code=t.ryks) ryksname,(SELECT name FROM hzyl_dict_dept b WHERE b.code=t.cyks) cyksname,(SELECT c.icdname FROM hzyl_dict_icd c WHERE c.icdcode=t.cyzd) cyzdname,(SELECT d.name FROM hzyl_dict_org d WHERE d.code=t.yljg) orgname,isnull((SELECT sum(convert(DECIMAL(20,6),e.totalprice))  FROM hzyl_wz_fymx e WHERE e.pid=t.id),0) totalprice FROM hzyl_wz_zyjl t  WHERE isUpload=0 and sdx=@sdx " + str;
 
             SqlParameter[] sqlPrameter = {
                 new SqlParameter("@sdx",sdx)
@@ -75,7 +75,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
         }
 
@@ -106,7 +109,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
         }
 
@@ -135,7 +141,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
         }
 
@@ -188,7 +197,10 @@ namespace scan.SqlServer
               
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
 
             return result;
         }
@@ -234,7 +246,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
 
             return result;
         }
@@ -264,7 +279,10 @@ namespace scan.SqlServer
 
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
 
             return result;
         }
@@ -293,7 +311,10 @@ namespace scan.SqlServer
 
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
 
             return result;
         }
@@ -328,7 +349,10 @@ namespace scan.SqlServer
 
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
 
             return result;
         }
@@ -351,7 +375,7 @@ namespace scan.SqlServer
 
             try
             {
-               
+
                 SqlHelper.ExecuteNonQuery(sqlConnection, commandType, commandTextDetail, sqlParametersDetail);
             }
             catch (Exception e)
@@ -361,7 +385,10 @@ namespace scan.SqlServer
 
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
 
             return result;
         }

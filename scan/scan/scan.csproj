@@ -33,7 +33,7 @@
     <PublisherName>新益华医学科技有限公司</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationRevision>35</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -86,7 +86,7 @@
   <PropertyGroup />
   <PropertyGroup />
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>scan_key.pfx</AssemblyOriginatorKeyFile>
@@ -106,8 +106,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>C:\ProgramData\ABBYY\SDK\11\FineReader Engine\Inc\.Net interops\v3.5\Interop.FREngine.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>C:\Users\Administrator\Desktop\log4net等2个文件\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net, Version=2.9.2.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -446,6 +447,7 @@
     <Content Include="image\识别.png" />
     <Content Include="image\识别一.gif" />
     <Content Include="image\选择区域.png" />
+    <Content Include="lib\log4net.dll" />
     <Content Include="lib\Lucene.Net.dll" />
     <Content Include="lib\Lucene.Net.pdb" />
     <Content Include="lib\Lucene.Net.xml" />

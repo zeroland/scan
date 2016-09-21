@@ -62,7 +62,7 @@ SET  wsurl = @wsurl,
                         updateCommand.Parameters.Add(new SqlParameter("@wsurl", SqlDbType.VarChar, 50, "wsurl"));
                         updateCommand.Parameters.Add(new SqlParameter("@sdkpath", SqlDbType.VarChar, 50, "sdkpath"));
                         updateCommand.Parameters.Add(new SqlParameter("@sdksn", SqlDbType.VarChar, 20, "sdksn"));
-                       
+
                         updateCommand.Parameters.Add(new SqlParameter("@site", SqlDbType.VarChar, 20, "site"));
                         updateCommand.Parameters.Add(new SqlParameter("@status", SqlDbType.VarChar, 20, "status"));
                         updateCommand.Parameters.Add(new SqlParameter("@fremark1", SqlDbType.VarChar, 20, "fremark1"));
@@ -80,7 +80,7 @@ SET  wsurl = @wsurl,
 
                         sqlDataAdapter.Update(dt);
                     }
-
+                    sqlTranscation.Commit();
                 }
                 catch (Exception e)
                 {
@@ -88,9 +88,13 @@ SET  wsurl = @wsurl,
                     sqlTranscation.Rollback();
                     throw e;
                 }
-                sqlTranscation.Commit();
+                finally
+                {
+                    sqlConnection.Close();
+                }
+              
             }
-            sqlConnection.Close();
+         
             return result;
         }
 
@@ -117,8 +121,11 @@ SET  wsurl = @wsurl,
                 result = false;
                 throw e;
             }
-
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
+           
 
             return result;
         }
@@ -130,17 +137,29 @@ SET  wsurl = @wsurl,
 
             SqlConnection sqlConnection = SqlHelper.GetConnection();
             sqlConnection.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_config t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ and t1.id=@id", sqlConnection))
+            try
             {
-                sqlCommand.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
-
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_config t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ and t1.id=@id", sqlConnection))
                 {
-                    sqlDataAdapter.SelectCommand = sqlCommand;
-                    sqlDataAdapter.Fill(scanDataSet, scanDataSet.ConfigInfo.TableName);
+                    sqlCommand.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
+
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        sqlDataAdapter.Fill(scanDataSet, scanDataSet.ConfigInfo.TableName);
+                    }
                 }
             }
-            SqlHelper.CloseConnection(sqlConnection);
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
+           
+          
             return scanDataSet;
         }
 
@@ -151,17 +170,30 @@ SET  wsurl = @wsurl,
 
             SqlConnection sqlConnection = SqlHelper.GetConnection();
             sqlConnection.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_config t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ " + str, sqlConnection))
+
+
+            try
             {
-
-
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                using (SqlCommand sqlCommand = new SqlCommand("select t1.*,t2.orgname ,(CASE WHEN t1.status=1 THEN '启用' ELSE '注销' END ) statusname from hzyl_wz_config t1,base_org_info t2 where t1.forgid=t2.orgid /*and t1.status=1 and t2.status=1*/ " + str, sqlConnection))
                 {
-                    sqlDataAdapter.SelectCommand = sqlCommand;
-                    sqlDataAdapter.Fill(scanDataSet, scanDataSet.ConfigInfo.TableName);
+
+
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        sqlDataAdapter.Fill(scanDataSet, scanDataSet.ConfigInfo.TableName);
+                    }
                 }
             }
-            SqlHelper.CloseConnection(sqlConnection);
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
+           
             return scanDataSet;
         }
     }

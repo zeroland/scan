@@ -15,16 +15,26 @@ namespace scan.SqlServer
           
             SqlConnection sqlConnection = SqlHelper.GetConnection();
             sqlConnection.Open();
-            using (SqlCommand sqlCommand = new SqlCommand("select * from base_org_info where status=1 "+str, sqlConnection))
+            try
             {
-               
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+
+                using (SqlCommand sqlCommand = new SqlCommand("select * from base_org_info where status=1 " + str, sqlConnection))
                 {
-                    sqlDataAdapter.SelectCommand = sqlCommand;
-                    sqlDataAdapter.Fill(scanDataSet, scanDataSet.BaseOrgInfo.TableName);
+
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        sqlDataAdapter.Fill(scanDataSet, scanDataSet.BaseOrgInfo.TableName);
+                    }
                 }
             }
-            SqlHelper.CloseConnection(sqlConnection);
+            
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
+
+            
             return scanDataSet;
         }
     }

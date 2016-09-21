@@ -1,0 +1,2 @@
+2016-09-19 14:25:39,740    程序关闭原因:UserClosing$异常关闭信息:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 scan.MainForm.MainForm_FormClosed(Object sender, FormClosedEventArgs e) 位置 D:\gitrepository\scan\scan\MainForm.cs:行号 874

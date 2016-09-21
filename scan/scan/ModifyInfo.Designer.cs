@@ -383,27 +383,33 @@
             // 
             // nameDataGridViewTextBoxColumn
             // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
             this.nameDataGridViewTextBoxColumn.Frozen = true;
             this.nameDataGridViewTextBoxColumn.HeaderText = "项目名称";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.nameDataGridViewTextBoxColumn.Width = 59;
             // 
             // CenterCode
             // 
+            this.CenterCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CenterCode.DataPropertyName = "CenterCode";
             this.CenterCode.Frozen = true;
             this.CenterCode.HeaderText = "农合代码";
             this.CenterCode.Name = "CenterCode";
             this.CenterCode.ReadOnly = true;
             this.CenterCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CenterCode.Width = 59;
             // 
             // CenterName
             // 
+            this.CenterName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CenterName.DataPropertyName = "CenterName";
             this.CenterName.HeaderText = "农合名称";
             this.CenterName.Name = "CenterName";
             this.CenterName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CenterName.Width = 59;
             // 
             // price
             // 
@@ -498,6 +504,7 @@
             this.Name = "ModifyInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "患者费用信息";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ModifyInfo_FormClosed);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

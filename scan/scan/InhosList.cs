@@ -152,15 +152,9 @@ namespace scan
 
         private void tbCondition_TextChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.tbName.Text.Trim())|| !String.IsNullOrEmpty(this.tbCard.Text.Trim())|| !String.IsNullOrEmpty(this.tbInhosNum.Text.Trim()))
-            {
-                this.button1_Click(null,null);
-            }
-
-            if (String.IsNullOrEmpty(this.tbName.Text.Trim()) && String.IsNullOrEmpty(this.tbCard.Text.Trim()) && String.IsNullOrEmpty(this.tbInhosNum.Text.Trim()))
-            {
-                this.button1_Click(null, null);
-            }
+            
+             this.button1_Click(null,null);
+                       
             
         }
 
@@ -174,22 +168,9 @@ namespace scan
             if (!String.IsNullOrEmpty(this.tbName.Text.Trim()))
             {
 
-                ht.Add("name", this.tbName.Text.Trim());
+                ht.Add("condition", this.tbName.Text.Trim());
             }
-
-
-            if (!String.IsNullOrEmpty(this.tbCard.Text.Trim()))
-            {
-
-                ht.Add("ylzh", this.tbCard.Text.Trim());
-            }
-            if (!String.IsNullOrEmpty(this.tbInhosNum.Text.Trim()))
-            {
-
-                ht.Add("zyh", this.tbInhosNum.Text.Trim());
-            }
-
-
+            
 
             DataTable dt = new Business.MainList().GetMainInfoList(sdx, ht).Tables[0];
             if (dt.Rows.Count > 0)
@@ -223,50 +204,49 @@ namespace scan
 
         private void dgvInhosList_Enter(object sender, EventArgs e)
         {
-            if (this.dgvInhosList.SelectedRows.Count > 0)
-            {
-                int index= this.dgvInhosList.SelectedRows[0].Index;
-                DataGridViewRow row = this.dgvInhosList.Rows[index];
-                this.pid = row.Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
+            //if (this.dgvInhosList.SelectedRows.Count > 0)
+            //{
+            //    int index= this.dgvInhosList.SelectedRows[0].Index;
+            //    DataGridViewRow row = this.dgvInhosList.Rows[index];
+            //    this.pid = row.Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
 
-                //主信息id 传入到修改窗口 
-                Form detailForm = new ModifyInfo(this.pid);
+            //    //主信息id 传入到修改窗口 
+            //    Form detailForm = new ModifyInfo(this.pid);
 
-                detailForm.ShowDialog(this);
+            //    detailForm.ShowDialog(this);
 
 
-            }
+            //}
 
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
+        //protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        //{
 
            
-            if (keyData == Keys.Enter)
-            {
-                // System.Windows.Forms.SendKeys.Send("{TAB}");
-                if (this.dgvInhosList.SelectedRows.Count > 0)
-                {
-                    int index = this.dgvInhosList.SelectedRows[0].Index;
-                    DataGridViewRow row = this.dgvInhosList.Rows[index];
-                    this.pid = row.Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
+        //    if (keyData == Keys.Enter)
+        //    {
+        //        // System.Windows.Forms.SendKeys.Send("{TAB}");
+        //        if (this.dgvInhosList.SelectedRows.Count > 0)
+        //        {
+        //            int index = this.dgvInhosList.SelectedRows[0].Index;
+        //            DataGridViewRow row = this.dgvInhosList.Rows[index];
+        //            this.pid = row.Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
 
-                    //主信息id 传入到修改窗口 
-                    Form detailForm = new ModifyInfo(this.pid);
+        //            //主信息id 传入到修改窗口 
+        //            Form detailForm = new ModifyInfo(this.pid);
 
-                    detailForm.ShowDialog(this);
-                    return true;
-                }
-            }
-            //继续原来base.ProcessCmdKey中的处理　
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
+        //            detailForm.ShowDialog(this);
+        //            return true;
+        //        }
+        //    }
+        //    //继续原来base.ProcessCmdKey中的处理　
+        //    return base.ProcessCmdKey(ref msg, keyData);
+        //}
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            this.tbCard.Clear();
-            this.tbInhosNum.Clear();
+            
             this.tbName.Clear();
         }
 
@@ -316,7 +296,7 @@ namespace scan
             {
                 if (this.dgvInhosList.CurrentCell.ColumnIndex == this.dgvInhosList.Columns["SelectCheck"].Index)
                 {
-                    if (this.dgvInhosList.CurrentCell.EditedFormattedValue.ToString()=="True")
+                    if (this.dgvInhosList.CurrentCell.EditedFormattedValue.ToString() == "True")
                     {
                         this.dgvInhosList.CurrentCell.Value = false;
                     }
@@ -325,6 +305,48 @@ namespace scan
                         this.dgvInhosList.CurrentCell.Value = true;
                     }
                 }
+            }
+        }
+
+
+        private void btnSearchDetail_Click(object sender, EventArgs e)
+        {
+            //判断选中几行
+            try
+            {
+                int count = 0;
+                for (int i = 0; i < this.dgvInhosList.Rows.Count; i++)
+                {
+
+                    if (this.dgvInhosList.Rows[i].Cells[this.dgvInhosList.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
+                    {
+                        count++;
+                        if (count > 1)
+                        {
+                            MessageBox.Show("请选择一行要查询的记录！");
+                            return;
+                        }
+                 
+                        this.pid = this.dgvInhosList.Rows[i].Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
+
+                        //主信息id 传入到修改窗口 
+                        Form detailForm = new ModifyInfo(this.pid);
+
+                        detailForm.ShowDialog(this);
+
+                         return;
+                      
+                    }
+                }
+                if (count == 0)
+                {
+                    MessageBox.Show("请选择要查询的记录！");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

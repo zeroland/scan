@@ -41,8 +41,10 @@ namespace scan.SqlServer
               
                 throw e;
             }
-            
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
         }
 
@@ -69,8 +71,11 @@ namespace scan.SqlServer
 
                 throw e;
             }
-            
-            SqlHelper.CloseConnection(sqlConnection);
+
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
         }
 
@@ -98,8 +103,10 @@ namespace scan.SqlServer
 
                 throw e;
             }
-
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }            
             return ds;
         }
 
@@ -114,7 +121,7 @@ namespace scan.SqlServer
                 {
                     using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
                     {
-                      
+
                         SqlCommand insertCommand = new SqlCommand(@"INSERT INTO hzyl_wz_fymx (pid, code, name, spec, unit, quantum, price, totalprice,  centercode,feetype,itemtype)
 VALUES (@pid, @code, @name, @spec, @unit, @quantum, @price, @totalprice, @centercode,@feetype,@itemtype)", sqlConnection, sqlTranscation);
 
@@ -126,7 +133,7 @@ VALUES (@pid, @code, @name, @spec, @unit, @quantum, @price, @totalprice, @center
                         insertCommand.Parameters.Add(new SqlParameter("@quantum", SqlDbType.VarChar, 20, "quantum"));
                         insertCommand.Parameters.Add(new SqlParameter("@price", SqlDbType.VarChar, 20, "price"));
                         insertCommand.Parameters.Add(new SqlParameter("@totalprice", SqlDbType.VarChar, 20, "totalprice"));
-                      //  insertCommand.Parameters.Add(new SqlParameter("@paydate", SqlDbType.DateTime, 20, "paydate"));
+                        //  insertCommand.Parameters.Add(new SqlParameter("@paydate", SqlDbType.DateTime, 20, "paydate"));
                         insertCommand.Parameters.Add(new SqlParameter("@centercode", SqlDbType.VarChar, 20, "centercode"));
                         insertCommand.Parameters.Add(new SqlParameter("@feetype", SqlDbType.VarChar, 20, "feetype"));
                         insertCommand.Parameters.Add(new SqlParameter("@itemtype", SqlDbType.VarChar, 20, "itemtype"));
@@ -151,16 +158,19 @@ VALUES (@pid, @code, @name, @spec, @unit, @quantum, @price, @totalprice, @center
 
                         sqlDataAdapter.Update(dt);
                     }
-                    
+                    sqlTranscation.Commit();
                 }
                 catch (Exception e)
                 {
                     sqlTranscation.Rollback();
                     throw e;
                 }
-                sqlTranscation.Commit();
+                finally
+                {
+                 sqlConnection.Close();
+                }
             }
-            sqlConnection.Close();
+           
             return true;
         }
 
@@ -212,22 +222,25 @@ VALUES (@pid, @code, @name, @spec, @unit, @quantum, @price, @totalprice, @paydat
                         insertCommand.Parameters.Add(new SqlParameter("@itemtype", SqlDbType.VarChar, 20, "itemtype"));
                         insertCommand.Parameters.Add(new SqlParameter("@detailguid", SqlDbType.VarChar, 100, "detailguid"));
 
-                       
+
                         sqlDataAdapter.InsertCommand = insertCommand;
                         sqlDataAdapter.UpdateCommand = updateCommand;
 
                         sqlDataAdapter.Update(dt);
                     }
-
+                    sqlTranscation.Commit();
                 }
                 catch (Exception e)
                 {
                     sqlTranscation.Rollback();
                     throw e;
                 }
-                sqlTranscation.Commit();
+                finally
+                {
+                    sqlConnection.Close();
+                }
             }
-            sqlConnection.Close();
+            
             return true;
         }
 

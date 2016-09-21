@@ -35,7 +35,6 @@
             this.ScanToolBar = new System.Windows.Forms.ToolStrip();
             this.AddToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.alterToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ScanToolStripSplitButton = new System.Windows.Forms.ToolStripButton();
             this.OpenToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -44,6 +43,7 @@
             this.recognizetoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.maptoolStripButto = new System.Windows.Forms.ToolStripButton();
             this.ItemToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.alterToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -74,28 +74,10 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.DictToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.MapToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.DelFytoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ScanDataGridView = new System.Windows.Forms.DataGridView();
-            this.numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PageNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CenterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CenterCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dictBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.scanDataSet = new scan.ScanDataSet();
-            this.FeeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.oldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OldPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OldQuantum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OldTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scanDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -129,6 +111,25 @@
             this.CountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ScanTimer = new System.Windows.Forms.Timer(this.components);
             this.SingleCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PageNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PageRowNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CenterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CenterCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.FeeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.oldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OldPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OldQuantum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OldTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ScanToolBar.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -157,7 +158,6 @@
             this.ScanToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddToolStripButton,
             this.toolStripSeparator4,
-            this.alterToolStripButton,
             this.ScanToolStripSplitButton,
             this.OpenToolStripButton,
             this.toolStripSeparator1,
@@ -166,6 +166,7 @@
             this.recognizetoolStripButton,
             this.maptoolStripButto,
             this.ItemToolStripButton,
+            this.alterToolStripButton,
             this.toolStripSeparator7,
             this.toolStripButton1});
             this.ScanToolBar.Location = new System.Drawing.Point(0, 0);
@@ -188,15 +189,6 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // alterToolStripButton
-            // 
-            this.alterToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("alterToolStripButton.Image")));
-            this.alterToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.alterToolStripButton.Name = "alterToolStripButton";
-            this.alterToolStripButton.Size = new System.Drawing.Size(100, 22);
-            this.alterToolStripButton.Text = "住院信息查询";
-            this.alterToolStripButton.Click += new System.EventHandler(this.alterToolStripButton_Click);
             // 
             // ScanToolStripSplitButton
             // 
@@ -262,6 +254,15 @@
             this.ItemToolStripButton.Text = "中心目录查询";
             this.ItemToolStripButton.Click += new System.EventHandler(this.ItemToolStripButton_Click);
             // 
+            // alterToolStripButton
+            // 
+            this.alterToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("alterToolStripButton.Image")));
+            this.alterToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.alterToolStripButton.Name = "alterToolStripButton";
+            this.alterToolStripButton.Size = new System.Drawing.Size(100, 22);
+            this.alterToolStripButton.Text = "住院信息查询";
+            this.alterToolStripButton.Click += new System.EventHandler(this.alterToolStripButton_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
@@ -274,6 +275,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(100, 22);
             this.toolStripButton1.Text = "清空提示信息";
+            this.toolStripButton1.Visible = false;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // splitContainer1
@@ -516,7 +518,7 @@
             this.toolStripButton3,
             this.DictToolStripComboBox,
             this.MapToolStripButton,
-            this.toolStripButton4});
+            this.DelFytoolStripButton});
             this.gridToolStrip.Location = new System.Drawing.Point(0, 0);
             this.gridToolStrip.Name = "gridToolStrip";
             this.gridToolStrip.Size = new System.Drawing.Size(513, 23);
@@ -588,14 +590,14 @@
             this.MapToolStripButton.Text = "批量对照";
             this.MapToolStripButton.Click += new System.EventHandler(this.MapToolStripButton_Click);
             // 
-            // toolStripButton4
+            // DelFytoolStripButton
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 20);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.DelFytoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("DelFytoolStripButton.Image")));
+            this.DelFytoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DelFytoolStripButton.Name = "DelFytoolStripButton";
+            this.DelFytoolStripButton.Size = new System.Drawing.Size(100, 21);
+            this.DelFytoolStripButton.Text = "删除费用明细";
+            this.DelFytoolStripButton.Click += new System.EventHandler(this.DelFytoolStripButton_Click);
             // 
             // ScanDataGridView
             // 
@@ -618,6 +620,7 @@
             this.numDataGridViewTextBoxColumn,
             this.SelectCheck,
             this.PageNum,
+            this.PageRowNum,
             this.nameDataGridViewTextBoxColumn,
             this.CenterName,
             this.CenterCode,
@@ -648,122 +651,6 @@
             this.ScanDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ScanDataGridView_CellValueChanged);
             this.ScanDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.ScanDataGridView_EditingControlShowing);
             // 
-            // numDataGridViewTextBoxColumn
-            // 
-            this.numDataGridViewTextBoxColumn.DataPropertyName = "Num";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.OldLace;
-            this.numDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.numDataGridViewTextBoxColumn.Frozen = true;
-            this.numDataGridViewTextBoxColumn.HeaderText = "";
-            this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
-            this.numDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numDataGridViewTextBoxColumn.ToolTipText = "序号";
-            this.numDataGridViewTextBoxColumn.Width = 25;
-            // 
-            // SelectCheck
-            // 
-            this.SelectCheck.Frozen = true;
-            this.SelectCheck.HeaderText = "选择";
-            this.SelectCheck.Name = "SelectCheck";
-            this.SelectCheck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SelectCheck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.SelectCheck.Width = 60;
-            // 
-            // PageNum
-            // 
-            this.PageNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.PageNum.DataPropertyName = "PageNum";
-            this.PageNum.Frozen = true;
-            this.PageNum.HeaderText = "页号";
-            this.PageNum.Name = "PageNum";
-            this.PageNum.ReadOnly = true;
-            this.PageNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PageNum.Width = 39;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.Frozen = true;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "项目名称";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.nameDataGridViewTextBoxColumn.Width = 63;
-            // 
-            // CenterName
-            // 
-            this.CenterName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CenterName.DataPropertyName = "CenterName";
-            this.CenterName.Frozen = true;
-            this.CenterName.HeaderText = "农合名称";
-            this.CenterName.Name = "CenterName";
-            this.CenterName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CenterName.Width = 63;
-            // 
-            // CenterCode
-            // 
-            this.CenterCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CenterCode.DataPropertyName = "CenterCode";
-            this.CenterCode.HeaderText = "农合代码";
-            this.CenterCode.Name = "CenterCode";
-            this.CenterCode.ReadOnly = true;
-            this.CenterCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CenterCode.Width = 63;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "单价";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Quantum
-            // 
-            this.Quantum.DataPropertyName = "Quantum";
-            this.Quantum.HeaderText = "数量";
-            this.Quantum.Name = "Quantum";
-            this.Quantum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Quantum.ToolTipText = "数量";
-            // 
-            // totalPriceDataGridViewTextBoxColumn
-            // 
-            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "总价";
-            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
-            this.totalPriceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // specDataGridViewTextBoxColumn
-            // 
-            this.specDataGridViewTextBoxColumn.DataPropertyName = "Spec";
-            this.specDataGridViewTextBoxColumn.HeaderText = "规格";
-            this.specDataGridViewTextBoxColumn.Name = "specDataGridViewTextBoxColumn";
-            this.specDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "单位";
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            this.unitDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "项目代码";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ItemType
-            // 
-            this.ItemType.DataPropertyName = "ItemType";
-            this.ItemType.DataSource = this.dictBindingSource;
-            this.ItemType.DisplayMember = "Name";
-            this.ItemType.HeaderText = "项目类型";
-            this.ItemType.Name = "ItemType";
-            this.ItemType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ItemType.ValueMember = "Code";
-            // 
             // dictBindingSource
             // 
             this.dictBindingSource.DataMember = "Dict";
@@ -773,45 +660,6 @@
             // 
             this.scanDataSet.DataSetName = "ScanDataSet";
             this.scanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // FeeType
-            // 
-            this.FeeType.DataPropertyName = "FeeType";
-            this.FeeType.HeaderText = "费用归类";
-            this.FeeType.Name = "FeeType";
-            this.FeeType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // oldName
-            // 
-            this.oldName.DataPropertyName = "OldName";
-            this.oldName.HeaderText = "原始值";
-            this.oldName.Name = "oldName";
-            this.oldName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.oldName.Visible = false;
-            // 
-            // OldPrice
-            // 
-            this.OldPrice.DataPropertyName = "OldPrice";
-            this.OldPrice.HeaderText = "原始价格";
-            this.OldPrice.Name = "OldPrice";
-            this.OldPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.OldPrice.Visible = false;
-            // 
-            // OldQuantum
-            // 
-            this.OldQuantum.DataPropertyName = "OldQuantum";
-            this.OldQuantum.HeaderText = "原始数量";
-            this.OldQuantum.Name = "OldQuantum";
-            this.OldQuantum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.OldQuantum.Visible = false;
-            // 
-            // OldTotalPrice
-            // 
-            this.OldTotalPrice.DataPropertyName = "OldTotalPrice";
-            this.OldTotalPrice.HeaderText = "原始总金额";
-            this.OldTotalPrice.Name = "OldTotalPrice";
-            this.OldTotalPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.OldTotalPrice.Visible = false;
             // 
             // scanDataSetBindingSource
             // 
@@ -979,6 +827,168 @@
             this.SingleCheck.Name = "SingleCheck";
             this.SingleCheck.Width = 50;
             // 
+            // numDataGridViewTextBoxColumn
+            // 
+            this.numDataGridViewTextBoxColumn.DataPropertyName = "Num";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.OldLace;
+            this.numDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.numDataGridViewTextBoxColumn.Frozen = true;
+            this.numDataGridViewTextBoxColumn.HeaderText = "";
+            this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
+            this.numDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numDataGridViewTextBoxColumn.ToolTipText = "序号";
+            this.numDataGridViewTextBoxColumn.Width = 25;
+            // 
+            // SelectCheck
+            // 
+            this.SelectCheck.Frozen = true;
+            this.SelectCheck.HeaderText = "选择";
+            this.SelectCheck.Name = "SelectCheck";
+            this.SelectCheck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SelectCheck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.SelectCheck.Width = 60;
+            // 
+            // PageNum
+            // 
+            this.PageNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.PageNum.DataPropertyName = "PageNum";
+            this.PageNum.Frozen = true;
+            this.PageNum.HeaderText = "页号";
+            this.PageNum.Name = "PageNum";
+            this.PageNum.ReadOnly = true;
+            this.PageNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.PageNum.Width = 39;
+            // 
+            // PageRowNum
+            // 
+            this.PageRowNum.DataPropertyName = "PageRowNum";
+            this.PageRowNum.Frozen = true;
+            this.PageRowNum.HeaderText = "行号";
+            this.PageRowNum.Name = "PageRowNum";
+            this.PageRowNum.ReadOnly = true;
+            this.PageRowNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.PageRowNum.Width = 39;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.Frozen = true;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "项目名称";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.nameDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // CenterName
+            // 
+            this.CenterName.DataPropertyName = "CenterName";
+            this.CenterName.Frozen = true;
+            this.CenterName.HeaderText = "农合名称";
+            this.CenterName.Name = "CenterName";
+            this.CenterName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CenterName.Width = 120;
+            // 
+            // CenterCode
+            // 
+            this.CenterCode.DataPropertyName = "CenterCode";
+            this.CenterCode.HeaderText = "农合代码";
+            this.CenterCode.Name = "CenterCode";
+            this.CenterCode.ReadOnly = true;
+            this.CenterCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CenterCode.Width = 120;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "单价";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Quantum
+            // 
+            this.Quantum.DataPropertyName = "Quantum";
+            this.Quantum.HeaderText = "数量";
+            this.Quantum.Name = "Quantum";
+            this.Quantum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Quantum.ToolTipText = "数量";
+            // 
+            // totalPriceDataGridViewTextBoxColumn
+            // 
+            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "总价";
+            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            this.totalPriceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // specDataGridViewTextBoxColumn
+            // 
+            this.specDataGridViewTextBoxColumn.DataPropertyName = "Spec";
+            this.specDataGridViewTextBoxColumn.HeaderText = "规格";
+            this.specDataGridViewTextBoxColumn.Name = "specDataGridViewTextBoxColumn";
+            this.specDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "单位";
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "项目代码";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ItemType
+            // 
+            this.ItemType.DataPropertyName = "ItemType";
+            this.ItemType.DataSource = this.dictBindingSource;
+            this.ItemType.DisplayMember = "Name";
+            this.ItemType.HeaderText = "项目类型";
+            this.ItemType.Name = "ItemType";
+            this.ItemType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ItemType.ValueMember = "Code";
+            // 
+            // FeeType
+            // 
+            this.FeeType.DataPropertyName = "FeeType";
+            this.FeeType.HeaderText = "费用归类";
+            this.FeeType.Name = "FeeType";
+            this.FeeType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // oldName
+            // 
+            this.oldName.DataPropertyName = "OldName";
+            this.oldName.HeaderText = "原始值";
+            this.oldName.Name = "oldName";
+            this.oldName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.oldName.Visible = false;
+            // 
+            // OldPrice
+            // 
+            this.OldPrice.DataPropertyName = "OldPrice";
+            this.OldPrice.HeaderText = "原始价格";
+            this.OldPrice.Name = "OldPrice";
+            this.OldPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.OldPrice.Visible = false;
+            // 
+            // OldQuantum
+            // 
+            this.OldQuantum.DataPropertyName = "OldQuantum";
+            this.OldQuantum.HeaderText = "原始数量";
+            this.OldQuantum.Name = "OldQuantum";
+            this.OldQuantum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.OldQuantum.Visible = false;
+            // 
+            // OldTotalPrice
+            // 
+            this.OldTotalPrice.DataPropertyName = "OldTotalPrice";
+            this.OldTotalPrice.HeaderText = "原始总金额";
+            this.OldTotalPrice.Name = "OldTotalPrice";
+            this.OldTotalPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.OldTotalPrice.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1103,9 +1113,14 @@
         private System.Windows.Forms.ToolStripButton MapToolStripButton;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton PointerToolStripButton;
+        private System.Windows.Forms.ToolStripButton ItemToolStripButton;
+        private System.Windows.Forms.ToolStripButton InvertToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton DelFytoolStripButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn PageNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PageRowNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CenterName;
         private System.Windows.Forms.DataGridViewTextBoxColumn CenterCode;
@@ -1121,10 +1136,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OldPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn OldQuantum;
         private System.Windows.Forms.DataGridViewTextBoxColumn OldTotalPrice;
-        private System.Windows.Forms.ToolStripButton ItemToolStripButton;
-        private System.Windows.Forms.ToolStripButton InvertToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }
 

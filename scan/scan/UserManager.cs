@@ -22,6 +22,7 @@ namespace scan
         public string flag;//1,新增;2,修改
         public string userID;
         public string orgID;
+        public string frcode;
         public UserManager()
         {
             InitializeComponent();
@@ -87,27 +88,35 @@ namespace scan
         private void OrgTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             
-            DataRow nodeRow = (DataRow)e.Node.Tag;
-            DataRow[] dr= scanDataSet.BaseOrgInfo.Select("parentorgid='" + nodeRow["orgid"]+"'","orgcode desc");
-            //如果没有子节点  且当前机构是行政单位 获取对应用户信息
-            if (nodeRow["orgtype"].ToString().Equals("2"))
-            {
-                this.btnSearch_Click(null,null);
-            }
-
-
-            if (dr.Length > 0)
-            {
-                TreeNode tmpNode;
-                for (int i = 0; i < dr.Length; i++)
+                DataRow nodeRow = (DataRow)e.Node.Tag;
+                DataRow[] dr = scanDataSet.BaseOrgInfo.Select("parentorgid='" + nodeRow["orgid"] + "'", "orgcode desc");
+                //如果没有子节点  且当前机构是行政单位 获取对应用户信息
+                if (nodeRow["orgtype"].ToString().Equals("2"))
                 {
-                    tmpNode = new TreeNode();
-                    tmpNode.Text = dr[i]["orgname"].ToString();
-                    tmpNode.Tag = dr[i];
-                    e.Node.Nodes.Add(tmpNode);
+                    this.frcode = nodeRow["area"].ToString();
+                    this.btnSearch_Click(null, null);
                 }
-                e.Node.Expand();
-            }
+
+
+                if (dr.Length > 0)
+                {
+                    TreeNode tmpNode;
+                    for (int i = 0; i < dr.Length; i++)
+                    {
+                        tmpNode = new TreeNode();
+                        tmpNode.Text = dr[i]["orgname"].ToString();
+                        tmpNode.Tag = dr[i];
+                        e.Node.Nodes.Add(tmpNode);
+                    }
+                    e.Node.Expand();
+                }
+            
+            
+        }
+
+        public void searchData()
+        {
+            this.btnSearch_Click(null,null);
         }
 
         private void dgvUserInfo_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

@@ -498,7 +498,7 @@ namespace scan
                     {
                         if (price != 0 && price.ToString().IndexOf("无穷") == -1)
                         { 
-                            this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Value = Math.Round(price * quantum, 2);
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Value = Math.Round(price * quantum, 6);
                         }
                     }
 
@@ -506,11 +506,11 @@ namespace scan
                     {
                         if (price != 0 && price.ToString().IndexOf("无穷") == -1)
                         {
-                            this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Value = Math.Round(price * quantum, 2);
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Value = Math.Round(price * quantum, 6);
                         }
                         else
                         {
-                            this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value = Math.Round(totalPrice / quantum, 4);
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value = Math.Round(totalPrice / quantum, 6);
                         }
 
 
@@ -520,7 +520,7 @@ namespace scan
                     {
                         if (price == 0 || price.ToString().IndexOf("无穷") > -1)
                         {
-                            this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value = Math.Round(totalPrice / quantum, 4);
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value = Math.Round(totalPrice / quantum, 6);
                         }
 
 

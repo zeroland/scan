@@ -30,13 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InhosList));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnSearchDetail = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.tbInhosNum = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbCard = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,8 +40,8 @@
             this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ylzh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zyh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rysj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cysj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cyzdname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,13 +82,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnSearchDetail);
             this.splitContainer1.Panel1.Controls.Add(this.btnDel);
-            this.splitContainer1.Panel1.Controls.Add(this.btnClear);
-            this.splitContainer1.Panel1.Controls.Add(this.tbInhosNum);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.tbCard);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearch);
             this.splitContainer1.Panel1.Controls.Add(this.tbName);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
@@ -105,90 +95,49 @@
             this.splitContainer1.SplitterDistance = 40;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnSearchDetail
+            // 
+            this.btnSearchDetail.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchDetail.Image")));
+            this.btnSearchDetail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchDetail.Location = new System.Drawing.Point(307, 12);
+            this.btnSearchDetail.Name = "btnSearchDetail";
+            this.btnSearchDetail.Size = new System.Drawing.Size(119, 23);
+            this.btnSearchDetail.TabIndex = 102;
+            this.btnSearchDetail.Text = "查看费用明细";
+            this.btnSearchDetail.UseVisualStyleBackColor = true;
+            this.btnSearchDetail.Click += new System.EventHandler(this.btnSearchDetail_Click);
+            // 
             // btnDel
             // 
             this.btnDel.Image = ((System.Drawing.Image)(resources.GetObject("btnDel.Image")));
             this.btnDel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDel.Location = new System.Drawing.Point(730, 12);
+            this.btnDel.Location = new System.Drawing.Point(448, 11);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(69, 23);
+            this.btnDel.Size = new System.Drawing.Size(121, 23);
             this.btnDel.TabIndex = 101;
-            this.btnDel.Text = "删除";
+            this.btnDel.Text = "删除患者信息";
             this.btnDel.UseVisualStyleBackColor = true;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(652, 13);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(63, 23);
-            this.btnClear.TabIndex = 100;
-            this.btnClear.TabStop = false;
-            this.btnClear.Text = "重置";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // tbInhosNum
-            // 
-            this.tbInhosNum.Location = new System.Drawing.Point(441, 14);
-            this.tbInhosNum.Name = "tbInhosNum";
-            this.tbInhosNum.Size = new System.Drawing.Size(100, 21);
-            this.tbInhosNum.TabIndex = 99;
-            this.tbInhosNum.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(387, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 12);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "住院号:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(221, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "医疗证号:";
-            // 
-            // tbCard
-            // 
-            this.tbCard.Location = new System.Drawing.Point(286, 14);
-            this.tbCard.Name = "tbCard";
-            this.tbCard.Size = new System.Drawing.Size(92, 21);
-            this.tbCard.TabIndex = 99;
-            this.tbCard.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "姓 名:";
             // 
             // btnSearch
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(557, 14);
+            this.btnSearch.Location = new System.Drawing.Point(706, 14);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 99;
             this.btnSearch.TabStop = false;
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(124, 14);
+            this.tbName.Location = new System.Drawing.Point(89, 13);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(86, 21);
+            this.tbName.Size = new System.Drawing.Size(182, 21);
             this.tbName.TabIndex = 0;
             this.tbName.TabStop = false;
             this.tbName.TextChanged += new System.EventHandler(this.tbCondition_TextChanged);
@@ -198,9 +147,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.Size = new System.Drawing.Size(71, 12);
             this.label1.TabIndex = 10;
-            this.label1.Text = "查询条件:";
+            this.label1.Text = "查询关键字:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // splitContainer2
@@ -231,8 +180,8 @@
             this.SelectCheck,
             this.name,
             this.ylzh,
-            this.orgname,
             this.zyh,
+            this.totalprice,
             this.rysj,
             this.cysj,
             this.cyzdname,
@@ -278,14 +227,6 @@
             this.ylzh.ReadOnly = true;
             this.ylzh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // orgname
-            // 
-            this.orgname.DataPropertyName = "orgname";
-            this.orgname.HeaderText = "住院机构";
-            this.orgname.Name = "orgname";
-            this.orgname.ReadOnly = true;
-            this.orgname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // zyh
             // 
             this.zyh.DataPropertyName = "zyh";
@@ -293,6 +234,14 @@
             this.zyh.Name = "zyh";
             this.zyh.ReadOnly = true;
             this.zyh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // totalprice
+            // 
+            this.totalprice.DataPropertyName = "totalprice";
+            this.totalprice.HeaderText = "总费用";
+            this.totalprice.Name = "totalprice";
+            this.totalprice.ReadOnly = true;
+            this.totalprice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // rysj
             // 
@@ -381,7 +330,7 @@
             this.NextPagetoolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(286, 1);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(200, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(169, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -505,18 +454,13 @@
         private System.Windows.Forms.ToolStripLabel TotalCounttoolStripLabel;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.DataGridView dgvInhosList;
-        private System.Windows.Forms.TextBox tbCard;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbInhosNum;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnSearchDetail;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ylzh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orgname;
         private System.Windows.Forms.DataGridViewTextBoxColumn zyh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalprice;
         private System.Windows.Forms.DataGridViewTextBoxColumn rysj;
         private System.Windows.Forms.DataGridViewTextBoxColumn cysj;
         private System.Windows.Forms.DataGridViewTextBoxColumn cyzdname;

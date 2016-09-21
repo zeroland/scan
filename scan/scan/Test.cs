@@ -16,9 +16,15 @@ namespace scan
         public Test()
         {
             InitializeComponent();
-            
+            test();
         }
 
+
+        private void test()
+        {
+            //2147483647  Int32.MaxValue();
+           // Decimal.MaxValue();
+        } 
 
         private void upload()
         {
@@ -125,8 +131,9 @@ namespace scan
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Util.Util.WriteAppSetting("cc","11",false);
-            Util.Util.WriteAppSetting("cc", "22", false);
+            string a = ".";
+            decimal sss = 0;
+            bool su = Decimal.TryParse(a, out sss);
         }
     }
 }

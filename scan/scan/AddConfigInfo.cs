@@ -166,7 +166,7 @@ namespace scan
                         configInfoRow.SdkPath = this.tbSDKPath.Text.Trim();
                         configInfoRow.SdkSn = this.tbSDKSN.Text.Trim();
                         configInfoRow.Forgid = ((ConfigManager)this.Owner).orgID;
-                        configInfoRow.Frcode = Util.Util.GetAppSetting("rcode").ToString();
+                        configInfoRow.Frcode = ((ConfigManager)this.Owner).frcode;
                         configInfoRow.DbType = this.cbDBType.SelectedValue.ToString();
                         configInfoRow.Server = this.tbServer.Text.Trim();
                         configInfoRow.UserName = this.tbUserName.Text.Trim();

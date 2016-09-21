@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="外诊扫描录入系统.exe" version="1.0.0.23" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="外诊扫描录入系统.exe" version="1.0.0.30" publicKeyToken="0000000000000000" language="zh" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="scanico.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -142,14 +142,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="332288">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="478240">
       <assemblyIdentity name="外诊扫描录入系统" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9l/CpJX1aEXeEj7Fp71aAuUovsM=</dsig:DigestValue>
+        <dsig:DigestValue>C5Sx6KJXzt67aR3AxtvLth7VZYk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -161,7 +161,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>BG3narqWI6i4N8AFw+VD6eOnF6c=</dsig:DigestValue>
+        <dsig:DigestValue>OMZJ2k1E9j1ULE5JwEAB/HkXoAo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -543,6 +543,15 @@
       <dsig:DigestValue>HAoEVRWUqf03Cv5PXBsQcLe5GH0=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="lib\log4net.dll" size="270336">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>n6OQh/bhWLQq49r6UHZqsMc9scw=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="lib\Lucene.Net.dll" size="741376">
     <hash>
       <dsig:Transforms>
@@ -624,13 +633,13 @@
       <dsig:DigestValue>CJWIc65iWU84UTjAxT80ovmI1JA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Xmls\MainList.xml" size="2002">
+  <file name="Xmls\MainList.xml" size="2366">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>whj/Ncj7NpMjNfTy6vDUkXYlY54=</dsig:DigestValue>
+      <dsig:DigestValue>qm/U+9TK6NLGJ/C4wLKhbbO+xnA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Xmls\soap.xml" size="472">
@@ -642,13 +651,13 @@
       <dsig:DigestValue>Ym0zX8G7i8zwXLGqBmVU2VypLhc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="外诊扫描录入系统.exe.config" size="2467">
+  <file name="外诊扫描录入系统.exe.config" size="2408">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>n8DAUBebbX6UDTknEI4QCePcBeU=</dsig:DigestValue>
+      <dsig:DigestValue>slFYqQezcXWc+21ULT3gA+Uj0QA=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -61,8 +61,10 @@ namespace scan.SqlServer
 
                 throw e;
             }
-
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -91,7 +93,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -122,7 +127,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -152,7 +160,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -182,8 +193,10 @@ namespace scan.SqlServer
 
                 throw e;
             }
-
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            { 
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -210,7 +223,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -242,7 +258,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -274,7 +293,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -305,7 +327,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -336,7 +361,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -368,7 +396,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -398,7 +429,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -430,7 +464,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
             return ds;
 
         }
@@ -492,7 +529,10 @@ namespace scan.SqlServer
                 throw e;
             }
 
-            SqlHelper.CloseConnection(sqlConnection);
+            finally
+            {
+                SqlHelper.CloseConnection(sqlConnection);
+            }
 
             return result;
         }

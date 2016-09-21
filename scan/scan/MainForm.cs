@@ -166,6 +166,7 @@ namespace scan
             }
             catch (Exception ex)
             {
+                this.loadForm.DialogResult = DialogResult.OK;
                 MessageBox.Show(ex.Message);
             }
            
@@ -313,7 +314,7 @@ namespace scan
                                     ScanDataSet.ScanDataTableRow row = scanDataSet.ScanDataTable.NewScanDataTableRow();
                                     //添加页数 页中行号,gridview中也需添加
                                     row.PageNum = String.Format("第{0}页", Convert.ToString(pageIndex + 1));
-                                   // row.PageRowNum = String.Format("第{0}行", Convert.ToString(r + 1));
+                                    row.PageRowNum = String.Format("第{0}行", Convert.ToString(r + 1));
                                 
                                     for (int c = 0; c < billStyle.Length; c++)
                                     {
@@ -330,9 +331,11 @@ namespace scan
                                                 //  ScanDataSet.CenterDataRow centerRow = getCenterRow(data);
                                                 row.OldName = data;
                                                 data = Util.Util.ReplaceName(data);
+                                                if (String.IsNullOrEmpty(data)) continue;
                                                 //获取显示名称 通过显示名称取中心编码
                                                 //data = this.GetShowName(data);
                                                 //取字典表scanname对应的数据 优先 
+
                                                 Hashtable htFirst=  getItemDictRowByScanName(data);
                                                 if (htFirst.Count > 0)
                                                 {
@@ -345,17 +348,11 @@ namespace scan
                                                     }
 
 
-                                                    //if (!String.IsNullOrEmpty(htFirst["showname"].ToString()))
-                                                    //{
-                                                    //    data = htFirst["showname"].ToString();
-                                                    //}
+                                                  
 
                                                     row.FeeType = centerRow.FeeType;
                                                     row.ItemType = centerRow.ItemType;
-                                                    //if (Int32.Parse(htFirst["count"].ToString()) > 0)
-                                                    //{
-                                                    //    row.MapCount = Int32.Parse(htFirst["count"].ToString());
-                                                    //}
+                                                   
                                                 }
 
                                                 if (row.IsCenterCodeNull())
@@ -372,35 +369,29 @@ namespace scan
                                                         {
                                                             row.CenterName = row.CenterName + "(" + centerRow.Forms + ")";
                                                         }
-                                                        //if (!String.IsNullOrEmpty(ht["showname"].ToString()))
-                                                        //{
-                                                        //    data = ht["showname"].ToString();
-                                                        //}
+                                                       
                                                         row.FeeType = centerRow.FeeType;
                                                         row.ItemType = centerRow.ItemType;
-                                                        //if (Int32.Parse(ht["count"].ToString()) > 0)
-                                                        //{
-                                                        //    row.MapCount = Int32.Parse(ht["count"].ToString());
-                                                        //}
+                                                        
                                                     }
                                                 }
 
 
                                                
                                             }
-                                            //if (colName== "Quantum"|| colName == "Price" || colName == "TotalPrice")
-                                            //{
-                                            //    data = Util.Util.GetRegStr(data);
-                                            //    data = formatPrice(data);
-                                            //}
+                                          
                                             if (colName == "Quantum")
                                             {
+                                                if (String.IsNullOrEmpty(data))
+                                                    data = "0";
                                                 row.OldQuantum = data;
                                                 data = Util.Util.GetRegStr(data);
                                                 data = formatPrice(data);
                                             }
                                             if (colName == "Price")
                                             {
+                                                if (String.IsNullOrEmpty(data))
+                                                    data = "0";
                                                 row.OldPrice = data;
                                                 data = Util.Util.GetRegStr(data);
                                                 data = formatPrice(data);
@@ -408,6 +399,8 @@ namespace scan
 
                                             if (colName == "TotalPrice")
                                             {
+                                                if (String.IsNullOrEmpty(data))
+                                                    data = "0";
                                                 row.OldTotalPrice = data;
                                                 data = Util.Util.GetRegStr(data);
                                                 data = formatPrice(data);
@@ -1149,6 +1142,15 @@ namespace scan
                             }
 
                             scanDataSet.ScanDataTable.Rows[i]["centername"] = centername;
+
+                            //总费用转换失败保存为0   住院信息查询获取对应费用明细汇总，类型转换如整个表含有非数值类型，则转换失败，抛出异常
+                            string totalPrice= scanDataSet.ScanDataTable.Rows[i]["totalPrice"] == null ? i.ToString() : scanDataSet.ScanDataTable.Rows[i]["totalPrice"].ToString();
+
+                            decimal d_totalPrice = 0;
+                            if (!decimal.TryParse(totalPrice, out d_totalPrice))
+                            {
+                                scanDataSet.ScanDataTable.Rows[i]["totalPrice"] = 0;
+                            }
                         }
 
 
@@ -1487,21 +1489,13 @@ namespace scan
 
                     double totalPrice= Convert.ToDouble(this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value.ToString());
 
-                    ////单价为空
-                    //if (((System.Collections.IList)billStyle).Contains("Price"))
-                    //{
-
-                    //}
-                    //else//   单价不为空 billStyle
-                    //{
-
-                    //}
+                 
 
                     if (this.ScanDataGridView.Columns[e.ColumnIndex].Name == "priceDataGridViewTextBoxColumn")
                     {
                         if(price!=0&&price.ToString().IndexOf("无穷")==-1)
                         { 
-                        this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value = Math.Round(price * quantum, 2);
+                        this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value = Math.Round(price * quantum, 6);
                         }
                     }
 
@@ -1509,11 +1503,11 @@ namespace scan
                     {
                         if (price != 0&& price.ToString().IndexOf("无穷")==-1)
                         {
-                            this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value = Math.Round(price * quantum, 2);
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value = Math.Round(price * quantum, 6);
                         }
                         else
                         {
-                            this.ScanDataGridView.Rows[e.RowIndex].Cells["priceDataGridViewTextBoxColumn"].Value = Math.Round(totalPrice/ quantum,4);
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["priceDataGridViewTextBoxColumn"].Value = Math.Round(totalPrice/ quantum,6);
                         }
 
                         
@@ -1523,20 +1517,14 @@ namespace scan
                     {
                         if ((price == 0 || price.ToString().IndexOf("无穷") > -1))
                         {
-                            this.ScanDataGridView.Rows[e.RowIndex].Cells["priceDataGridViewTextBoxColumn"].Value = Math.Round(totalPrice / quantum, 4);
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["priceDataGridViewTextBoxColumn"].Value = Math.Round(totalPrice / quantum, 6);
                         }
                        
 
 
                     }
 
-
-
-
-
-
-
-
+                    
 
 
                 }
@@ -1553,7 +1541,7 @@ namespace scan
                 ((IEditableObject)this.ScanDataGridView.CurrentRow.DataBoundItem).EndEdit();
 
                 int count = scanDataSet.ScanDataTable.Count;
-                Double totalPrice = 0;
+                Decimal totalPrice = 0;
                 for (int r = 0; r < scanDataSet.ScanDataTable.Count; r++)
                 {
                     ScanDataSet.ScanDataTableRow centerRow = scanDataSet.ScanDataTable[r];
@@ -1561,7 +1549,7 @@ namespace scan
                     {
                         try
                         {
-                            totalPrice += Convert.ToDouble(centerRow.TotalPrice);
+                            totalPrice += Convert.ToDecimal(centerRow.TotalPrice);
                         }
                         catch (Exception ex)
                         {
@@ -1883,7 +1871,7 @@ namespace scan
                 try
                 {
                     DataGridViewRow dr = this.ScanDataGridView.Rows[e.RowIndex];
-
+                    string columnName = this.ScanDataGridView.Columns[e.ColumnIndex].Name;
 
                     // string mapCount = scanDataSet.ScanDataTable.Rows[e.RowIndex]["MapCount"] == DBNull.Value ? "0" : scanDataSet.ScanDataTable.Rows[e.RowIndex]["MapCount"].ToString();
                     string centerName = "";
@@ -1910,7 +1898,7 @@ namespace scan
                     
                     //扫描出的单位含有支、瓶、盒 且中心编码不为空  且项目类型不为 药品的
                     string unit = "";
-                    if (this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Detached)
+                    if (this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Detached && columnName== "CenterName")
                     {
                         unit = dr.Cells["unitDataGridViewTextBoxColumn"].Value==null?"": dr.Cells["unitDataGridViewTextBoxColumn"].Value.ToString();
                         string itemtype = dr.Cells["itemtype"].Value==null?"": dr.Cells["itemtype"].Value.ToString();
@@ -1953,105 +1941,113 @@ namespace scan
 
 
 
-
-                    //原始值与处理之后的值不一样
-                    string nowQuantum = dr.Cells["Quantum"].Value == null ? "0" : dr.Cells["Quantum"].Value.ToString();
-                    string OldQuantum = dr.Cells["OldQuantum"].Value == null ? "0" : dr.Cells["OldQuantum"].Value.ToString();
-                    string nowPrice = dr.Cells["priceDataGridViewTextBoxColumn"].Value == null ? "0" : dr.Cells["priceDataGridViewTextBoxColumn"].Value.ToString();
-                    string OldPrice = dr.Cells["OldPrice"].Value == null ? "0" : dr.Cells["OldPrice"].Value.ToString();
-                    string nowTotalPrice = dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value == null ? "0" : dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value.ToString();
-                    string OldTotalPrice = dr.Cells["OldTotalPrice"].Value == null ? "0" : dr.Cells["OldTotalPrice"].Value.ToString();
-
-
-                    if (nowQuantum != OldQuantum)
+                    if (columnName == "Quantum")
                     {
-                        dr.Cells["Quantum"].Style.BackColor = Color.LightCoral;
-                    }
-                    if (nowPrice != OldPrice)
-                    {
-                        dr.Cells["priceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
-                    }
-                    if (nowTotalPrice != OldTotalPrice)
-                    {
-                        dr.Cells["totalPriceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
-                    }
-
-                    //值不为数值处理
-                    double d_quantum = 0;
-                    double d_price = 0;
-                    double d_totalprice = 0;
-                    if (!Double.TryParse(nowQuantum, out d_quantum))
-                    {
-                        dr.Cells["Quantum"].Value = 0;
-                        dr.Cells["Quantum"].Style.BackColor = Color.LightCoral;
-                    }
-
-                    if (!Double.TryParse(nowPrice, out d_price))
-                    {
-                        dr.Cells["priceDataGridViewTextBoxColumn"].Value = 0;
-                        dr.Cells["priceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
-                    }
-
-                    if (!Double.TryParse(nowTotalPrice, out d_totalprice))
-                    {
-                        dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value = 0;
-                        dr.Cells["totalPriceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
-                    }
-
-
-                    //校验三个值关系
-                    if (Math.Round(d_quantum * d_price,2) != d_totalprice)
-                    {
-                        dr.Cells["Quantum"].Style.BackColor = Color.LightCoral;
-                        dr.Cells["priceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
-                        dr.Cells["totalPriceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
-                    }
-
-
-                    //值为空  or 0 标红  改为上述方法判断   
-
-                    //if (dr.Cells["Quantum"].Value == null || dr.Cells["Quantum"].Value.ToString() == "0")
-                    //{
-                    //    dr.Cells["Quantum"].Style.BackColor = Color.LightCoral;
-                    //}
-                    //if (dr.Cells["priceDataGridViewTextBoxColumn"].Value == null || dr.Cells["priceDataGridViewTextBoxColumn"].Value.ToString() == "0")
-                    //{
-                    //    dr.Cells["priceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
-                    //}
-                    //if (dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value == null || dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value.ToString() == "0")
-                    //{
-                    //    dr.Cells["totalPriceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
-                    //}
-
-
-
-
-
-
-
-
-
-                    //计算总金额
-                    int count = scanDataSet.ScanDataTable.Count;
-                    Double totalPrice = 0;
-                    for (int r = 0; r < scanDataSet.ScanDataTable.Count; r++)
-                    {
-                        ScanDataSet.ScanDataTableRow centerRow = scanDataSet.ScanDataTable[r];
-                        if (centerRow.RowState != DataRowState.Detached && !centerRow.IsTotalPriceNull())
-                           
+                        //原始值与处理之后的值不一样
+                        string nowQuantum = dr.Cells["Quantum"].Value == null ? "0" : dr.Cells["Quantum"].Value.ToString();
+                        string OldQuantum = dr.Cells["OldQuantum"].Value == null ? "0" : dr.Cells["OldQuantum"].Value.ToString();
+                        if (nowQuantum != OldQuantum)
                         {
-                            try
-                            {
-                                totalPrice += Convert.ToDouble(centerRow.TotalPrice);
-                            }
-                            catch (Exception ex)
-                            {
-                                showError("计算金额:"+ex.Message);
-                            }
+                            dr.Cells["Quantum"].Style.BackColor = Color.LightCoral;
                         }
+
+                        //值不为数值处理
+                        decimal d_quantum = 0;                      
+                        if (!Decimal.TryParse(nowQuantum, out d_quantum))
+                        {
+                            dr.Cells["Quantum"].Value = 0;
+                            dr.Cells["Quantum"].Style.BackColor = Color.LightCoral;
+                        }
+
+
+                       string s_price= dr.Cells["priceDataGridViewTextBoxColumn"].Value == null ? "0" : dr.Cells["priceDataGridViewTextBoxColumn"].Value.ToString();
+                        string s_totalPrice= dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value == null ? "0" : dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value.ToString();
+                        decimal d_price = 0;
+                        decimal d_totalPrice = 0;
+                        Decimal.TryParse(s_price,out d_price);
+                        Decimal.TryParse(s_totalPrice, out d_totalPrice);
+
+                        if (d_quantum.Equals(0) && d_price > 0 && d_totalPrice > 0)
+                        {
+                            dr.Cells["Quantum"].Value = Math.Floor(d_totalPrice / d_price);
+                        }
+
                     }
 
-                    updatePanel("总条数:" + count.ToString(), "总金额:" + totalPrice.ToString("F2"));
+
+                    if (columnName == "priceDataGridViewTextBoxColumn")
+                    {
+                        //原始值与处理之后的值不一样
+                        string nowPrice = dr.Cells["priceDataGridViewTextBoxColumn"].Value == null ? "0" : dr.Cells["priceDataGridViewTextBoxColumn"].Value.ToString();
+                        string OldPrice = dr.Cells["OldPrice"].Value == null ? "0" : dr.Cells["OldPrice"].Value.ToString();
+                        if (nowPrice != OldPrice)
+                        {
+                            dr.Cells["priceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
+                        }
+
+                        //值不为数值处理
+                      
+                        double d_price = 0;
+                        if (!Double.TryParse(nowPrice, out d_price))
+                        {
+                            dr.Cells["priceDataGridViewTextBoxColumn"].Value = 0;
+                            dr.Cells["priceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
+                        }
+
+                       
+
+                    }
+
+                    if (columnName == "totalPriceDataGridViewTextBoxColumn")
+                    {
+                        //原始值与处理之后的值不一样
+                        string nowTotalPrice = dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value == null ? "0" : dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value.ToString();
+                        string OldTotalPrice = dr.Cells["OldTotalPrice"].Value == null ? "0" : dr.Cells["OldTotalPrice"].Value.ToString();
+                        if (nowTotalPrice != OldTotalPrice)
+                        {
+                            dr.Cells["totalPriceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
+                        }
+
+                        //值不为数值处理
+
+                        decimal d_totalprice = 0;
+
+                        if (!Decimal.TryParse(nowTotalPrice, out d_totalprice))
+                        {
+                            dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value = 0;
+                            dr.Cells["totalPriceDataGridViewTextBoxColumn"].Style.BackColor = Color.LightCoral;
+                        }
+
+                        //校验三个值关系 上述方法颜色变更 此处再执行会继续出发 cellformat事件 造成死循环 
+                        decimal d_quantum = 0;
+                        decimal d_price = 0;
+
+                        string s_quantum = dr.Cells["Quantum"].Value == null ? "0" : dr.Cells["Quantum"].Value.ToString();
+                        string s_price = dr.Cells["priceDataGridViewTextBoxColumn"].Value == null ? "0" : dr.Cells["priceDataGridViewTextBoxColumn"].Value.ToString();
+
+                        Decimal.TryParse(s_quantum, out d_quantum);
+                        Decimal.TryParse(s_price, out d_price);
+
+                   
+
+                        if ((d_quantum * d_price) != d_totalprice && nowTotalPrice == OldTotalPrice && d_totalprice > 0)
+                        {
+                            
+                            dr.Cells["totalPriceDataGridViewTextBoxColumn"].Style.BackColor = Color.Aqua;
+                        }
+
+                        if (d_quantum > 0 && d_price > 0 && d_totalprice == 0)
+                        {
+                            dr.Cells["totalPriceDataGridViewTextBoxColumn"].Value = Math.Round(d_quantum * d_price,6);
+                        }
+
+
+                       
+                    }
+
+
+                    this.GetTotalInfo();
+
                 }
                 catch (Exception ex)
                 {
@@ -2064,25 +2060,29 @@ namespace scan
 
         private void GetTotalInfo()
         {
+            //计算总金额
             int count = scanDataSet.ScanDataTable.Count;
-            Double totalPrice = 0;
+            Decimal totalPrice = 0;
             for (int r = 0; r < scanDataSet.ScanDataTable.Count; r++)
             {
                 ScanDataSet.ScanDataTableRow centerRow = scanDataSet.ScanDataTable[r];
-                if (!centerRow.IsTotalPriceNull())
+                if (centerRow.RowState != DataRowState.Detached && !centerRow.IsTotalPriceNull())
+
                 {
                     try
                     {
-                        totalPrice += Convert.ToDouble(centerRow.TotalPrice);
+                        totalPrice += Convert.ToDecimal(centerRow.TotalPrice);
                     }
                     catch (Exception ex)
                     {
-                        showError(ex.Message);
+                        showError("计算金额:" + ex.Message);
                     }
                 }
             }
 
-            updatePanel("总条数:" + count.ToString(), "总金额:" + totalPrice.ToString("F2"));
+            updatePanel("总条数:" + count.ToString(), "总金额:" + totalPrice.ToString());
+
+
         }
 
       
@@ -2303,6 +2303,37 @@ namespace scan
         private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
+        }
+
+        private void DelFytoolStripButton_Click(object sender, EventArgs e)
+        {
+            int count=0;
+            try
+            {
+                //判断选中几行
+                for (int i = 0; i < this.ScanDataGridView.Rows.Count; i++)
+                {
+
+                    if (this.ScanDataGridView.Rows[i].Cells[this.ScanDataGridView.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
+                    {
+                        count++;
+                        this.ScanDataGridView.Rows.RemoveAt(i);
+                        //移除行 后续行索引跟着变
+                        i--;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            if (count == 0)
+            {
+                MessageBox.Show("请选中要删除的行!");
+                return;
+            }
         }
 
         private void ScanDocumentViewer_OnActivePageChanging(object sender, AxFineReaderVisualComponents.DIDocumentViewerEvents_OnActivePageChangingEvent e)

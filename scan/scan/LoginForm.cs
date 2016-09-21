@@ -124,9 +124,16 @@ namespace scan
                     string dbName= configInfoRow["dbname"] == null ? "" : configInfoRow["dbname"].ToString();
                     string dbType= configInfoRow["dbtype"] == null ? "" : configInfoRow["dbtype"].ToString();
 
-                    Util.Util.WriteAppSetting("sdkPath", sdkPath, false);
-                    Util.Util.WriteAppSetting("sn", sdkSN,true);
 
+                    if (!String.IsNullOrEmpty(sdkPath) )
+                    {                    
+                        Util.Util.WriteAppSetting("sdkPath", sdkPath, false);                      
+                    }
+
+                    if (!String.IsNullOrEmpty(sdkSN))
+                    {                        
+                        Util.Util.WriteAppSetting("sn", sdkSN, true);
+                    }
 
                     if (!String.IsNullOrEmpty(server) && !String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(password)&&!String.IsNullOrEmpty(dbName)&&dbType.Equals("1"))
                     {
@@ -173,7 +180,7 @@ namespace scan
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
             {
                 Control ctrl = this.GetNextControl(this.ActiveControl, true);
-                if (ctrl is TextBox == false && ctrl is ComboBox == false && ctrl is DateTimePicker == false && ctrl is Button == false)
+                if (ctrl is TextBox == false && ctrl is ComboBox == false && ctrl is DateTimePicker == false && ctrl is Button == false && ctrl is RadioButton== false)
                 {
                     ctrl = this.GetNextControl(ctrl, true);
                 }

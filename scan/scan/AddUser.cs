@@ -127,11 +127,11 @@ namespace scan
                 //校验数据
                 CheckContent();
                 bool result;
-
+                UserManager userManager;
                 //判断是新增 or 修改
                 if (this.Owner is UserManager)
                 {
-                    UserManager userManager = (UserManager)this.Owner;
+                    userManager = (UserManager)this.Owner;
                     if (userManager.flag.Equals("1"))
                     {
                         userTable = new ScanDataSet.UserInfoDataTable();
@@ -141,7 +141,7 @@ namespace scan
                         userInfoRow.username = this.tbUserName.Text.Trim();
                         userInfoRow.password = this.tbUserPassWord.Text.Trim();
                         userInfoRow.forgid = ((UserManager)this.Owner).orgID;
-                        userInfoRow.frcode = Util.Util.GetAppSetting("rcode").ToString();
+                        userInfoRow.frcode = ((UserManager)this.Owner).frcode;
                         userInfoRow.site = this.tbSite.Text.Trim();
                         string status = "";
                         if (this.startRadioButton.Checked)
@@ -208,6 +208,7 @@ namespace scan
                 if (result)
                 {
                     MessageBox.Show("保存成功!");
+                    userManager.searchData();
                     this.Close();
                     return;
                 }
