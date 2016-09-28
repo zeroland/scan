@@ -19,7 +19,6 @@ namespace scan
             test();
         }
 
-
         private void test()
         {
             //2147483647  Int32.MaxValue();

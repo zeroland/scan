@@ -29,18 +29,18 @@ VALUES (@frcode,@forgid, @wsurl, @sdkpath, @sdksn, @fremark1, @fremark2, @site,@
 
                         insertCommand.Parameters.Add(new SqlParameter("@frcode", SqlDbType.VarChar, 50, "frcode"));
                         insertCommand.Parameters.Add(new SqlParameter("@forgid", SqlDbType.VarChar, 50, "forgid"));
-                        insertCommand.Parameters.Add(new SqlParameter("@wsurl", SqlDbType.VarChar, 50, "wsurl"));
-                        insertCommand.Parameters.Add(new SqlParameter("@sdkpath", SqlDbType.VarChar, 20, "sdkpath"));
-                        insertCommand.Parameters.Add(new SqlParameter("@sdksn", SqlDbType.VarChar, 20, "sdksn"));
-                        insertCommand.Parameters.Add(new SqlParameter("@fremark1", SqlDbType.VarChar, 20, "fremark1"));
-                        insertCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 20, "fremark2"));
+                        insertCommand.Parameters.Add(new SqlParameter("@wsurl", SqlDbType.VarChar, 100, "wsurl"));
+                        insertCommand.Parameters.Add(new SqlParameter("@sdkpath", SqlDbType.VarChar, 100, "sdkpath"));
+                        insertCommand.Parameters.Add(new SqlParameter("@sdksn", SqlDbType.VarChar, 100, "sdksn"));
+                        insertCommand.Parameters.Add(new SqlParameter("@fremark1", SqlDbType.VarChar, 100, "fremark1"));
+                        insertCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 100, "fremark2"));
                         insertCommand.Parameters.Add(new SqlParameter("@site", SqlDbType.VarChar, 20, "site"));
                         insertCommand.Parameters.Add(new SqlParameter("@status", SqlDbType.VarChar, 20, "status"));
                         insertCommand.Parameters.Add(new SqlParameter("@dbtype", SqlDbType.VarChar, 20, "dbtype"));
-                        insertCommand.Parameters.Add(new SqlParameter("@server", SqlDbType.VarChar, 20, "server"));
-                        insertCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 20, "username"));
-                        insertCommand.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar, 20, "password"));
-                        insertCommand.Parameters.Add(new SqlParameter("@dbname", SqlDbType.VarChar, 20, "dbname"));
+                        insertCommand.Parameters.Add(new SqlParameter("@server", SqlDbType.VarChar, 100, "server"));
+                        insertCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 100, "username"));
+                        insertCommand.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar, 100, "password"));
+                        insertCommand.Parameters.Add(new SqlParameter("@dbname", SqlDbType.VarChar, 100, "dbname"));
 
 
                         SqlCommand updateCommand = new SqlCommand(@"UPDATE hzyl_wz_config
@@ -60,19 +60,19 @@ SET  wsurl = @wsurl,
 ", sqlConnection, sqlTranscation);
 
                         updateCommand.Parameters.Add(new SqlParameter("@wsurl", SqlDbType.VarChar, 50, "wsurl"));
-                        updateCommand.Parameters.Add(new SqlParameter("@sdkpath", SqlDbType.VarChar, 50, "sdkpath"));
-                        updateCommand.Parameters.Add(new SqlParameter("@sdksn", SqlDbType.VarChar, 20, "sdksn"));
+                        updateCommand.Parameters.Add(new SqlParameter("@sdkpath", SqlDbType.VarChar, 100, "sdkpath"));
+                        updateCommand.Parameters.Add(new SqlParameter("@sdksn", SqlDbType.VarChar, 100, "sdksn"));
 
                         updateCommand.Parameters.Add(new SqlParameter("@site", SqlDbType.VarChar, 20, "site"));
                         updateCommand.Parameters.Add(new SqlParameter("@status", SqlDbType.VarChar, 20, "status"));
-                        updateCommand.Parameters.Add(new SqlParameter("@fremark1", SqlDbType.VarChar, 20, "fremark1"));
-                        updateCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 20, "fremark2"));
+                        updateCommand.Parameters.Add(new SqlParameter("@fremark1", SqlDbType.VarChar, 100, "fremark1"));
+                        updateCommand.Parameters.Add(new SqlParameter("@fremark2", SqlDbType.VarChar, 100, "fremark2"));
                         updateCommand.Parameters.Add(new SqlParameter("@id", SqlDbType.VarChar, 20, "id"));
                         updateCommand.Parameters.Add(new SqlParameter("@dbtype", SqlDbType.VarChar, 20, "dbtype"));
-                        updateCommand.Parameters.Add(new SqlParameter("@server", SqlDbType.VarChar, 20, "server"));
-                        updateCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 20, "username"));
-                        updateCommand.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar, 20, "password"));
-                        updateCommand.Parameters.Add(new SqlParameter("@dbname", SqlDbType.VarChar, 20, "dbname"));
+                        updateCommand.Parameters.Add(new SqlParameter("@server", SqlDbType.VarChar, 100, "server"));
+                        updateCommand.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 100, "username"));
+                        updateCommand.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar, 100, "password"));
+                        updateCommand.Parameters.Add(new SqlParameter("@dbname", SqlDbType.VarChar, 100, "dbname"));
 
 
                         sqlDataAdapter.InsertCommand = insertCommand;

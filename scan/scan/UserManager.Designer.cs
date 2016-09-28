@@ -42,6 +42,14 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.dgvUserInfo = new System.Windows.Forms.DataGridView();
+            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.usercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fremark1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.UpPageToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -54,14 +62,6 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TotalCounttoolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.usercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orgname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fremark1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -113,6 +113,7 @@
             this.OrgTreeView.Name = "OrgTreeView";
             this.OrgTreeView.Size = new System.Drawing.Size(203, 500);
             this.OrgTreeView.TabIndex = 0;
+            this.OrgTreeView.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.OrgTreeView_AfterCollapse);
             this.OrgTreeView.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.OrgTreeView_AfterExpand);
             this.OrgTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OrgTreeView_AfterSelect);
             // 
@@ -252,6 +253,64 @@
             this.dgvUserInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserInfo_CellContentClick);
             this.dgvUserInfo.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvUserInfo_RowPostPaint);
             // 
+            // SelectCheck
+            // 
+            this.SelectCheck.HeaderText = "选择";
+            this.SelectCheck.Name = "SelectCheck";
+            this.SelectCheck.ReadOnly = true;
+            this.SelectCheck.Width = 60;
+            // 
+            // usercode
+            // 
+            this.usercode.DataPropertyName = "usercode";
+            this.usercode.HeaderText = "用户账号";
+            this.usercode.Name = "usercode";
+            this.usercode.ReadOnly = true;
+            // 
+            // username
+            // 
+            this.username.DataPropertyName = "username";
+            this.username.HeaderText = "用户名";
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            // 
+            // orgname
+            // 
+            this.orgname.DataPropertyName = "orgname";
+            this.orgname.HeaderText = "所属机构";
+            this.orgname.Name = "orgname";
+            this.orgname.ReadOnly = true;
+            // 
+            // statusname
+            // 
+            this.statusname.DataPropertyName = "statusname";
+            this.statusname.HeaderText = "启用状态";
+            this.statusname.Name = "statusname";
+            this.statusname.ReadOnly = true;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Visible = false;
+            // 
+            // fremark1
+            // 
+            this.fremark1.DataPropertyName = "fremark1";
+            this.fremark1.HeaderText = "备注";
+            this.fremark1.Name = "fremark1";
+            this.fremark1.ReadOnly = true;
+            // 
             // toolStrip2
             // 
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
@@ -346,64 +405,6 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(44, 22);
             this.toolStripLabel2.Text = "条记录";
-            // 
-            // SelectCheck
-            // 
-            this.SelectCheck.HeaderText = "选择";
-            this.SelectCheck.Name = "SelectCheck";
-            this.SelectCheck.ReadOnly = true;
-            this.SelectCheck.Width = 60;
-            // 
-            // usercode
-            // 
-            this.usercode.DataPropertyName = "usercode";
-            this.usercode.HeaderText = "用户账号";
-            this.usercode.Name = "usercode";
-            this.usercode.ReadOnly = true;
-            // 
-            // username
-            // 
-            this.username.DataPropertyName = "username";
-            this.username.HeaderText = "用户名";
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
-            // 
-            // orgname
-            // 
-            this.orgname.DataPropertyName = "orgname";
-            this.orgname.HeaderText = "所属机构";
-            this.orgname.Name = "orgname";
-            this.orgname.ReadOnly = true;
-            // 
-            // statusname
-            // 
-            this.statusname.DataPropertyName = "statusname";
-            this.statusname.HeaderText = "启用状态";
-            this.statusname.Name = "statusname";
-            this.statusname.ReadOnly = true;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Visible = false;
-            // 
-            // fremark1
-            // 
-            this.fremark1.DataPropertyName = "fremark1";
-            this.fremark1.HeaderText = "备注";
-            this.fremark1.Name = "fremark1";
-            this.fremark1.ReadOnly = true;
             // 
             // UserManager
             // 

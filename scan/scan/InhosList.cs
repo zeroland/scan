@@ -267,19 +267,24 @@ namespace scan
                     if (this.dgvInhosList.Rows[i].Cells[this.dgvInhosList.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
                     {
                         count++;
+                        DialogResult dialogResult = MessageBox.Show("确定要删除吗？", "删除提醒", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
 
-                        string zyID = this.dgvInhosList.Rows[i].Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
-                        bool result = new Business.MainList().DeleteZyjlById(zyID);
-                        if (result)
-                        {
-                            MessageBox.Show("删除成功!");
-                            loadDataByStr();
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("删除失败!");
-                            return;
+                        
+                            string zyID = this.dgvInhosList.Rows[i].Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
+                            bool result = new Business.MainList().DeleteZyjlById(zyID);
+                            if (result)
+                            {
+                                MessageBox.Show("删除成功!");
+                                loadDataByStr();
+                                return;
+                            }
+                            else
+                            {
+                                MessageBox.Show("删除失败!");
+                                return;
+                            }
                         }
                     }
                 }

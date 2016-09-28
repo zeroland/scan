@@ -1484,12 +1484,14 @@ namespace scan
             {
                 try
                 {
-                    double price = Convert.ToDouble(this.ScanDataGridView.Rows[e.RowIndex].Cells["priceDataGridViewTextBoxColumn"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["priceDataGridViewTextBoxColumn"].Value.ToString());
-                    double quantum = Convert.ToDouble(this.ScanDataGridView.Rows[e.RowIndex].Cells["Quantum"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["Quantum"].Value.ToString());
+                    decimal price = Convert.ToDecimal(this.ScanDataGridView.Rows[e.RowIndex].Cells["priceDataGridViewTextBoxColumn"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["priceDataGridViewTextBoxColumn"].Value.ToString());
+                    decimal quantum = Convert.ToDecimal(this.ScanDataGridView.Rows[e.RowIndex].Cells["Quantum"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["Quantum"].Value.ToString());
 
-                    double totalPrice= Convert.ToDouble(this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value.ToString());
+                    decimal totalPrice = Convert.ToDecimal(this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Value.ToString());
 
-                 
+
+                  
+
 
                     if (this.ScanDataGridView.Columns[e.ColumnIndex].Name == "priceDataGridViewTextBoxColumn")
                     {
@@ -1519,8 +1521,11 @@ namespace scan
                         {
                             this.ScanDataGridView.Rows[e.RowIndex].Cells["priceDataGridViewTextBoxColumn"].Value = Math.Round(totalPrice / quantum, 6);
                         }
-                       
 
+                        if (totalPrice == (quantum * price) && this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Style.BackColor != this.ScanDataGridView.DefaultCellStyle.BackColor)
+                        {
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["totalPriceDataGridViewTextBoxColumn"].Style.BackColor = this.ScanDataGridView.DefaultCellStyle.BackColor;
+                        }
 
                     }
 

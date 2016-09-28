@@ -87,7 +87,9 @@ namespace scan
 
         private void OrgTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            
+            if (e.Action == TreeViewAction.ByMouse || e.Action == TreeViewAction.Unknown)
+            {
+                if (e.Node.IsExpanded) return;
                 DataRow nodeRow = (DataRow)e.Node.Tag;
                 DataRow[] dr = scanDataSet.BaseOrgInfo.Select("parentorgid='" + nodeRow["orgid"] + "'", "orgcode desc");
                 //如果没有子节点  且当前机构是行政单位 获取对应用户信息
@@ -110,7 +112,7 @@ namespace scan
                     }
                     e.Node.Expand();
                 }
-            
+            }
           
         }
 

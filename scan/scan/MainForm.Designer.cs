@@ -862,6 +862,7 @@
             // 
             // PageRowNum
             // 
+            this.PageRowNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.PageRowNum.DataPropertyName = "PageRowNum";
             this.PageRowNum.Frozen = true;
             this.PageRowNum.HeaderText = "行号";

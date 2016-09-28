@@ -115,7 +115,7 @@ namespace scan
             if (e.RowIndex < this.ScanDataGridView.Rows.Count&&this.ScanDataGridView.Rows.Count>1)
             {
                 DataGridViewRow dr = this.ScanDataGridView.Rows[e.RowIndex];
-
+                string columnName = this.ScanDataGridView.Columns[e.ColumnIndex].Name;
                
                 string centerName = dr.Cells["CenterName"].Value == null ? "" : ScanDataGridView.Rows[e.RowIndex].Cells["CenterName"].Value.ToString();
 
@@ -149,41 +149,45 @@ namespace scan
 
 
                 //扫描出的单位含有支、瓶、盒 且中心编码不为空  且项目类型不为 药品的
-                string unit = "";
-                
+                if (columnName == "CenterName")
                 {
-                    unit = dr.Cells["unit"].ToString();
-                    string itemtype = dr.Cells["itemtype"].Value==null?"": dr.Cells["itemtype"].Value.ToString();
-                    string hisname = dr.Cells["nameDataGridViewTextBoxColumn"].Value==null?"": dr.Cells["nameDataGridViewTextBoxColumn"].Value.ToString();
-                    if (!String.IsNullOrEmpty(unit) && !String.IsNullOrEmpty(centerName) && !String.IsNullOrEmpty(hisname))
-                    {
+                    string unit = "";
 
-                        if ((unit.IndexOf("支") != -1 || unit.IndexOf("瓶") != -1 || unit.IndexOf("盒") != -1 || unit.IndexOf("片") != -1) && itemtype.Equals("1"))
+                    {
+                        unit = dr.Cells["unit"].ToString();
+                        string itemtype = dr.Cells["itemtype"].Value == null ? "" : dr.Cells["itemtype"].Value.ToString();
+                        string hisname = dr.Cells["nameDataGridViewTextBoxColumn"].Value == null ? "" : dr.Cells["nameDataGridViewTextBoxColumn"].Value.ToString();
+                        if (!String.IsNullOrEmpty(unit) && !String.IsNullOrEmpty(centerName) && !String.IsNullOrEmpty(hisname))
+                        {
+
+                            if ((unit.IndexOf("支") != -1 || unit.IndexOf("瓶") != -1 || unit.IndexOf("盒") != -1 || unit.IndexOf("片") != -1) && itemtype.Equals("1"))
+                            {
+                                dr.Cells["CenterName"].Style.BackColor = Color.LightCoral;
+                            }
+                            if ((unit.IndexOf("次") != -1) && itemtype.Equals("0"))
+                            {
+                                dr.Cells["CenterName"].Style.BackColor = Color.LightCoral;
+                            }
+                        }
+
+                        if (String.IsNullOrEmpty(unit) && !String.IsNullOrEmpty(centerName) && !String.IsNullOrEmpty(hisname))
+                        {
+
+                            if ((hisname.IndexOf("支") != -1 || hisname.IndexOf("瓶") != -1 || hisname.IndexOf("盒") != -1 || hisname.IndexOf("片") != -1) && itemtype.Equals("1"))
+                            {
+                                dr.Cells["CenterName"].Style.BackColor = Color.LightCoral;
+                            }
+
+
+                        }
+
+                        if ((hisname.IndexOf("测定") != -1 || hisname.IndexOf("检查") != -1 || hisname.IndexOf("化学") != -1 || hisname.IndexOf("一次性") != -1) && itemtype.Equals("0"))
                         {
                             dr.Cells["CenterName"].Style.BackColor = Color.LightCoral;
                         }
-                        if ((unit.IndexOf("次") != -1) && itemtype.Equals("0"))
-                        {
-                            dr.Cells["CenterName"].Style.BackColor = Color.LightCoral;
-                        }
-                    }
-
-                    if (String.IsNullOrEmpty(unit) && !String.IsNullOrEmpty(centerName) && !String.IsNullOrEmpty(hisname))
-                    {
-
-                        if ((hisname.IndexOf("支") != -1 || hisname.IndexOf("瓶") != -1 || hisname.IndexOf("盒") != -1 || hisname.IndexOf("片") != -1) && itemtype.Equals("1"))
-                        {
-                            dr.Cells["CenterName"].Style.BackColor = Color.LightCoral;
-                        }
-
-
-                    }
-
-                    if ((hisname.IndexOf("测定") != -1 || hisname.IndexOf("检查") != -1 || hisname.IndexOf("化学") != -1 || hisname.IndexOf("一次性") != -1) && itemtype.Equals("0"))
-                    {
-                        dr.Cells["CenterName"].Style.BackColor = Color.LightCoral;
                     }
                 }
+              
                 
 
 
@@ -198,22 +202,22 @@ namespace scan
                 string nowTotalPrice = dr.Cells["totalPrice"].Value == null ? "0" : dr.Cells["totalPrice"].Value.ToString();
 
                 //值不为数值处理
-                double d_quantum = 0;
-                double d_price = 0;
-                double d_totalprice = 0;
-                if (!Double.TryParse(nowQuantum, out d_quantum))
+                decimal d_quantum = 0;
+                decimal d_price = 0;
+                decimal d_totalprice = 0;
+                if (!Decimal.TryParse(nowQuantum, out d_quantum))
                 {
                     dr.Cells["Quantum"].Value = 0;
                     dr.Cells["Quantum"].Style.BackColor = Color.LightCoral;
                 }
 
-                if (!Double.TryParse(nowPrice, out d_price))
+                if (!Decimal.TryParse(nowPrice, out d_price))
                 {
                     dr.Cells["price"].Value = 0;
                     dr.Cells["price"].Style.BackColor = Color.LightCoral;
                 }
 
-                if (!Double.TryParse(nowTotalPrice, out d_totalprice))
+                if (!Decimal.TryParse(nowTotalPrice, out d_totalprice))
                 {
                     dr.Cells["totalPrice"].Value = 0;
                     dr.Cells["totalPrice"].Style.BackColor = Color.LightCoral;
@@ -223,8 +227,7 @@ namespace scan
                 //校验三个值关系
                 if (Math.Round(d_quantum * d_price, 2) != d_totalprice)
                 {
-                    dr.Cells["Quantum"].Style.BackColor = Color.LightCoral;
-                    dr.Cells["price"].Style.BackColor = Color.LightCoral;
+                   
                     dr.Cells["totalPrice"].Style.BackColor = Color.LightCoral;
                 }
 
@@ -482,16 +485,16 @@ namespace scan
         {
 
             int count = this.ScanDataGridView.Rows.Count;
-            Double totalPrice = 0;
+            decimal totalPrice = 0;
             //单价 数量单元格发生变化  更新总金额
             if (this.ScanDataGridView.Columns[e.ColumnIndex].Name == "price" || this.ScanDataGridView.Columns[e.ColumnIndex].Name == "Quantum" || this.ScanDataGridView.Columns[e.ColumnIndex].Name == "totalprice")
             {
                 try
                 {
-                    double price = Convert.ToDouble(this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value.ToString());
-                    double quantum = Convert.ToDouble(this.ScanDataGridView.Rows[e.RowIndex].Cells["Quantum"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["Quantum"].Value.ToString());
+                    decimal price = Convert.ToDecimal(this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value.ToString());
+                    decimal quantum = Convert.ToDecimal(this.ScanDataGridView.Rows[e.RowIndex].Cells["Quantum"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["Quantum"].Value.ToString());
 
-                    double totalprice = Convert.ToDouble(this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Value.ToString());
+                    decimal totalprice = Convert.ToDecimal(this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Value == DBNull.Value ? "0" : this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Value.ToString());
 
 
                     if (this.ScanDataGridView.Columns[e.ColumnIndex].Name == "price")
@@ -508,9 +511,13 @@ namespace scan
                         {
                             this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Value = Math.Round(price * quantum, 6);
                         }
-                        else
+                        else if (price > 0)
                         {
                             this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value = Math.Round(totalPrice / quantum, 6);
+                        }
+                        else
+                        {
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value = 0;
                         }
 
 
@@ -518,12 +525,23 @@ namespace scan
 
                     if (this.ScanDataGridView.Columns[e.ColumnIndex].Name == "totalprice")
                     {
-                        if (price == 0 || price.ToString().IndexOf("无穷") > -1)
+                        if ((price == 0 || price.ToString().IndexOf("无穷") > -1))
                         {
-                            this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value = Math.Round(totalPrice / quantum, 6);
+                            if (Math.Abs(quantum) > 0)
+                            {
+                                this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value = Math.Round(totalPrice / Math.Abs(quantum), 6);
+                            }
+                            else 
+                            {
+                                this.ScanDataGridView.Rows[e.RowIndex].Cells["price"].Value = 0;
+                            }
+                           
                         }
 
-
+                        if (totalPrice == (quantum * price) && this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Style.BackColor != this.ScanDataGridView.DefaultCellStyle.BackColor)
+                        {
+                            this.ScanDataGridView.Rows[e.RowIndex].Cells["totalprice"].Style.BackColor = this.ScanDataGridView.DefaultCellStyle.BackColor;
+                        }
 
                     }
 
