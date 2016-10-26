@@ -33,7 +33,7 @@
     <PublisherName>新益华医学科技有限公司</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>37</ApplicationRevision>
+    <ApplicationRevision>40</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -92,20 +92,6 @@
     <AssemblyOriginatorKeyFile>scan_key.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxInterop.FineReaderVisualComponents, Version=11.1.10.100, Culture=neutral, PublicKeyToken=2e1e7aca5d298f96, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\ProgramData\ABBYY\SDK\11\FineReader Engine\Inc\.Net interops\v3.5\AxInterop.FineReaderVisualComponents.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.FineReaderVisualComponents, Version=11.1.10.100, Culture=neutral, PublicKeyToken=2e1e7aca5d298f96, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>C:\ProgramData\ABBYY\SDK\11\FineReader Engine\Inc\.Net interops\v3.5\Interop.FineReaderVisualComponents.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.FREngine, Version=11.1.10.100, Culture=neutral, PublicKeyToken=2e1e7aca5d298f96, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>C:\ProgramData\ABBYY\SDK\11\FineReader Engine\Inc\.Net interops\v3.5\Interop.FREngine.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\log4net.dll</HintPath>
@@ -143,6 +129,12 @@
     </Compile>
     <Compile Include="AddConfigInfo.Designer.cs">
       <DependentUpon>AddConfigInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlterForm.designer.cs">
+      <DependentUpon>AlterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddUser.cs">
       <SubType>Form</SubType>
@@ -303,6 +295,9 @@
     </Compile>
     <EmbeddedResource Include="AddConfigInfo.resx">
       <DependentUpon>AddConfigInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlterForm.resx">
+      <DependentUpon>AlterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
@@ -568,6 +563,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadLog\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxFineReaderVisualComponents">
+      <Guid>{930BE45E-8BB1-4D5B-8109-801698114733}</Guid>
+      <VersionMajor>11</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="FREngine">
+      <Guid>{11000000-0000-1056-976E-008048D53AE3}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

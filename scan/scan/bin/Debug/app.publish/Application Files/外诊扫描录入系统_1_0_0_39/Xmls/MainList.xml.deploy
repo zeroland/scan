@@ -33,6 +33,6 @@ VALUES (@pid, @code, @name, @spec, @unit, @quantum, @price, @totalprice, @paydat
      delete  hzyl_wz_fymx  where pid=@pid
   </delete>
 <delete ID="DeleteFymxByDetailId">
-     delete  hzyl_wz_fymx  where id=@pid
+     delete  hzyl_wz_fymx  where id=@id
   </delete>
 </MainList>

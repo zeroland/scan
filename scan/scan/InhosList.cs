@@ -160,7 +160,7 @@ namespace scan
 
 
 
-        private void loadDataByStr()
+        public void loadDataByStr()
         {
             string sdx = Util.Util.GetAppSetting("rcode");
             Hashtable ht = new Hashtable();
@@ -347,6 +347,42 @@ namespace scan
                 {
                     MessageBox.Show("请选择要查询的记录！");
                     return;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnAlter_Click(object sender, EventArgs e)
+        {
+            //判断选中几行
+            try
+            {
+                int count = 0;
+                for (int i = 0; i < this.dgvInhosList.Rows.Count; i++)
+                {
+
+                    if (this.dgvInhosList.Rows[i].Cells[this.dgvInhosList.Columns["SelectCheck"].Index].EditedFormattedValue.ToString() == "True")
+                    {
+                        count++;
+                        if (count > 1)
+                        {
+                            MessageBox.Show("请选择一行要查询的记录！");
+                            return;
+                        }
+
+                        this.pid = this.dgvInhosList.Rows[i].Cells[this.dgvInhosList.Columns["id"].Index].Value.ToString();
+
+                        //主信息id 传入到修改窗口 
+                        Form detailForm = new AlterForm(this.pid);
+
+                        detailForm.ShowDialog(this);
+
+
+                        return;
+                    }
                 }
             }
             catch (Exception ex)

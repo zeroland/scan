@@ -77,30 +77,6 @@
             this.InhospGroupBox.Controls.Add(this.styleButton);
             this.InhospGroupBox.Controls.Add(this.label1);
             this.InhospGroupBox.Controls.Add(this.styleComboBox);
-            this.InhospGroupBox.Controls.Add(this.tbIdcard);
-            this.InhospGroupBox.Controls.Add(this.lbIdCard);
-            this.InhospGroupBox.Controls.Add(this.cbOutHospStatus);
-            this.InhospGroupBox.Controls.Add(this.tbDoctor);
-            this.InhospGroupBox.Controls.Add(this.lbDoctor);
-            this.InhospGroupBox.Controls.Add(this.lbOutHospDept);
-            this.InhospGroupBox.Controls.Add(this.tbInhosDia);
-            this.InhospGroupBox.Controls.Add(this.lbInhosDia);
-            this.InhospGroupBox.Controls.Add(this.tbOutHospDia);
-            this.InhospGroupBox.Controls.Add(this.cbInhosStatus);
-            this.InhospGroupBox.Controls.Add(this.dtOutHosp);
-            this.InhospGroupBox.Controls.Add(this.lbOutHospDia);
-            this.InhospGroupBox.Controls.Add(this.lbOutHospDate);
-            this.InhospGroupBox.Controls.Add(this.lbInhosStatus);
-            this.InhospGroupBox.Controls.Add(this.tbOutDept);
-            this.InhospGroupBox.Controls.Add(this.dtInhos);
-            this.InhospGroupBox.Controls.Add(this.lbOutDept);
-            this.InhospGroupBox.Controls.Add(this.lbInhosDate);
-            this.InhospGroupBox.Controls.Add(this.tbInhosDept);
-            this.InhospGroupBox.Controls.Add(this.lbInhosDept);
-            this.InhospGroupBox.Controls.Add(this.cbInhosType);
-            this.InhospGroupBox.Controls.Add(this.lbInhosType);
-            this.InhospGroupBox.Controls.Add(this.tbInhosOrg);
-            this.InhospGroupBox.Controls.Add(this.lbInhosOrg);
             this.InhospGroupBox.Controls.Add(this.tbInhosNum);
             this.InhospGroupBox.Controls.Add(this.lbInhosnum);
             this.InhospGroupBox.Controls.Add(this.tbName);
@@ -109,14 +85,14 @@
             this.InhospGroupBox.Controls.Add(this.lbMcard);
             this.InhospGroupBox.Location = new System.Drawing.Point(12, 12);
             this.InhospGroupBox.Name = "InhospGroupBox";
-            this.InhospGroupBox.Size = new System.Drawing.Size(686, 246);
+            this.InhospGroupBox.Size = new System.Drawing.Size(686, 105);
             this.InhospGroupBox.TabIndex = 0;
             this.InhospGroupBox.TabStop = false;
             this.InhospGroupBox.Text = "住院信息";
             // 
             // styleButton
             // 
-            this.styleButton.Location = new System.Drawing.Point(558, 212);
+            this.styleButton.Location = new System.Drawing.Point(555, 56);
             this.styleButton.Name = "styleButton";
             this.styleButton.Size = new System.Drawing.Size(112, 23);
             this.styleButton.TabIndex = 33;
@@ -128,7 +104,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(9, 218);
+            this.label1.Location = new System.Drawing.Point(6, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 31;
@@ -140,67 +116,74 @@
             this.styleComboBox.FormattingEnabled = true;
             this.styleComboBox.Items.AddRange(new object[] {
             "代码，名称，规格"});
-            this.styleComboBox.Location = new System.Drawing.Point(73, 214);
+            this.styleComboBox.Location = new System.Drawing.Point(70, 58);
             this.styleComboBox.Name = "styleComboBox";
             this.styleComboBox.Size = new System.Drawing.Size(479, 20);
             this.styleComboBox.TabIndex = 32;
             // 
             // tbIdcard
             // 
-            this.tbIdcard.Location = new System.Drawing.Point(72, 56);
+            this.tbIdcard.Location = new System.Drawing.Point(82, 319);
             this.tbIdcard.Name = "tbIdcard";
             this.tbIdcard.Size = new System.Drawing.Size(102, 21);
             this.tbIdcard.TabIndex = 5;
+            this.tbIdcard.Visible = false;
             // 
             // lbIdCard
             // 
             this.lbIdCard.AutoSize = true;
-            this.lbIdCard.Location = new System.Drawing.Point(8, 62);
+            this.lbIdCard.Location = new System.Drawing.Point(18, 325);
             this.lbIdCard.Name = "lbIdCard";
             this.lbIdCard.Size = new System.Drawing.Size(59, 12);
             this.lbIdCard.TabIndex = 28;
             this.lbIdCard.Text = "身份证号:";
+            this.lbIdCard.Visible = false;
             // 
             // cbOutHospStatus
             // 
             this.cbOutHospStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbOutHospStatus.FormattingEnabled = true;
-            this.cbOutHospStatus.Location = new System.Drawing.Point(525, 186);
+            this.cbOutHospStatus.Location = new System.Drawing.Point(535, 449);
             this.cbOutHospStatus.Name = "cbOutHospStatus";
             this.cbOutHospStatus.Size = new System.Drawing.Size(149, 20);
             this.cbOutHospStatus.TabIndex = 16;
+            this.cbOutHospStatus.Visible = false;
             // 
             // tbDoctor
             // 
-            this.tbDoctor.Location = new System.Drawing.Point(262, 188);
+            this.tbDoctor.Location = new System.Drawing.Point(272, 451);
             this.tbDoctor.Name = "tbDoctor";
             this.tbDoctor.Size = new System.Drawing.Size(171, 21);
             this.tbDoctor.TabIndex = 15;
+            this.tbDoctor.Visible = false;
             // 
             // lbDoctor
             // 
             this.lbDoctor.AutoSize = true;
-            this.lbDoctor.Location = new System.Drawing.Point(205, 191);
+            this.lbDoctor.Location = new System.Drawing.Point(215, 454);
             this.lbDoctor.Name = "lbDoctor";
             this.lbDoctor.Size = new System.Drawing.Size(59, 12);
             this.lbDoctor.TabIndex = 11;
             this.lbDoctor.Text = "经治医师:";
+            this.lbDoctor.Visible = false;
             // 
             // lbOutHospDept
             // 
             this.lbOutHospDept.AutoSize = true;
-            this.lbOutHospDept.Location = new System.Drawing.Point(472, 189);
+            this.lbOutHospDept.Location = new System.Drawing.Point(482, 452);
             this.lbOutHospDept.Name = "lbOutHospDept";
             this.lbOutHospDept.Size = new System.Drawing.Size(59, 12);
             this.lbOutHospDept.TabIndex = 23;
             this.lbOutHospDept.Text = "出院状态:";
+            this.lbOutHospDept.Visible = false;
             // 
             // tbInhosDia
             // 
-            this.tbInhosDia.Location = new System.Drawing.Point(74, 155);
+            this.tbInhosDia.Location = new System.Drawing.Point(84, 418);
             this.tbInhosDia.Name = "tbInhosDia";
             this.tbInhosDia.Size = new System.Drawing.Size(100, 21);
             this.tbInhosDia.TabIndex = 11;
+            this.tbInhosDia.Visible = false;
             this.tbInhosDia.TextChanged += new System.EventHandler(this.tbInhosDia_TextChanged_1);
             this.tbInhosDia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbInhosDept_KeyDown);
             this.tbInhosDia.Leave += new System.EventHandler(this.tbInhosDept_Leave);
@@ -208,18 +191,20 @@
             // lbInhosDia
             // 
             this.lbInhosDia.AutoSize = true;
-            this.lbInhosDia.Location = new System.Drawing.Point(9, 158);
+            this.lbInhosDia.Location = new System.Drawing.Point(19, 421);
             this.lbInhosDia.Name = "lbInhosDia";
             this.lbInhosDia.Size = new System.Drawing.Size(59, 12);
             this.lbInhosDia.TabIndex = 19;
             this.lbInhosDia.Text = "入院诊断:";
+            this.lbInhosDia.Visible = false;
             // 
             // tbOutHospDia
             // 
-            this.tbOutHospDia.Location = new System.Drawing.Point(262, 153);
+            this.tbOutHospDia.Location = new System.Drawing.Point(272, 416);
             this.tbOutHospDia.Name = "tbOutHospDia";
             this.tbOutHospDia.Size = new System.Drawing.Size(171, 21);
             this.tbOutHospDia.TabIndex = 12;
+            this.tbOutHospDia.Visible = false;
             this.tbOutHospDia.TextChanged += new System.EventHandler(this.tbOutHospDia_TextChanged);
             this.tbOutHospDia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbInhosDept_KeyDown);
             this.tbOutHospDia.Leave += new System.EventHandler(this.tbInhosDept_Leave);
@@ -228,52 +213,58 @@
             // 
             this.cbInhosStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInhosStatus.FormattingEnabled = true;
-            this.cbInhosStatus.Location = new System.Drawing.Point(525, 103);
+            this.cbInhosStatus.Location = new System.Drawing.Point(535, 366);
             this.cbInhosStatus.Name = "cbInhosStatus";
             this.cbInhosStatus.Size = new System.Drawing.Size(149, 20);
             this.cbInhosStatus.TabIndex = 10;
+            this.cbInhosStatus.Visible = false;
             // 
             // dtOutHosp
             // 
             this.dtOutHosp.CustomFormat = "yyyy-mm-dd";
-            this.dtOutHosp.Location = new System.Drawing.Point(74, 187);
+            this.dtOutHosp.Location = new System.Drawing.Point(84, 450);
             this.dtOutHosp.Name = "dtOutHosp";
             this.dtOutHosp.Size = new System.Drawing.Size(100, 21);
             this.dtOutHosp.TabIndex = 14;
+            this.dtOutHosp.Visible = false;
             // 
             // lbOutHospDia
             // 
             this.lbOutHospDia.AutoSize = true;
-            this.lbOutHospDia.Location = new System.Drawing.Point(205, 156);
+            this.lbOutHospDia.Location = new System.Drawing.Point(215, 419);
             this.lbOutHospDia.Name = "lbOutHospDia";
             this.lbOutHospDia.Size = new System.Drawing.Size(59, 12);
             this.lbOutHospDia.TabIndex = 25;
             this.lbOutHospDia.Text = "出院诊断:";
+            this.lbOutHospDia.Visible = false;
             // 
             // lbOutHospDate
             // 
             this.lbOutHospDate.AutoSize = true;
-            this.lbOutHospDate.Location = new System.Drawing.Point(9, 193);
+            this.lbOutHospDate.Location = new System.Drawing.Point(19, 456);
             this.lbOutHospDate.Name = "lbOutHospDate";
             this.lbOutHospDate.Size = new System.Drawing.Size(59, 12);
             this.lbOutHospDate.TabIndex = 21;
             this.lbOutHospDate.Text = "出院时间:";
+            this.lbOutHospDate.Visible = false;
             // 
             // lbInhosStatus
             // 
             this.lbInhosStatus.AutoSize = true;
-            this.lbInhosStatus.Location = new System.Drawing.Point(472, 106);
+            this.lbInhosStatus.Location = new System.Drawing.Point(482, 369);
             this.lbInhosStatus.Name = "lbInhosStatus";
             this.lbInhosStatus.Size = new System.Drawing.Size(59, 12);
             this.lbInhosStatus.TabIndex = 17;
             this.lbInhosStatus.Text = "入院状态:";
+            this.lbInhosStatus.Visible = false;
             // 
             // tbOutDept
             // 
-            this.tbOutDept.Location = new System.Drawing.Point(525, 148);
+            this.tbOutDept.Location = new System.Drawing.Point(535, 411);
             this.tbOutDept.Name = "tbOutDept";
             this.tbOutDept.Size = new System.Drawing.Size(149, 21);
             this.tbOutDept.TabIndex = 13;
+            this.tbOutDept.Visible = false;
             this.tbOutDept.TextChanged += new System.EventHandler(this.tbOutDept_TextChanged);
             this.tbOutDept.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbInhosDept_KeyDown);
             this.tbOutDept.Leave += new System.EventHandler(this.tbInhosDept_Leave);
@@ -281,35 +272,39 @@
             // dtInhos
             // 
             this.dtInhos.CustomFormat = "yyyy-mm-dd";
-            this.dtInhos.Location = new System.Drawing.Point(262, 108);
+            this.dtInhos.Location = new System.Drawing.Point(272, 371);
             this.dtInhos.Name = "dtInhos";
             this.dtInhos.Size = new System.Drawing.Size(171, 21);
             this.dtInhos.TabIndex = 9;
+            this.dtInhos.Visible = false;
             // 
             // lbOutDept
             // 
             this.lbOutDept.AutoSize = true;
-            this.lbOutDept.Location = new System.Drawing.Point(472, 151);
+            this.lbOutDept.Location = new System.Drawing.Point(482, 414);
             this.lbOutDept.Name = "lbOutDept";
             this.lbOutDept.Size = new System.Drawing.Size(59, 12);
             this.lbOutDept.TabIndex = 19;
             this.lbOutDept.Text = "出院科室:";
+            this.lbOutDept.Visible = false;
             // 
             // lbInhosDate
             // 
             this.lbInhosDate.AutoSize = true;
-            this.lbInhosDate.Location = new System.Drawing.Point(205, 111);
+            this.lbInhosDate.Location = new System.Drawing.Point(215, 374);
             this.lbInhosDate.Name = "lbInhosDate";
             this.lbInhosDate.Size = new System.Drawing.Size(59, 12);
             this.lbInhosDate.TabIndex = 15;
             this.lbInhosDate.Text = "入院时间:";
+            this.lbInhosDate.Visible = false;
             // 
             // tbInhosDept
             // 
-            this.tbInhosDept.Location = new System.Drawing.Point(74, 110);
+            this.tbInhosDept.Location = new System.Drawing.Point(84, 373);
             this.tbInhosDept.Name = "tbInhosDept";
             this.tbInhosDept.Size = new System.Drawing.Size(100, 21);
             this.tbInhosDept.TabIndex = 8;
+            this.tbInhosDept.Visible = false;
             this.tbInhosDept.TextChanged += new System.EventHandler(this.tbInhosDept_TextChanged);
             this.tbInhosDept.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbInhosDept_KeyDown);
             this.tbInhosDept.Leave += new System.EventHandler(this.tbInhosDept_Leave);
@@ -317,36 +312,40 @@
             // lbInhosDept
             // 
             this.lbInhosDept.AutoSize = true;
-            this.lbInhosDept.Location = new System.Drawing.Point(6, 113);
+            this.lbInhosDept.Location = new System.Drawing.Point(16, 376);
             this.lbInhosDept.Name = "lbInhosDept";
             this.lbInhosDept.Size = new System.Drawing.Size(59, 12);
             this.lbInhosDept.TabIndex = 13;
             this.lbInhosDept.Text = "入院科室:";
+            this.lbInhosDept.Visible = false;
             // 
             // cbInhosType
             // 
             this.cbInhosType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInhosType.FormattingEnabled = true;
-            this.cbInhosType.Location = new System.Drawing.Point(529, 55);
+            this.cbInhosType.Location = new System.Drawing.Point(539, 318);
             this.cbInhosType.Name = "cbInhosType";
             this.cbInhosType.Size = new System.Drawing.Size(145, 20);
             this.cbInhosType.TabIndex = 7;
+            this.cbInhosType.Visible = false;
             // 
             // lbInhosType
             // 
             this.lbInhosType.AutoSize = true;
-            this.lbInhosType.Location = new System.Drawing.Point(472, 55);
+            this.lbInhosType.Location = new System.Drawing.Point(482, 318);
             this.lbInhosType.Name = "lbInhosType";
             this.lbInhosType.Size = new System.Drawing.Size(59, 12);
             this.lbInhosType.TabIndex = 9;
             this.lbInhosType.Text = "住院类型:";
+            this.lbInhosType.Visible = false;
             // 
             // tbInhosOrg
             // 
-            this.tbInhosOrg.Location = new System.Drawing.Point(262, 58);
+            this.tbInhosOrg.Location = new System.Drawing.Point(272, 321);
             this.tbInhosOrg.Name = "tbInhosOrg";
             this.tbInhosOrg.Size = new System.Drawing.Size(171, 21);
             this.tbInhosOrg.TabIndex = 6;
+            this.tbInhosOrg.Visible = false;
             this.tbInhosOrg.TextChanged += new System.EventHandler(this.tbInhosOrg_TextChanged);
             this.tbInhosOrg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbInhosDept_KeyDown);
             this.tbInhosOrg.Leave += new System.EventHandler(this.tbInhosDept_Leave);
@@ -354,11 +353,12 @@
             // lbInhosOrg
             // 
             this.lbInhosOrg.AutoSize = true;
-            this.lbInhosOrg.Location = new System.Drawing.Point(205, 61);
+            this.lbInhosOrg.Location = new System.Drawing.Point(215, 324);
             this.lbInhosOrg.Name = "lbInhosOrg";
             this.lbInhosOrg.Size = new System.Drawing.Size(59, 12);
             this.lbInhosOrg.TabIndex = 7;
             this.lbInhosOrg.Text = "就诊机构:";
+            this.lbInhosOrg.Visible = false;
             // 
             // tbInhosNum
             // 
@@ -413,7 +413,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(201, 279);
+            this.btnSave.Location = new System.Drawing.Point(241, 152);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 17;
@@ -424,7 +424,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(364, 279);
+            this.btnCancel.Location = new System.Drawing.Point(404, 152);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 0;
@@ -438,9 +438,10 @@
             // 
             // itemSearch1
             // 
+            this.itemSearch1.AutoScroll = true;
             this.itemSearch1.ControlId = null;
             this.itemSearch1.Count = 0;
-            this.itemSearch1.Location = new System.Drawing.Point(261, 342);
+            this.itemSearch1.Location = new System.Drawing.Point(773, 136);
             this.itemSearch1.Name = "itemSearch1";
             this.itemSearch1.SearchText = null;
             this.itemSearch1.SearchType = null;
@@ -452,7 +453,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.LightCoral;
-            this.label2.Location = new System.Drawing.Point(21, 261);
+            this.label2.Location = new System.Drawing.Point(61, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 12);
             this.label2.TabIndex = 19;
@@ -462,12 +463,36 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 318);
+            this.ClientSize = new System.Drawing.Size(724, 196);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.itemSearch1);
             this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.tbIdcard);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.lbIdCard);
             this.Controls.Add(this.InhospGroupBox);
+            this.Controls.Add(this.cbOutHospStatus);
+            this.Controls.Add(this.lbInhosDate);
+            this.Controls.Add(this.tbDoctor);
+            this.Controls.Add(this.lbInhosOrg);
+            this.Controls.Add(this.lbDoctor);
+            this.Controls.Add(this.tbInhosOrg);
+            this.Controls.Add(this.lbOutHospDept);
+            this.Controls.Add(this.lbInhosType);
+            this.Controls.Add(this.tbInhosDia);
+            this.Controls.Add(this.cbInhosType);
+            this.Controls.Add(this.lbInhosDia);
+            this.Controls.Add(this.lbInhosDept);
+            this.Controls.Add(this.tbOutHospDia);
+            this.Controls.Add(this.tbInhosDept);
+            this.Controls.Add(this.cbInhosStatus);
+            this.Controls.Add(this.lbOutDept);
+            this.Controls.Add(this.dtOutHosp);
+            this.Controls.Add(this.dtInhos);
+            this.Controls.Add(this.lbOutHospDia);
+            this.Controls.Add(this.tbOutDept);
+            this.Controls.Add(this.lbOutHospDate);
+            this.Controls.Add(this.lbInhosStatus);
             this.Name = "AddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "外诊登记";

@@ -61,6 +61,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NextPagetoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.btnAlter = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnAlter);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearchDetail);
             this.splitContainer1.Panel1.Controls.Add(this.btnDel);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearch);
@@ -123,7 +125,7 @@
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(706, 14);
+            this.btnSearch.Location = new System.Drawing.Point(720, 13);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 99;
@@ -403,6 +405,18 @@
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
             // 
+            // btnAlter
+            // 
+            this.btnAlter.Image = ((System.Drawing.Image)(resources.GetObject("btnAlter.Image")));
+            this.btnAlter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlter.Location = new System.Drawing.Point(595, 12);
+            this.btnAlter.Name = "btnAlter";
+            this.btnAlter.Size = new System.Drawing.Size(119, 23);
+            this.btnAlter.TabIndex = 2;
+            this.btnAlter.Text = "修改住院信息";
+            this.btnAlter.UseVisualStyleBackColor = true;
+            this.btnAlter.Click += new System.EventHandler(this.btnAlter_Click);
+            // 
             // InhosList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -466,5 +480,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cyzdname;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn guid;
+        private System.Windows.Forms.Button btnAlter;
     }
 }

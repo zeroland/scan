@@ -185,22 +185,7 @@ VALUES (@pid, @code, @name, @spec, @unit, @quantum, @price, @totalprice, @center
                 {
                     using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
                     {
-                        SqlCommand updateCommand = new SqlCommand(@"UPDATE hzyl_wz_fymx SET code=@code,name=@name,spec=@spec,@unit=@unit,quantum=@quantum,price=@price,totalprice=@totalprice,centercode=@centercode,centername=@centername,feetype=@feetype,itemtype=@itemtype ,paydate=@paydate where detailguid=@detailguid", sqlConnection, sqlTranscation);
-                        //updateCommand.Parameters.Add(new SqlParameter("@code", SqlDbType.VarChar, 30, System.Data.ParameterDirection.Input,false));
-                        updateCommand.Parameters.Add(new SqlParameter("@code", SqlDbType.VarChar, 100, "code"));
-                        updateCommand.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar, 100, "name"));
-                        updateCommand.Parameters.Add(new SqlParameter("@spec", SqlDbType.VarChar, 100, "spec"));
-                        updateCommand.Parameters.Add(new SqlParameter("@unit", SqlDbType.VarChar, 100, "unit"));
-                        updateCommand.Parameters.Add(new SqlParameter("@quantum", SqlDbType.VarChar, 100, "quantum"));
-                        updateCommand.Parameters.Add(new SqlParameter("@price", SqlDbType.VarChar, 30, "price"));
-                        updateCommand.Parameters.Add(new SqlParameter("@totalprice", SqlDbType.VarChar, 30, "totalprice"));
-                        updateCommand.Parameters.Add(new SqlParameter("@paydate", SqlDbType.DateTime, 100, "paydate"));
-                        updateCommand.Parameters.Add(new SqlParameter("@centercode", SqlDbType.VarChar, 100, "centercode"));
-                        updateCommand.Parameters.Add(new SqlParameter("@centername", SqlDbType.VarChar, 100, "centername"));
-
-                        updateCommand.Parameters.Add(new SqlParameter("@feetype", SqlDbType.VarChar, 30, "feetype"));
-                        updateCommand.Parameters.Add(new SqlParameter("@itemtype", SqlDbType.VarChar, 30, "itemtype"));
-                        updateCommand.Parameters.Add(new SqlParameter("@detailguid", SqlDbType.VarChar, 100, "detailguid"));
+                      
 
 
 
@@ -223,6 +208,25 @@ VALUES (@pid, @code, @name, @spec, @unit, @quantum, @price, @totalprice, @paydat
                         insertCommand.Parameters.Add(new SqlParameter("@detailguid", SqlDbType.VarChar, 100, "detailguid"));
 
 
+                        SqlCommand updateCommand = new SqlCommand(@"UPDATE hzyl_wz_fymx SET code=@code,name=@name,spec=@spec,@unit=@unit,quantum=@quantum,price=@price,totalprice=@totalprice,centercode=@centercode,centername=@centername,feetype=@feetype,itemtype=@itemtype ,paydate=@paydate where detailguid=@detailguid", sqlConnection, sqlTranscation);
+                        //updateCommand.Parameters.Add(new SqlParameter("@code", SqlDbType.VarChar, 30, System.Data.ParameterDirection.Input,false));
+                        updateCommand.Parameters.Add(new SqlParameter("@code", SqlDbType.VarChar, 100, "code"));
+                        updateCommand.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar, 100, "name"));
+                        updateCommand.Parameters.Add(new SqlParameter("@spec", SqlDbType.VarChar, 100, "spec"));
+                        updateCommand.Parameters.Add(new SqlParameter("@unit", SqlDbType.VarChar, 100, "unit"));
+                        updateCommand.Parameters.Add(new SqlParameter("@quantum", SqlDbType.VarChar, 100, "quantum"));
+                        updateCommand.Parameters.Add(new SqlParameter("@price", SqlDbType.VarChar, 30, "price"));
+                        updateCommand.Parameters.Add(new SqlParameter("@totalprice", SqlDbType.VarChar, 30, "totalprice"));
+                      
+                        updateCommand.Parameters.Add(new SqlParameter("@centercode", SqlDbType.VarChar, 100, "centercode"));
+                        updateCommand.Parameters.Add(new SqlParameter("@centername", SqlDbType.VarChar, 100, "centername"));
+
+                        updateCommand.Parameters.Add(new SqlParameter("@feetype", SqlDbType.VarChar, 30, "feetype"));
+                        updateCommand.Parameters.Add(new SqlParameter("@itemtype", SqlDbType.VarChar, 30, "itemtype"));
+                        updateCommand.Parameters.Add(new SqlParameter("@paydate", SqlDbType.DateTime, 100, "paydate"));
+                        updateCommand.Parameters.Add(new SqlParameter("@detailguid", SqlDbType.VarChar, 100, "detailguid"));
+
+
                         sqlDataAdapter.InsertCommand = insertCommand;
                         sqlDataAdapter.UpdateCommand = updateCommand;
 
@@ -243,6 +247,52 @@ VALUES (@pid, @code, @name, @spec, @unit, @quantum, @price, @totalprice, @paydat
             
             return true;
         }
+
+
+        public bool UpdateZyjl(DataTable dt)
+        {
+            SqlConnection sqlConnection = SqlHelper.GetConnection();
+            sqlConnection.Open();
+            using (SqlTransaction sqlTranscation = sqlConnection.BeginTransaction())
+            {
+                try
+                {
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+
+
+
+                        SqlCommand updateCommand = new SqlCommand(@"UPDATE hzyl_wz_zyjl
+SET zyh = @zyh,	
+	ylzh = @ylzh,
+	name = @name	
+	where id=@id
+", sqlConnection, sqlTranscation);
+                       
+                        updateCommand.Parameters.Add(new SqlParameter("@zyh", SqlDbType.VarChar, 100, "zyh"));
+                        updateCommand.Parameters.Add(new SqlParameter("@ylzh", SqlDbType.VarChar, 100, "ylzh"));
+                        updateCommand.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar, 100, "name"));
+                        updateCommand.Parameters.Add(new SqlParameter("@id", SqlDbType.VarChar, 100, "id"));      
+                        sqlDataAdapter.UpdateCommand = updateCommand;
+
+                        sqlDataAdapter.Update(dt);
+                    }
+                    sqlTranscation.Commit();
+                }
+                catch (Exception e)
+                {
+                    sqlTranscation.Rollback();
+                    throw e;
+                }
+                finally
+                {
+                    sqlConnection.Close();
+                }
+            }
+
+            return true;
+        }
+
 
 
         public void UpdateItemDictRelation(string scanname, string showname, string centercode,string frcode)

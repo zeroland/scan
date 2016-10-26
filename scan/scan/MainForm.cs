@@ -134,11 +134,12 @@ namespace scan
             Application.DoEvents();
             try
             {
+                
                 synchronizer = new ComponentSynchronizerClass();
                 synchronizer.DocumentViewer = (FineReaderVisualComponents.DocumentViewer)ScanDocumentViewer.GetOcx();
                 synchronizer.ImageViewer = (FineReaderVisualComponents.ImageViewer)ScanImageViewer.GetOcx();
-              
 
+                
                 engineLoader = new Sample.EngineLoader();
                 engineLoader.Engine.LoadPredefinedProfile("Default");
                 engineLoader.Engine.ParentWindow = this.Handle.ToInt64();
@@ -151,9 +152,10 @@ namespace scan
              
 
                    DocumentProcessingParams param = engineLoader.Engine.CreateDocumentProcessingParams();
-                param.PageProcessingParams.RecognizerParams.SetPredefinedTextLanguage("ChinesePRC");
+                param.PageProcessingParams.RecognizerParams.SetPredefinedTextLanguage("ChinesePRC,ChinesePRC+English,ChineseTaiwan,ChineseTaiwan+English,English");
                 synchronizer.ProcessingParams = param;
-
+                //param.PageProcessingParams.RecognizerParams.
+              
 
                 scanManager = engineLoader.Engine.CreateScanManager(false);
 
@@ -2302,7 +2304,7 @@ namespace scan
         private void InvertToolStripButton_Click(object sender, EventArgs e)
         {
             ScanImageViewer.Commands.DoCommand(MenuItemEnum.MI_RotateCounterClockwise, true);
-           
+            
         }
 
         private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)

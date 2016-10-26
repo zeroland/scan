@@ -40,6 +40,12 @@ namespace scan.Business
             return itemProcess.SaveAndUpdateDetail(dt);
         }
 
+        public bool UpdateZyjl(DataTable dt)
+        {
+            IItemProcess itemProcess = new SqlServer.ItemProcess();
+            return itemProcess.UpdateZyjl(dt);
+        }
+
         public void UpdateItemDictRelation(string scanname ,string showname,string centercode, string frcode)
         {
             //开始 结束名字 都不为数值才更新

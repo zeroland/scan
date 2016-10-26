@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="外诊扫描录入系统.exe" version="1.0.0.36" publicKeyToken="0000000000000000" language="zh" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="外诊扫描录入系统.exe" version="1.0.0.39" publicKeyToken="0000000000000000" language="zh" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="scanico.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -58,38 +58,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.FineReaderVisualComponents.dll" size="130776">
-      <assemblyIdentity name="AxInterop.FineReaderVisualComponents" version="11.1.10.100" publicKeyToken="2E1E7ACA5D298F96" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.FineReaderVisualComponents.dll" size="114688">
+      <assemblyIdentity name="AxInterop.FineReaderVisualComponents" version="11.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>J5NyPCSUdxCSTzEA7RzRIrE3qVI=</dsig:DigestValue>
+        <dsig:DigestValue>CXFjrcH+9cbrjqF192nb+9GlHJE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.FineReaderVisualComponents.dll" size="335576">
-      <assemblyIdentity name="Interop.FineReaderVisualComponents" version="11.1.10.100" publicKeyToken="2E1E7ACA5D298F96" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.FineReaderVisualComponents.dll" size="319488">
+      <assemblyIdentity name="Interop.FineReaderVisualComponents" version="11.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>YEa4dPdtCB+FJirEXF0ifszqv0k=</dsig:DigestValue>
+        <dsig:DigestValue>mzrlo/SCIwNMJCM5Sxh9ZFbRjzk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.FREngine.dll" size="528088">
-      <assemblyIdentity name="Interop.FREngine" version="11.1.10.100" publicKeyToken="2E1E7ACA5D298F96" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.FREngine.dll" size="507904">
+      <assemblyIdentity name="Interop.FREngine" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>jVNB2o/FCAn22b8rWwF4fERlaik=</dsig:DigestValue>
+        <dsig:DigestValue>bOM9A1Bljf0HfpXTtGXoDV4sWdk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -142,14 +142,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="509472">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="515104">
       <assemblyIdentity name="外诊扫描录入系统" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>wUc94548R8bWEDDQBn6o+K5q7S8=</dsig:DigestValue>
+        <dsig:DigestValue>RqFhAUdRBicnGmlVvxYsS8D3QLs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -621,13 +621,13 @@
       <dsig:DigestValue>CJWIc65iWU84UTjAxT80ovmI1JA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Xmls\MainList.xml" size="2366">
+  <file name="Xmls\MainList.xml" size="2365">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>qm/U+9TK6NLGJ/C4wLKhbbO+xnA=</dsig:DigestValue>
+      <dsig:DigestValue>Pl8j49vNukUJdwqO1A/alfM1pE4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Xmls\soap.xml" size="472">

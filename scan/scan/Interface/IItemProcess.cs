@@ -15,6 +15,7 @@ namespace scan.Interface
         DataSet GetShowNameByFRcodeScanName(string scanname,string frcode);
         bool UpdateDetailInfo(DataTable dt);
         bool SaveAndUpdateDetail(DataTable dt);
+        bool UpdateZyjl(DataTable dt);
         void UpdateItemDictRelation(string scanname, string showname, string centercode, string frcode);
         DataSet GetItemDict(string frcode, string str);
     }
