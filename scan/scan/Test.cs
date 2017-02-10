@@ -23,7 +23,10 @@ namespace scan
         {
             //2147483647  Int32.MaxValue();
            // Decimal.MaxValue();
+          // Math.Round()
         } 
+
+
 
         private void upload()
         {
@@ -133,6 +136,61 @@ namespace scan
             string a = ".";
             decimal sss = 0;
             bool su = Decimal.TryParse(a, out sss);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Util.ExportExcel export = new Util.ExportExcel();
+            //export.DataToExcel(null,"aaaa");
+         
+            DataTable dt = new DataTable();
+            dt.Columns.Add("姓名", typeof(String));
+            dt.Columns.Add("性别", typeof(String));
+            DataRow dr = dt.NewRow();
+            dr["姓名"] = "王一";
+            dr["性别"] = "男";
+
+            DataRow dr1 = dt.NewRow();
+            dr1["姓名"] = "王二";
+            dr1["性别"] = "女";
+
+            dt.Rows.Add(dr);
+            dt.Rows.Add(dr1);
+            dt.TableName = "测试NPOI";
+            // Util.Util.WriteExcel(dt, "d://test.xls");
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel files (*.xls)|*.xls";
+            saveFileDialog.FilterIndex = 0;
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.CreatePrompt = false;
+            saveFileDialog.FileName = "wangtest" + ".xls";
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
+            Util.Util.WriteExcel(dt, saveFileDialog.FileName);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataSet ds= new Business.MainList().CombineFeeDetail("2");
+                
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel files (*.xls)|*.xls";
+                saveFileDialog.FilterIndex = 0;
+                saveFileDialog.RestoreDirectory = true;
+                saveFileDialog.CreatePrompt = false;
+                saveFileDialog.FileName = "wang-123" + ".xls";
+                if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
+                Util.Util.WriteExcel(ds.Tables[0], saveFileDialog.FileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
     }
 }

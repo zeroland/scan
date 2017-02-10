@@ -394,5 +394,38 @@ namespace scan.SqlServer
         }
 
 
+        public DataSet CombineFeeDetail(string pid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection sqlConnection = null;
+            try
+            {
+                sqlConnection = SqlHelper.GetConnection();
+                using (SqlCommand sqlCommand = new SqlCommand("prc_combinedetail", sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.Add("@pid", SqlDbType.VarChar).Value = pid;
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                    {
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        sqlDataAdapter.Fill(ds, "combineresult");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if(sqlConnection.State!=ConnectionState.Closed)
+                { 
+                 SqlHelper.CloseConnection(sqlConnection);
+                }
+            }
+
+            return ds;
+        }
+
     }
 }

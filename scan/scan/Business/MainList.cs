@@ -287,5 +287,11 @@ namespace scan.Business
         }
 
 
+        public DataSet CombineFeeDetail(string pid)
+        {
+            Interface.IMainList iMainList = new SqlServer.MainList();
+            return iMainList.CombineFeeDetail(pid); 
+        }
+
     }
 }

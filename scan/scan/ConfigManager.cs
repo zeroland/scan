@@ -145,7 +145,7 @@ namespace scan
             if (this.OrgTreeView.SelectedNode != null)
             {
                 DataRow dr= (DataRow)this.OrgTreeView.SelectedNode.Tag;
-                if (dr["orgtype"].ToString() == "2")
+                if (dr["orgtype"].ToString() == "2"|| dr["orgtype"].ToString() == "5")
                 {
                     this.orgID = dr["orgid"].ToString();
                 }

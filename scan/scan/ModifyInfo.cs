@@ -17,6 +17,7 @@ namespace scan
         public string beginName = "", endName = "";
         private Hashtable dictHT = new Hashtable();
         private string pid = "";
+        private string _name = "";
         //正在加载框采用子线程处理
         LoadForm loadForm;
         Thread MyProgressWait;
@@ -49,6 +50,7 @@ namespace scan
                     {
                         DataRow dr = dsZyjl.Tables[0].Rows[0];
                         string name = dr["name"].ToString();
+                        this._name = name;
                         string ylzh = dr["ylzh"].ToString();
                         string zyh = dr["zyh"].ToString();
                         this.TipToolStripStatusLabel.Text += "姓名:"+name+"    医疗证号:"+ylzh+"     住院号:"+zyh;
@@ -801,7 +803,21 @@ namespace scan
                                 firstCenterCode = centercode;
                             }
 
-                           
+
+
+                        }
+                    }
+                    else if (dr["keyword"].ToString().IndexOf(data) > -1)
+                    {
+                        centercode = dr["centercode"] == null ? "" : dr["centercode"].ToString();
+                        if (!String.IsNullOrEmpty(centercode))
+                        {
+                            if (String.IsNullOrEmpty(firstCenterCode))
+                            {
+                                firstCenterCode = centercode;
+                            }
+
+
 
                         }
                     }
@@ -1254,6 +1270,7 @@ namespace scan
             try
             {
                 int count = 0;
+                bool result=false;
                 for (int i = 0; i < this.ScanDataGridView.Rows.Count; i++)
                 {
 
@@ -1262,21 +1279,8 @@ namespace scan
                         count++;
 
                         string detailID = this.ScanDataGridView.Rows[i].Cells[this.ScanDataGridView.Columns["id"].Index].Value.ToString();
-                        bool result = new Business.MainList().DelDetailByID(detailID);
-                        if (result)
-                        {
-                            MessageBox.Show("删除成功!");
-
-                            //加载费用明细
-                            this.BindData(this.pid);
-
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("删除失败!");
-                            return;
-                        }
+                        result = new Business.MainList().DelDetailByID(detailID);
+                      
                     }
 
                 }
@@ -1285,12 +1289,52 @@ namespace scan
                     MessageBox.Show("没有选中要删除的记录!");
                     return;
                 }
+                if (result)
+                {
+                    MessageBox.Show("删除成功!");
+
+                    //加载费用明细
+                    this.BindData(this.pid);
+
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("删除失败!");
+                    return;
+                }
 
             }
             catch (Exception ex)
             {
 
                 throw ex;
+            }
+        }
+
+        private void exportToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //获取数据记录再拼包
+                //根据guid获取记录,guid由登记主信息之后，传过来的
+
+
+                DataSet ds = new Business.MainList().CombineFeeDetail(this.pid);
+
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel files (*.xls)|*.xls";
+                saveFileDialog.FilterIndex = 0;
+                saveFileDialog.RestoreDirectory = true;
+                saveFileDialog.CreatePrompt = false;
+                saveFileDialog.FileName = this._name + System.DateTime.Now.ToShortDateString() + ".xls";
+                if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
+                Util.Util.WriteExcel(ds.Tables[0], saveFileDialog.FileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 

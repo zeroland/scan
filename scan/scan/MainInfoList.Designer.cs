@@ -45,20 +45,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.itemSearch1 = new scan.ItemSearch();
             this.ScanDataGridView = new System.Windows.Forms.DataGridView();
-            this.ToolFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.SelectToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.DeSelectToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.DictToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.MapAllToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.labelTotalPrice = new System.Windows.Forms.Label();
-            this.labelCount = new System.Windows.Forms.Label();
-            this.btnScan = new System.Windows.Forms.Button();
-            this.btnDeleteInfo = new System.Windows.Forms.Button();
-            this.btnUpload = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.messageToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +60,20 @@
             this.FeeType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.MapCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oldname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToolFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.SelectToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.DeSelectToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.DictToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.MapAllToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.labelTotalPrice = new System.Windows.Forms.Label();
+            this.labelCount = new System.Windows.Forms.Label();
+            this.btnScan = new System.Windows.Forms.Button();
+            this.btnDeleteInfo = new System.Windows.Forms.Button();
+            this.btnUpload = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.messageToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -308,154 +308,6 @@
             this.ScanDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.ScanDataGridView_DataError);
             this.ScanDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.ScanDataGridView_EditingControlShowing);
             // 
-            // ToolFlowLayoutPanel
-            // 
-            this.ToolFlowLayoutPanel.Controls.Add(this.toolStrip1);
-            this.ToolFlowLayoutPanel.Location = new System.Drawing.Point(3, 2);
-            this.ToolFlowLayoutPanel.Name = "ToolFlowLayoutPanel";
-            this.ToolFlowLayoutPanel.Size = new System.Drawing.Size(674, 29);
-            this.ToolFlowLayoutPanel.TabIndex = 3;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SelectToolStripButton,
-            this.DeSelectToolStripButton,
-            this.DictToolStripComboBox,
-            this.MapAllToolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(315, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // SelectToolStripButton
-            // 
-            this.SelectToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("SelectToolStripButton.Image")));
-            this.SelectToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SelectToolStripButton.Name = "SelectToolStripButton";
-            this.SelectToolStripButton.Size = new System.Drawing.Size(52, 22);
-            this.SelectToolStripButton.Text = "全选";
-            this.SelectToolStripButton.Click += new System.EventHandler(this.SelectToolStripButton_Click);
-            // 
-            // DeSelectToolStripButton
-            // 
-            this.DeSelectToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("DeSelectToolStripButton.Image")));
-            this.DeSelectToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.DeSelectToolStripButton.Name = "DeSelectToolStripButton";
-            this.DeSelectToolStripButton.Size = new System.Drawing.Size(52, 22);
-            this.DeSelectToolStripButton.Text = "反选";
-            this.DeSelectToolStripButton.Click += new System.EventHandler(this.DeSelectToolStripButton_Click);
-            // 
-            // DictToolStripComboBox
-            // 
-            this.DictToolStripComboBox.Name = "DictToolStripComboBox";
-            this.DictToolStripComboBox.Size = new System.Drawing.Size(121, 25);
-            // 
-            // MapAllToolStripButton
-            // 
-            this.MapAllToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("MapAllToolStripButton.Image")));
-            this.MapAllToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.MapAllToolStripButton.Name = "MapAllToolStripButton";
-            this.MapAllToolStripButton.Size = new System.Drawing.Size(76, 22);
-            this.MapAllToolStripButton.Text = "批量对照";
-            this.MapAllToolStripButton.Click += new System.EventHandler(this.MapAllToolStripButton_Click);
-            // 
-            // labelTotalPrice
-            // 
-            this.labelTotalPrice.AutoSize = true;
-            this.labelTotalPrice.Location = new System.Drawing.Point(595, 11);
-            this.labelTotalPrice.Name = "labelTotalPrice";
-            this.labelTotalPrice.Size = new System.Drawing.Size(59, 12);
-            this.labelTotalPrice.TabIndex = 5;
-            this.labelTotalPrice.Text = "总金额：0";
-            // 
-            // labelCount
-            // 
-            this.labelCount.AutoSize = true;
-            this.labelCount.Location = new System.Drawing.Point(469, 11);
-            this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(59, 12);
-            this.labelCount.TabIndex = 4;
-            this.labelCount.Text = "总条数：0";
-            // 
-            // btnScan
-            // 
-            this.btnScan.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnScan.Image = global::scan.Properties.Resources.扫描;
-            this.btnScan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnScan.Location = new System.Drawing.Point(7, 9);
-            this.btnScan.Name = "btnScan";
-            this.btnScan.Size = new System.Drawing.Size(75, 23);
-            this.btnScan.TabIndex = 3;
-            this.btnScan.Text = "继续扫描";
-            this.btnScan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnScan.UseVisualStyleBackColor = false;
-            this.btnScan.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnDeleteInfo
-            // 
-            this.btnDeleteInfo.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnDeleteInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteInfo.Image")));
-            this.btnDeleteInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteInfo.Location = new System.Drawing.Point(250, 9);
-            this.btnDeleteInfo.Name = "btnDeleteInfo";
-            this.btnDeleteInfo.Size = new System.Drawing.Size(108, 23);
-            this.btnDeleteInfo.TabIndex = 2;
-            this.btnDeleteInfo.Text = "删除患者信息";
-            this.btnDeleteInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteInfo.UseVisualStyleBackColor = false;
-            this.btnDeleteInfo.Click += new System.EventHandler(this.btnDeleteInfo_Click);
-            // 
-            // btnUpload
-            // 
-            this.btnUpload.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnUpload.Image = global::scan.Properties.Resources.上传;
-            this.btnUpload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpload.Location = new System.Drawing.Point(169, 9);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(75, 23);
-            this.btnUpload.TabIndex = 1;
-            this.btnUpload.Text = "上   传";
-            this.btnUpload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpload.UseVisualStyleBackColor = false;
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(88, 9);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "保   存";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.messageToolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 526);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(849, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
-            // 
-            // messageToolStripStatusLabel
-            // 
-            this.messageToolStripStatusLabel.AutoSize = false;
-            this.messageToolStripStatusLabel.Name = "messageToolStripStatusLabel";
-            this.messageToolStripStatusLabel.Size = new System.Drawing.Size(834, 17);
-            this.messageToolStripStatusLabel.Spring = true;
-            this.messageToolStripStatusLabel.Text = "外诊扫描录入系统";
-            this.messageToolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // 序号
             // 
             this.序号.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -570,6 +422,154 @@
             this.oldname.Name = "oldname";
             this.oldname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.oldname.Visible = false;
+            // 
+            // ToolFlowLayoutPanel
+            // 
+            this.ToolFlowLayoutPanel.Controls.Add(this.toolStrip1);
+            this.ToolFlowLayoutPanel.Location = new System.Drawing.Point(3, 2);
+            this.ToolFlowLayoutPanel.Name = "ToolFlowLayoutPanel";
+            this.ToolFlowLayoutPanel.Size = new System.Drawing.Size(674, 29);
+            this.ToolFlowLayoutPanel.TabIndex = 3;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SelectToolStripButton,
+            this.DeSelectToolStripButton,
+            this.DictToolStripComboBox,
+            this.MapAllToolStripButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(315, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // SelectToolStripButton
+            // 
+            this.SelectToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("SelectToolStripButton.Image")));
+            this.SelectToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SelectToolStripButton.Name = "SelectToolStripButton";
+            this.SelectToolStripButton.Size = new System.Drawing.Size(52, 22);
+            this.SelectToolStripButton.Text = "全选";
+            this.SelectToolStripButton.Click += new System.EventHandler(this.SelectToolStripButton_Click);
+            // 
+            // DeSelectToolStripButton
+            // 
+            this.DeSelectToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("DeSelectToolStripButton.Image")));
+            this.DeSelectToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DeSelectToolStripButton.Name = "DeSelectToolStripButton";
+            this.DeSelectToolStripButton.Size = new System.Drawing.Size(52, 22);
+            this.DeSelectToolStripButton.Text = "反选";
+            this.DeSelectToolStripButton.Click += new System.EventHandler(this.DeSelectToolStripButton_Click);
+            // 
+            // DictToolStripComboBox
+            // 
+            this.DictToolStripComboBox.Name = "DictToolStripComboBox";
+            this.DictToolStripComboBox.Size = new System.Drawing.Size(121, 25);
+            // 
+            // MapAllToolStripButton
+            // 
+            this.MapAllToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("MapAllToolStripButton.Image")));
+            this.MapAllToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.MapAllToolStripButton.Name = "MapAllToolStripButton";
+            this.MapAllToolStripButton.Size = new System.Drawing.Size(76, 22);
+            this.MapAllToolStripButton.Text = "批量对照";
+            this.MapAllToolStripButton.Click += new System.EventHandler(this.MapAllToolStripButton_Click);
+            // 
+            // labelTotalPrice
+            // 
+            this.labelTotalPrice.AutoSize = true;
+            this.labelTotalPrice.Location = new System.Drawing.Point(595, 11);
+            this.labelTotalPrice.Name = "labelTotalPrice";
+            this.labelTotalPrice.Size = new System.Drawing.Size(59, 12);
+            this.labelTotalPrice.TabIndex = 5;
+            this.labelTotalPrice.Text = "总金额：0";
+            // 
+            // labelCount
+            // 
+            this.labelCount.AutoSize = true;
+            this.labelCount.Location = new System.Drawing.Point(469, 11);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(59, 12);
+            this.labelCount.TabIndex = 4;
+            this.labelCount.Text = "总条数：0";
+            // 
+            // btnScan
+            // 
+            this.btnScan.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnScan.Image = global::scan.Properties.Resources.扫描;
+            this.btnScan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnScan.Location = new System.Drawing.Point(7, 9);
+            this.btnScan.Name = "btnScan";
+            this.btnScan.Size = new System.Drawing.Size(75, 23);
+            this.btnScan.TabIndex = 3;
+            this.btnScan.Text = "继续扫描";
+            this.btnScan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnScan.UseVisualStyleBackColor = false;
+            this.btnScan.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnDeleteInfo
+            // 
+            this.btnDeleteInfo.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnDeleteInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteInfo.Image")));
+            this.btnDeleteInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteInfo.Location = new System.Drawing.Point(318, 10);
+            this.btnDeleteInfo.Name = "btnDeleteInfo";
+            this.btnDeleteInfo.Size = new System.Drawing.Size(108, 23);
+            this.btnDeleteInfo.TabIndex = 2;
+            this.btnDeleteInfo.Text = "删除患者信息";
+            this.btnDeleteInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteInfo.UseVisualStyleBackColor = false;
+            this.btnDeleteInfo.Click += new System.EventHandler(this.btnDeleteInfo_Click);
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnUpload.Image = global::scan.Properties.Resources.上传;
+            this.btnUpload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpload.Location = new System.Drawing.Point(169, 9);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(75, 23);
+            this.btnUpload.TabIndex = 1;
+            this.btnUpload.Text = "上   传";
+            this.btnUpload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpload.UseVisualStyleBackColor = false;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(88, 9);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "保   存";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.messageToolStripStatusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 526);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(849, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            // 
+            // messageToolStripStatusLabel
+            // 
+            this.messageToolStripStatusLabel.AutoSize = false;
+            this.messageToolStripStatusLabel.Name = "messageToolStripStatusLabel";
+            this.messageToolStripStatusLabel.Size = new System.Drawing.Size(834, 17);
+            this.messageToolStripStatusLabel.Spring = true;
+            this.messageToolStripStatusLabel.Text = "外诊扫描录入系统";
+            this.messageToolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainInfoList
             // 

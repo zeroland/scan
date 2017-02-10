@@ -25,5 +25,6 @@ namespace scan.Interface
         bool DeleteZyjlById(string id);
         bool UpdateUploadFymxByPId(string id);
         bool DelDetailByID(string id);
+        DataSet CombineFeeDetail(string pid);
     }
 }

@@ -152,7 +152,8 @@ namespace scan
             if (this.OrgTreeView.SelectedNode != null)
             {
                 DataRow dr= (DataRow)this.OrgTreeView.SelectedNode.Tag;
-                if (dr["orgtype"].ToString() == "2")
+                //2 行政单位 5 医保中心 区分上传与导出功能显示用 
+                if (dr["orgtype"].ToString() == "2"|| dr["orgtype"].ToString() =="5")
                 {
                     this.orgID = dr["orgid"].ToString();
                 }

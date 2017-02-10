@@ -1,0 +1,1892 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>外诊扫描录入系统</name>
+    </assembly>
+    <members>
+        <member name="F:scan.AddConfigInfo.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.AddConfigInfo.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.AddConfigInfo.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:scan.AlterForm.btnSave_Click(System.Object,System.EventArgs)">
+            <summary>
+            保存数据
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:scan.AlterForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.AlterForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.AlterForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.AddUser.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.AddUser.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.AddUser.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.InhosList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.InhosList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.InhosList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.DictViewForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.DictViewForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.DictViewForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:scan.ItemMappingForm.btnMap_Click(System.Object,System.EventArgs)">
+            <summary>
+            循环gridview like匹配中心项目
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:scan.ItemMappingForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.ItemMappingForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.ItemMappingForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:scan.ItemSearch.InitDataGridView">
+            <summary>
+            初始化gridview
+            </summary>
+        </member>
+        <member name="F:scan.ItemSearch.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:scan.ItemSearch.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:scan.ItemSearch.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:scan.LoadForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.LoadForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.LoadForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.LoginForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.LoginForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.LoginForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:scan.MainForm.getItemDictRowByScanName(System.String)">
+            <summary>
+            通过scanname showname 获取,加载数据的时候，两个值相等
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:scan.MainForm.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            重写父类处理按键事件  datagridview
+            </summary>
+            <param name="msg"></param>
+            <param name="keyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:scan.MainForm.ScanDataGridView_CellBeginEdit(System.Object,System.Windows.Forms.DataGridViewCellCancelEventArgs)">
+            <summary>
+            获取单元格（名称）编辑之前的数据 用于存储项目字典
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.MainForm.ScanDataGridView_CellEndEdit(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            获取单元格（名称）编辑之后的数据
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:scan.MainForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:scan.MainForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:scan.MainForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:scan.ModifyInfo.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            重写父类处理按键事件  datagridview
+            </summary>
+            <param name="msg"></param>
+            <param name="keyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:scan.ModifyInfo.ScanDataGridView_CellBeginEdit(System.Object,System.Windows.Forms.DataGridViewCellCancelEventArgs)">
+            <summary>
+            获取单元格（名称）编辑之前的数据 用于存储项目字典
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.ModifyInfo.ScanDataGridView_CellEndEdit(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            获取单元格（名称）编辑之后的数据
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.ModifyInfo.getItemDictRowByScanName(System.String)">
+            <summary>
+            通过scanname showname 获取,加载数据的时候，两个值相等
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:scan.ModifyInfo.btnSave_Click(System.Object,System.EventArgs)">
+            <summary>
+            保存方法
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.ModifyInfo.btnUpload_Click(System.Object,System.EventArgs)">
+            <summary>
+            上传方法
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.ModifyInfo.SelectToolStripButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            继续扫描方法
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:scan.ModifyInfo.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.ModifyInfo.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.ModifyInfo.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:scan.MainInfoList.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            重写父类处理按键事件  datagridview
+            </summary>
+            <param name="msg"></param>
+            <param name="keyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:scan.MainInfoList.ScanDataGridView_CellBeginEdit(System.Object,System.Windows.Forms.DataGridViewCellCancelEventArgs)">
+            <summary>
+            获取单元格（名称）编辑之前的数据 用于存储项目字典
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.MainInfoList.ScanDataGridView_CellEndEdit(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            获取单元格（名称）编辑之后的数据
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:scan.MainInfoList.getItemDictRowByScanName(System.String)">
+            <summary>
+            通过scanname showname 获取,加载数据的时候，两个值相等
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="F:scan.MainInfoList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.MainInfoList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.MainInfoList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.NavForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.NavForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.NavForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:scan.Program.Main">
+            <summary>
+            应用程序的主入口点。
+            </summary>
+        </member>
+        <member name="M:scan.AddForm.btnSave_Click(System.Object,System.EventArgs)">
+            <summary>
+            保存数据
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:scan.AddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.AddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.AddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ScanDataTableDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.CenterDataDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.DictDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ItemDictDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ScanDetailDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.UserInfoDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.BaseOrgInfoDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ConfigInfoDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ScanDataTableRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.CenterDataRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.DictRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ItemDictRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ScanDetailRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.UserInfoRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.BaseOrgInfoRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ConfigInfoRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ScanDataTableRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.CenterDataRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.DictRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ItemDictRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ScanDetailRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.UserInfoRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.BaseOrgInfoRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:scan.ScanDataSet.ConfigInfoRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="F:scan.SelectStyleForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.SelectStyleForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.SelectStyleForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.SplashForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.SplashForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.SplashForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:scan.SqlServer.MainList.InsertZyjl(System.Collections.IDictionary)">
+            <summary>
+            插入住院记录
+            </summary>
+            <param name="iDictionary">参数数组放到字典中</param>
+            <returns></returns>
+        </member>
+        <member name="F:scan.StyleForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.StyleForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.StyleForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.Test.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.Test.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.Test.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.TestTimer.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.TestTimer.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.TestTimer.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.UpdatePwd.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.UpdatePwd.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.UpdatePwd.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.ConfigManager.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.ConfigManager.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.ConfigManager.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:scan.UserManager.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:scan.UserManager.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:scan.UserManager.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:scan.Util.CJKAnalyzer">
+             Filters CJKTokenizer with StopFilter.
+            
+             @author Che, Dong
+        </member>
+        <member name="F:scan.Util.CJKAnalyzer.STOP_WORDS">
+            An array containing some common English words that are not usually
+            useful for searching and some double-byte interpunctions.
+        </member>
+        <member name="F:scan.Util.CJKAnalyzer.stopTable">
+            stop word list
+        </member>
+        <member name="M:scan.Util.CJKAnalyzer.#ctor">
+            Builds an analyzer which removes words in {@link #STOP_WORDS}.
+        </member>
+        <member name="M:scan.Util.CJKAnalyzer.#ctor(System.String[])">
+             Builds an analyzer which removes words in the provided array.
+            
+             @param stopWords stop word array
+        </member>
+        <member name="M:scan.Util.CJKAnalyzer.TokenStream(System.String,System.IO.TextReader)">
+             get token stream from input
+            
+             @param fieldName lucene field name
+             @param reader    input reader
+             @return TokenStream
+        </member>
+        <member name="F:scan.Util.CJKTokenizer.MAX_WORD_LEN">
+            Max word length 
+        </member>
+        <member name="F:scan.Util.CJKTokenizer.IO_BUFFER_SIZE">
+            buffer size: 
+        </member>
+        <member name="F:scan.Util.CJKTokenizer.offset">
+            word offset, used to imply which character(in ) is parsed 
+        </member>
+        <member name="F:scan.Util.CJKTokenizer.bufferIndex">
+            the index used only for ioBuffer 
+        </member>
+        <member name="F:scan.Util.CJKTokenizer.dataLen">
+            data length 
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:scan.Util.CJKTokenizer.buffer" -->
+        <!-- Badly formed XML comment ignored for member "F:scan.Util.CJKTokenizer.ioBuffer" -->
+        <member name="F:scan.Util.CJKTokenizer.tokenType">
+            word type: single=>ASCII double=>non-ASCII word=>default 
+        </member>
+        <member name="F:scan.Util.CJKTokenizer.preIsTokened">
+            tag: previous character is a cached double-byte character "C1C2C3C4"
+            ----(set the C1 isTokened) C1C2 "C2C3C4" ----(set the C2 isTokened)
+            C1C2 C2C3 "C3C4" ----(set the C3 isTokened) "C1C2 C2C3 C3C4"
+        </member>
+        <member name="M:scan.Util.CJKTokenizer.#ctor(System.IO.TextReader)">
+             Construct a token stream processing the given input.
+            
+             @param in I/O reader
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.CJKTokenizer.Next" -->
+        <member name="M:scan.Util.ExportExcel.DataToExcel(System.Data.DataSet,System.String)">
+            <summary>
+            导出再打开提示格式问题,用第三方组件测试
+            </summary>
+            <param name="ds"></param>
+            <param name="fileName"></param>
+        </member>
+        <member name="T:scan.Util.SqlHelper">
+            <summary> 
+            SqlServer数据访问帮助类 
+            </summary> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.AttachParameters(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            将SqlParameter参数数组(参数值)分配给SqlCommand命令. 
+            这个方法将给任何一个参数分配DBNull.Value; 
+            该操作将阻止默认值的使用. 
+            </summary> 
+            <param name="command">命令名</param> 
+            <param name="commandParameters">SqlParameters数组</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.AssignParameterValues(System.Data.SqlClient.SqlParameter[],System.Data.DataRow)">
+            <summary> 
+            将DataRow类型的列值分配到SqlParameter参数数组. 
+            </summary> 
+            <param name="commandParameters">要分配值的SqlParameter参数数组</param> 
+            <param name="dataRow">将要分配给存储过程参数的DataRow</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.AssignParameterValues(System.Data.SqlClient.SqlParameter[],System.Object[])">
+            <summary> 
+            将一个对象数组分配给SqlParameter参数数组. 
+            </summary> 
+            <param name="commandParameters">要分配值的SqlParameter参数数组</param> 
+            <param name="parameterValues">将要分配给存储过程参数的对象数组</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.PrepareCommand(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[],System.Boolean@)">
+            <summary> 
+            预处理用户提供的命令,数据库连接/事务/命令类型/参数 
+            </summary> 
+            <param name="command">要处理的SqlCommand</param> 
+            <param name="connection">数据库连接</param> 
+            <param name="transaction">一个有效的事务或者是null值</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本, 其它.)</param> 
+            <param name="commandText">存储过程名或都T-SQL命令文本</param> 
+            <param name="commandParameters">和命令相关联的SqlParameter参数数组,如果没有参数为'null'</param> 
+            <param name="mustCloseConnection"><c>true</c> 如果连接是打开的,则为true,其它情况下为false.</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.GetConnSting">
+            <summary> 
+            一个有效的数据库连接字符串 
+            </summary> 
+            <returns></returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.GetConnection">
+            <summary> 
+            一个有效的数据库连接对象 
+            </summary> 
+            <returns></returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.GetSqlTranscation(System.Data.SqlClient.SqlConnection)">
+            <summary>
+            返回事务对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定连接字符串,类型的SqlCommand. 
+            </summary> 
+            <remarks> 
+            示例:  
+             int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders"); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本, 其它.)</param> 
+            <param name="commandText">存储过程名称或SQL语句</param> 
+            <returns>返回命令影响的行数</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定连接字符串,类型的SqlCommand.如果没有提供参数,不返回结果. 
+            </summary> 
+            <remarks> 
+            示例:  
+             int result = ExecuteNonQuery(connString, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本, 其它.)</param> 
+            <param name="commandText">存储过程名称或SQL语句</param> 
+            <param name="commandParameters">SqlParameter参数数组</param> 
+            <returns>返回命令影响的行数</returns> 
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.SqlHelper.ExecuteNonQuery(System.String,System.String,System.Object[])" -->
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库连接对象的命令 
+            </summary> 
+            <remarks> 
+            示例:  
+             int result = ExecuteNonQuery(conn, CommandType.StoredProcedure, "PublishOrders"); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型(存储过程,命令文本或其它.)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <returns>返回影响的行数</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库连接对象的命令 
+            </summary> 
+            <remarks> 
+            示例:  
+             int result = ExecuteNonQuery(conn, CommandType.StoredProcedure, "PublishOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型(存储过程,命令文本或其它.)</param> 
+            <param name="commandText">T存储过程名称或T-SQL语句</param> 
+            <param name="commandParameters">SqlParamter参数数组</param> 
+            <returns>返回影响的行数</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary> 
+            执行指定数据库连接对象的命令,将对象数组的值赋给存储过程参数. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值 
+            示例:  
+             int result = ExecuteNonQuery(conn, "PublishOrders", 24, 36); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回影响的行数</returns> 
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)" -->
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行带事务的SqlCommand(指定参数). 
+            </summary> 
+            <remarks> 
+            示例:  
+             int result = ExecuteNonQuery(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="transaction">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型(存储过程,命令文本或其它.)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="commandParameters">SqlParamter参数数组</param> 
+            <returns>返回影响的行数</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary> 
+            执行带事务的SqlCommand(指定参数值). 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值 
+            示例:  
+             int result = ExecuteNonQuery(conn, trans, "PublishOrders", 24, 36); 
+            </remarks> 
+            <param name="transaction">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回受影响的行数</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDataset(System.String,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库连接字符串的命令,返回DataSet. 
+            </summary> 
+            <remarks> 
+            示例:  
+             DataSet ds = ExecuteDataset(connString, CommandType.StoredProcedure, "GetOrders"); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <returns>返回一个包含结果集的DataSet</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDataset(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库连接字符串的命令,返回DataSet. 
+            </summary> 
+            <remarks> 
+            示例: 
+             DataSet ds = ExecuteDataset(connString, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="commandParameters">SqlParamters参数数组</param> 
+            <returns>返回一个包含结果集的DataSet</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDataset(System.String,System.String,System.Object[])">
+            <summary> 
+            执行指定数据库连接字符串的命令,直接提供参数值,返回DataSet. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值. 
+            示例: 
+             DataSet ds = ExecuteDataset(connString, "GetOrders", 24, 36); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="spName">存储过程名</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回一个包含结果集的DataSet</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库连接对象的命令,返回DataSet. 
+            </summary> 
+            <remarks> 
+            示例:  
+             DataSet ds = ExecuteDataset(conn, CommandType.StoredProcedure, "GetOrders"); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名或T-SQL语句</param> 
+            <returns>返回一个包含结果集的DataSet</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库连接对象的命令,指定存储过程参数,返回DataSet. 
+            </summary> 
+            <remarks> 
+            示例:  
+             DataSet ds = ExecuteDataset(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名或T-SQL语句</param> 
+            <param name="commandParameters">SqlParamter参数数组</param> 
+            <returns>返回一个包含结果集的DataSet</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary> 
+            执行指定数据库连接对象的命令,指定参数值,返回DataSet. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输入参数和返回值. 
+            示例.:  
+             DataSet ds = ExecuteDataset(conn, "GetOrders", 24, 36); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回一个包含结果集的DataSet</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定事务的命令,返回DataSet. 
+            </summary> 
+            <remarks> 
+            示例:  
+             DataSet ds = ExecuteDataset(trans, CommandType.StoredProcedure, "GetOrders"); 
+            </remarks> 
+            <param name="transaction">事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名或T-SQL语句</param> 
+            <returns>返回一个包含结果集的DataSet</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定事务的命令,指定参数,返回DataSet. 
+            </summary> 
+            <remarks> 
+            示例:  
+             DataSet ds = ExecuteDataset(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="transaction">事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名或T-SQL语句</param> 
+            <param name="commandParameters">SqlParamter参数数组</param> 
+            <returns>返回一个包含结果集的DataSet</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDataset(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary> 
+            执行指定事务的命令,指定参数值,返回DataSet. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输入参数和返回值. 
+            示例.:  
+             DataSet ds = ExecuteDataset(trans, "GetOrders", 24, 36); 
+            </remarks> 
+            <param name="transaction">事务</param> 
+            <param name="spName">存储过程名</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回一个包含结果集的DataSet</returns> 
+        </member>
+        <member name="T:scan.Util.SqlHelper.SqlConnectionOwnership">
+            <summary> 
+            枚举,标识数据库连接是由SqlHelper提供还是由调用者提供 
+            </summary> 
+        </member>
+        <member name="F:scan.Util.SqlHelper.SqlConnectionOwnership.Internal">
+            <summary>由SqlHelper提供连接</summary> 
+        </member>
+        <member name="F:scan.Util.SqlHelper.SqlConnectionOwnership.External">
+            <summary>由调用者提供连接</summary> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[],scan.Util.SqlHelper.SqlConnectionOwnership)">
+            <summary> 
+            执行指定数据库连接对象的数据阅读器. 
+            </summary> 
+            <remarks> 
+            如果是SqlHelper打开连接,当连接关闭DataReader也将关闭. 
+            如果是调用都打开连接,DataReader由调用都管理. 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="transaction">一个有效的事务,或者为 'null'</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名或T-SQL语句</param> 
+            <param name="commandParameters">SqlParameters参数数组,如果没有参数则为'null'</param> 
+            <param name="connectionOwnership">标识数据库连接对象是由调用者提供还是由SqlHelper提供</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库连接字符串的数据阅读器. 
+            </summary> 
+            <remarks> 
+            示例:  
+             SqlDataReader dr = ExecuteReader(connString, CommandType.StoredProcedure, "GetOrders"); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名或T-SQL语句</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库连接字符串的数据阅读器,指定参数. 
+            </summary> 
+            <remarks> 
+            示例:  
+             SqlDataReader dr = ExecuteReader(connString, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名或T-SQL语句</param> 
+            <param name="commandParameters">SqlParamter参数数组(new SqlParameter("@prodid", 24))</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.String,System.String,System.Object[])">
+            <summary> 
+            执行指定数据库连接字符串的数据阅读器,指定参数值. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            示例:  
+             SqlDataReader dr = ExecuteReader(connString, "GetOrders", 24, 36); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="spName">存储过程名</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库连接对象的数据阅读器. 
+            </summary> 
+            <remarks> 
+            示例:  
+             SqlDataReader dr = ExecuteReader(conn, CommandType.StoredProcedure, "GetOrders"); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名或T-SQL语句</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            [调用者方式]执行指定数据库连接对象的数据阅读器,指定参数. 
+            </summary> 
+            <remarks> 
+            示例:  
+             SqlDataReader dr = ExecuteReader(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandParameters">SqlParamter参数数组</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary> 
+            [调用者方式]执行指定数据库连接对象的数据阅读器,指定参数值. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            示例:  
+             SqlDataReader dr = ExecuteReader(conn, "GetOrders", 24, 36); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">T存储过程名</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary> 
+            [调用者方式]执行指定数据库事务的数据阅读器,指定参数值. 
+            </summary> 
+            <remarks> 
+            示例:  
+             SqlDataReader dr = ExecuteReader(trans, CommandType.StoredProcedure, "GetOrders"); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            [调用者方式]执行指定数据库事务的数据阅读器,指定参数. 
+            </summary> 
+            <remarks> 
+            示例:  
+              SqlDataReader dr = ExecuteReader(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary> 
+            [调用者方式]执行指定数据库事务的数据阅读器,指定参数值. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            
+            示例:  
+             SqlDataReader dr = ExecuteReader(trans, "GetOrders", 24, 36); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库连接字符串的命令,返回结果集中的第一行第一列. 
+            </summary> 
+            <remarks> 
+            示例:  
+             int orderCount = (int)ExecuteScalar(connString, CommandType.StoredProcedure, "GetOrderCount"); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalar(System.String,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库连接字符串的命令,指定参数,返回结果集中的第一行第一列. 
+            </summary> 
+            <remarks> 
+            示例:  
+             int orderCount = (int)ExecuteScalar(connString, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalar(System.String,System.String,System.Object[])">
+            <summary> 
+            执行指定数据库连接字符串的命令,指定参数值,返回结果集中的第一行第一列. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            
+            示例:  
+             int orderCount = (int)ExecuteScalar(connString, "GetOrderCount", 24, 36); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库连接对象的命令,返回结果集中的第一行第一列. 
+            </summary> 
+            <remarks> 
+            示例:  
+             int orderCount = (int)ExecuteScalar(conn, CommandType.StoredProcedure, "GetOrderCount"); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库连接对象的命令,指定参数,返回结果集中的第一行第一列. 
+            </summary> 
+            <remarks> 
+            示例:  
+             int orderCount = (int)ExecuteScalar(conn, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary> 
+            执行指定数据库连接对象的命令,指定参数值,返回结果集中的第一行第一列. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            
+            示例:  
+             int orderCount = (int)ExecuteScalar(conn, "GetOrderCount", 24, 36); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库事务的命令,返回结果集中的第一行第一列. 
+            </summary> 
+            <remarks> 
+            示例:  
+             int orderCount = (int)ExecuteScalar(trans, CommandType.StoredProcedure, "GetOrderCount"); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库事务的命令,指定参数,返回结果集中的第一行第一列. 
+            </summary> 
+            <remarks> 
+            示例:  
+             int orderCount = (int)ExecuteScalar(trans, CommandType.StoredProcedure, "GetOrderCount", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalar(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary> 
+            执行指定数据库事务的命令,指定参数值,返回结果集中的第一行第一列. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            
+            示例:  
+             int orderCount = (int)ExecuteScalar(trans, "GetOrderCount", 24, 36); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库连接对象的SqlCommand命令,并产生一个XmlReader对象做为结果集返回. 
+            </summary> 
+            <remarks> 
+            示例:  
+             XmlReader r = ExecuteXmlReader(conn, CommandType.StoredProcedure, "GetOrders"); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句 using "FOR XML AUTO"</param> 
+            <returns>返回XmlReader结果集对象.</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库连接对象的SqlCommand命令,并产生一个XmlReader对象做为结果集返回,指定参数.
+            </summary> 
+            <remarks> 
+            示例:  
+             XmlReader r = ExecuteXmlReader(conn, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句 using "FOR XML AUTO"</param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+            <returns>返回XmlReader结果集对象.</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlConnection,System.String,System.Object[])">
+            <summary> 
+            执行指定数据库连接对象的SqlCommand命令,并产生一个XmlReader对象做为结果集返回,指定参数值. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            
+            示例:  
+             XmlReader r = ExecuteXmlReader(conn, "GetOrders", 24, 36); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名称 using "FOR XML AUTO"</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回XmlReader结果集对象.</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String)">
+            <summary> 
+            执行指定数据库事务的SqlCommand命令,并产生一个XmlReader对象做为结果集返回. 
+            </summary> 
+            <remarks> 
+            示例:  
+             XmlReader r = ExecuteXmlReader(trans, CommandType.StoredProcedure, "GetOrders"); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句 using "FOR XML AUTO"</param> 
+            <returns>返回XmlReader结果集对象.</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库事务的SqlCommand命令,并产生一个XmlReader对象做为结果集返回,指定参数. 
+            </summary> 
+            <remarks> 
+            示例:  
+             XmlReader r = ExecuteXmlReader(trans, CommandType.StoredProcedure, "GetOrders", new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句 using "FOR XML AUTO"</param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+            <returns>返回XmlReader结果集对象.</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteXmlReader(System.Data.SqlClient.SqlTransaction,System.String,System.Object[])">
+            <summary> 
+            执行指定数据库事务的SqlCommand命令,并产生一个XmlReader对象做为结果集返回,指定参数值. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            
+            示例:  
+             XmlReader r = ExecuteXmlReader(trans, "GetOrders", 24, 36); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+            <returns>返回一个包含结果集的DataSet.</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.String,System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+            <summary> 
+            执行指定数据库连接字符串的命令,映射数据表并填充数据集. 
+            </summary> 
+            <remarks> 
+            示例:  
+             FillDataset(connString, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.)</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.String,System.Data.CommandType,System.String,System.Data.DataSet,System.String[],System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库连接字符串的命令,映射数据表并填充数据集.指定命令参数. 
+            </summary> 
+            <remarks> 
+            示例:  
+             FillDataset(connString, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.) 
+            </param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.String,System.String,System.Data.DataSet,System.String[],System.Object[])">
+            <summary> 
+            执行指定数据库连接字符串的命令,映射数据表并填充数据集,指定存储过程参数值. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            
+            示例:  
+             FillDataset(connString, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, 24); 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.) 
+            </param>    
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+            <summary> 
+            执行指定数据库连接对象的命令,映射数据表并填充数据集. 
+            </summary> 
+            <remarks> 
+            示例:  
+             FillDataset(conn, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.) 
+            </param>    
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.Data.SqlClient.SqlConnection,System.Data.CommandType,System.String,System.Data.DataSet,System.String[],System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库连接对象的命令,映射数据表并填充数据集,指定参数. 
+            </summary> 
+            <remarks> 
+            示例:  
+             FillDataset(conn, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.) 
+            </param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataSet,System.String[],System.Object[])">
+            <summary> 
+            执行指定数据库连接对象的命令,映射数据表并填充数据集,指定存储过程参数值. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            
+            示例:  
+             FillDataset(conn, "GetOrders", ds, new string[] {"orders"}, 24, 36); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.) 
+            </param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.DataSet,System.String[])">
+            <summary> 
+            执行指定数据库事务的命令,映射数据表并填充数据集. 
+            </summary> 
+            <remarks> 
+            示例:  
+             FillDataset(trans, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.) 
+            </param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.DataSet,System.String[],System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            执行指定数据库事务的命令,映射数据表并填充数据集,指定参数. 
+            </summary> 
+            <remarks> 
+            示例:  
+             FillDataset(trans, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.) 
+            </param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataSet,System.String[],System.Object[])">
+            <summary> 
+            执行指定数据库事务的命令,映射数据表并填充数据集,指定存储过程参数值. 
+            </summary> 
+            <remarks> 
+            此方法不提供访问存储过程输出参数和返回值参数. 
+            
+            示例:  
+             FillDataset(trans, "GetOrders", ds, new string[]{"orders"}, 24, 36); 
+            </remarks> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.) 
+            </param> 
+            <param name="parameterValues">分配给存储过程输入参数的对象数组</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.FillDataset(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.CommandType,System.String,System.Data.DataSet,System.String[],System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            [私有方法][内部调用]执行指定数据库连接对象/事务的命令,映射数据表并填充数据集,DataSet/TableNames/SqlParameters. 
+            </summary> 
+            <remarks> 
+            示例:  
+             FillDataset(conn, trans, CommandType.StoredProcedure, "GetOrders", ds, new string[] {"orders"}, new SqlParameter("@prodid", 24)); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="transaction">一个有效的连接事务</param> 
+            <param name="commandType">命令类型 (存储过程,命令文本或其它)</param> 
+            <param name="commandText">存储过程名称或T-SQL语句</param> 
+            <param name="dataSet">要填充结果集的DataSet实例</param> 
+            <param name="tableNames">表映射的数据表数组 
+            用户定义的表名 (可有是实际的表名.) 
+            </param> 
+            <param name="commandParameters">分配给命令的SqlParamter参数数组</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.UpdateDataset(System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlCommand,System.Data.DataSet,System.String)">
+            <summary> 
+            执行数据集更新到数据库,指定inserted, updated, or deleted命令. 
+            </summary> 
+            <remarks> 
+            示例:  
+             UpdateDataset(conn, insertCommand, deleteCommand, updateCommand, dataSet, "Order"); 
+            </remarks> 
+            <param name="insertCommand">[追加记录]一个有效的T-SQL语句或存储过程</param> 
+            <param name="deleteCommand">[删除记录]一个有效的T-SQL语句或存储过程</param> 
+            <param name="updateCommand">[更新记录]一个有效的T-SQL语句或存储过程</param> 
+            <param name="dataSet">要更新到数据库的DataSet</param> 
+            <param name="tableName">要更新到数据库的DataTable</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.CreateCommand(System.Data.SqlClient.SqlConnection,System.String,System.String[])">
+            <summary> 
+            创建SqlCommand命令,指定数据库连接对象,存储过程名和参数. 
+            </summary> 
+            <remarks> 
+            示例:  
+             SqlCommand command = CreateCommand(conn, "AddCustomer", "CustomerID", "CustomerName"); 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="sourceColumns">源表的列名称数组</param> 
+            <returns>返回SqlCommand命令</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQueryTypedParams(System.String,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库连接字符串的存储过程,使用DataRow做为参数值,返回受影响的行数. 
+            </summary> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回影响的行数</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQueryTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库连接对象的存储过程,使用DataRow做为参数值,返回受影响的行数. 
+            </summary> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回影响的行数</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteNonQueryTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库事物的存储过程,使用DataRow做为参数值,返回受影响的行数. 
+            </summary> 
+            <param name="transaction">一个有效的连接事务 object</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回影响的行数</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDatasetTypedParams(System.String,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库连接字符串的存储过程,使用DataRow做为参数值,返回DataSet. 
+            </summary> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回一个包含结果集的DataSet.</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDatasetTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库连接对象的存储过程,使用DataRow做为参数值,返回DataSet. 
+            </summary> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回一个包含结果集的DataSet.</returns> 
+            
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteDatasetTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库事务的存储过程,使用DataRow做为参数值,返回DataSet. 
+            </summary> 
+            <param name="transaction">一个有效的连接事务 object</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回一个包含结果集的DataSet.</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReaderTypedParams(System.String,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库连接字符串的存储过程,使用DataRow做为参数值,返回DataReader. 
+            </summary> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReaderTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库连接对象的存储过程,使用DataRow做为参数值,返回DataReader. 
+            </summary> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteReaderTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库事物的存储过程,使用DataRow做为参数值,返回DataReader. 
+            </summary> 
+            <param name="transaction">一个有效的连接事务 object</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回包含结果集的SqlDataReader</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalarTypedParams(System.String,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库连接字符串的存储过程,使用DataRow做为参数值,返回结果集中的第一行第一列. 
+            </summary> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalarTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库连接对象的存储过程,使用DataRow做为参数值,返回结果集中的第一行第一列.
+            </summary> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteScalarTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库事务的存储过程,使用DataRow做为参数值,返回结果集中的第一行第一列. 
+            </summary> 
+            <param name="transaction">一个有效的连接事务 object</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回结果集中的第一行第一列</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteXmlReaderTypedParams(System.Data.SqlClient.SqlConnection,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库连接对象的存储过程,使用DataRow做为参数值,返回XmlReader类型的结果集. 
+            </summary> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回XmlReader结果集对象.</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelper.ExecuteXmlReaderTypedParams(System.Data.SqlClient.SqlTransaction,System.String,System.Data.DataRow)">
+            <summary> 
+            执行指定连接数据库事务的存储过程,使用DataRow做为参数值,返回XmlReader类型的结果集. 
+            </summary> 
+            <param name="transaction">一个有效的连接事务 object</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="dataRow">使用DataRow作为参数值</param> 
+            <returns>返回XmlReader结果集对象.</returns> 
+        </member>
+        <member name="T:scan.Util.SqlHelperParameterCache">
+            <summary> 
+            SqlHelperParameterCache提供缓存存储过程参数,并能够在运行时从存储过程中探索参数. 
+            </summary> 
+        </member>
+        <member name="M:scan.Util.SqlHelperParameterCache.DiscoverSpParameterSet(System.Data.SqlClient.SqlConnection,System.String,System.Boolean)">
+            <summary> 
+            探索运行时的存储过程,返回SqlParameter参数数组. 
+            初始化参数值为 DBNull.Value. 
+            </summary> 
+            <param name="connection">一个有效的数据库连接</param> 
+            <param name="spName">存储过程名称</param> 
+            <param name="includeReturnValueParameter">是否包含返回值参数</param> 
+            <returns>返回SqlParameter参数数组</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelperParameterCache.CloneParameters(System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            SqlParameter参数数组的深层拷贝. 
+            </summary> 
+            <param name="originalParameters">原始参数数组</param> 
+            <returns>返回一个同样的参数数组</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelperParameterCache.CacheParameterSet(System.String,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary> 
+            追加参数数组到缓存. 
+            </summary> 
+            <param name="connectionString">一个有效的数据库连接字符串</param> 
+            <param name="commandText">存储过程名或SQL语句</param> 
+            <param name="commandParameters">要缓存的参数数组</param> 
+        </member>
+        <member name="M:scan.Util.SqlHelperParameterCache.GetCachedParameterSet(System.String,System.String)">
+            <summary> 
+            从缓存中获取参数数组. 
+            </summary> 
+            <param name="connectionString">一个有效的数据库连接字符</param> 
+            <param name="commandText">存储过程名或SQL语句</param> 
+            <returns>参数数组</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelperParameterCache.GetSpParameterSet(System.String,System.String)">
+            <summary> 
+            返回指定的存储过程的参数集 
+            </summary> 
+            <remarks> 
+            这个方法将查询数据库,并将信息存储到缓存. 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符</param> 
+            <param name="spName">存储过程名</param> 
+            <returns>返回SqlParameter参数数组</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelperParameterCache.GetSpParameterSet(System.String,System.String,System.Boolean)">
+            <summary> 
+            返回指定的存储过程的参数集 
+            </summary> 
+            <remarks> 
+            这个方法将查询数据库,并将信息存储到缓存. 
+            </remarks> 
+            <param name="connectionString">一个有效的数据库连接字符.</param> 
+            <param name="spName">存储过程名</param> 
+            <param name="includeReturnValueParameter">是否包含返回值参数</param> 
+            <returns>返回SqlParameter参数数组</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelperParameterCache.GetSpParameterSet(System.Data.SqlClient.SqlConnection,System.String)">
+            <summary> 
+            [内部]返回指定的存储过程的参数集(使用连接对象). 
+            </summary> 
+            <remarks> 
+            这个方法将查询数据库,并将信息存储到缓存. 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接字符</param> 
+            <param name="spName">存储过程名</param> 
+            <returns>返回SqlParameter参数数组</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelperParameterCache.GetSpParameterSet(System.Data.SqlClient.SqlConnection,System.String,System.Boolean)">
+            <summary> 
+            [内部]返回指定的存储过程的参数集(使用连接对象) 
+            </summary> 
+            <remarks> 
+            这个方法将查询数据库,并将信息存储到缓存. 
+            </remarks> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名</param> 
+            <param name="includeReturnValueParameter"> 
+            是否包含返回值参数 
+            </param> 
+            <returns>返回SqlParameter参数数组</returns> 
+        </member>
+        <member name="M:scan.Util.SqlHelperParameterCache.GetSpParameterSetInternal(System.Data.SqlClient.SqlConnection,System.String,System.Boolean)">
+            <summary> 
+            [私有]返回指定的存储过程的参数集(使用连接对象) 
+            </summary> 
+            <param name="connection">一个有效的数据库连接对象</param> 
+            <param name="spName">存储过程名</param> 
+            <param name="includeReturnValueParameter">是否包含返回值参数</param> 
+            <returns>返回SqlParameter参数数组</returns> 
+        </member>
+        <member name="M:scan.Util.Util.GetAppSettingDecrypt(System.String,System.Boolean)">
+            <summary>
+            是否需要解密
+            </summary>
+            <param name="key"></param>
+            <param name="decrypt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:scan.Util.Util.WriteAppSetting(System.String,System.String,System.Boolean)">
+            <summary>
+            app.config 节点添加 更新 
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="encrypt">是否需要加密:true,加密;false,不需要加密</param>
+        </member>
+        <member name="M:scan.Util.Util.WriteConSetting(System.String,System.String,System.Boolean)">
+            <summary>
+            app.config connectionStrings 添加 更新 
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="encrypt">是否需要加密:true,加密;false,不需要加密</param>
+        </member>
+        <member name="M:scan.Util.Util.WriteExcel(System.Data.DataTable,System.String)">
+            <summary>
+            通过NPOI导出excel
+            </summary>
+            <param name="dt"></param>
+            <param name="filePath"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:scan.Util.xmlHelper._FilePath" -->
+        <!-- Badly formed XML comment ignored for member "F:scan.Util.xmlHelper._xml" -->
+        <!-- Badly formed XML comment ignored for member "F:scan.Util.xmlHelper._element" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.#ctor(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.GetXmlNode(System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.GetXmlNodeList(System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.GetXmlAttribute(System.String,System.String,System.String)" -->
+        <member name="M:scan.Util.xmlHelper.GetTextByAttribute(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取xml中xpath对应属性的节点的value
+            </summary>
+            <param name="xmlFileName"></param>
+            <param name="xPath"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.GetNodeAttributes(System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.UpdateAttribute(System.String,System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.DeleteAttributes(System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.DeleteOneAttribute(System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.AddAttribute(System.String,System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.AddNode(System.String,System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.UpdateNode(System.String,System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.deleteNode(System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.UpdateChildNode(System.String,System.String,System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.CreateXMLElement" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.Save" -->
+        <!-- Badly formed XML comment ignored for member "M:scan.Util.xmlHelper.CreateXmlDocument(System.String,System.String,System.String,System.String,System.String)" -->
+        <member name="T:scan.WebReference.HospitalServiceImpService">
+            <remarks/>
+        </member>
+        <member name="M:scan.WebReference.HospitalServiceImpService.#ctor">
+            <remarks/>
+        </member>
+        <member name="E:scan.WebReference.HospitalServiceImpService.funMainCompleted">
+            <remarks/>
+        </member>
+        <member name="M:scan.WebReference.HospitalServiceImpService.funMain(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:scan.WebReference.HospitalServiceImpService.funMainAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:scan.WebReference.HospitalServiceImpService.funMainAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:scan.WebReference.HospitalServiceImpService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="T:scan.WebReference.funMainCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:scan.WebReference.funMainCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:scan.WebReference.funMainCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:scan.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:scan.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:scan.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:scan.Properties.Resources.上传">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:scan.Properties.Resources.扫描">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+    </members>
+</doc>

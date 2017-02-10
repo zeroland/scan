@@ -653,7 +653,29 @@ namespace scan
                     if (data.IndexOf(dr["keyword"].ToString()) > -1)
                     {
                         centercode = dr["centercode"] == null ? "" : dr["centercode"].ToString();
-                      
+
+                        if (!String.IsNullOrEmpty(centercode))
+                        {
+                            if (String.IsNullOrEmpty(firstCenterCode))
+                            {
+                                firstCenterCode = centercode;
+                                showname = dr["showname"] == null ? "" : dr["showname"].ToString();
+                            }
+
+                            if (!String.IsNullOrEmpty(firstCenterCode) && !centercode.Equals(firstCenterCode))
+                            {
+
+                                count += 1;
+
+
+                            }
+
+                        }
+                    }
+                    else if(dr["keyword"].ToString().IndexOf(data) > -1)
+                    {
+                        centercode = dr["centercode"] == null ? "" : dr["centercode"].ToString();
+
                         if (!String.IsNullOrEmpty(centercode))
                         {
                             if (String.IsNullOrEmpty(firstCenterCode))
@@ -683,6 +705,28 @@ namespace scan
                     {
                         DataRow dr = dtItemDict.Rows[i];
                         if (data.IndexOf(dr["keyword"].ToString()) > -1)
+                        {
+                            centercode = dr["centercode"] == null ? "" : dr["centercode"].ToString();
+                            if (!String.IsNullOrEmpty(centercode))
+                            {
+                                if (String.IsNullOrEmpty(firstCenterCode))
+                                {
+                                    firstCenterCode = centercode;
+                                    showname = dr["showname"] == null ? "" : dr["showname"].ToString();
+                                }
+
+                                if (!String.IsNullOrEmpty(firstCenterCode) && !centercode.Equals(firstCenterCode))
+                                {
+
+                                    count += 1;
+
+
+                                }
+
+                            }
+                        }
+
+                        else if (dr["keyword"].ToString().IndexOf(data) > -1)
                         {
                             centercode = dr["centercode"] == null ? "" : dr["centercode"].ToString();
                             if (!String.IsNullOrEmpty(centercode))
@@ -1105,6 +1149,7 @@ namespace scan
 
                     bool result = true;
                     int rowcount = scanDataSet.ScanDataTable.Rows.Count;
+                   
                     //获取保存在dataset中的数据
                     if (scanDataSet.ScanDataTable.Rows.Count > 1)
                     {
@@ -1117,8 +1162,17 @@ namespace scan
 
                         for (int i = 0; i < scanDataSet.ScanDataTable.Rows.Count; i++)
                         {
-                            //如果名称为空 不再保存 
-                            string itemname = scanDataSet.ScanDataTable.Rows[i]["name"] == null ? "" : scanDataSet.ScanDataTable.Rows[i]["name"].ToString();
+                            //if (this.scanDataSet.ScanDataTable.Rows[i].RowState == DataRowState.Detached|| this.scanDataSet.ScanDataTable.Rows[i].RowState==DataRowState.Deleted)
+                            //{
+                            //    this.scanDataSet.ScanDataTable.Rows.RemoveAt(i);
+                            //    continue;
+                            //}
+
+                            if (this.scanDataSet.ScanDataTable.Rows[i].RowState != DataRowState.Detached&& this.scanDataSet.ScanDataTable.Rows[i].RowState!=DataRowState.Deleted)
+                            {
+
+                                //如果名称为空 不再保存 
+                                string itemname = scanDataSet.ScanDataTable.Rows[i]["name"] == null ? "" : scanDataSet.ScanDataTable.Rows[i]["name"].ToString();
                             if (String.IsNullOrEmpty(itemname))
                                 scanDataSet.ScanDataTable.Rows.RemoveAt(i);
 
@@ -1129,13 +1183,13 @@ namespace scan
                             {
                                 scanDataSet.ScanDataTable.Rows[i]["code"] = i.ToString();
                             }
-                            
-                            string detailGUID= scanDataSet.ScanDataTable.Rows[i]["DetailGUID"] == null ? Guid.NewGuid().ToString() : scanDataSet.ScanDataTable.Rows[i]["DetailGUID"].ToString();
+
+                            string detailGUID = scanDataSet.ScanDataTable.Rows[i]["DetailGUID"] == null ? Guid.NewGuid().ToString() : scanDataSet.ScanDataTable.Rows[i]["DetailGUID"].ToString();
                             if (String.IsNullOrEmpty(detailGUID))
                             {
                                 scanDataSet.ScanDataTable.Rows[i]["DetailGUID"] = Guid.NewGuid().ToString();
                             }
-                           string centercode= scanDataSet.ScanDataTable.Rows[i]["centercode"] == null ? i.ToString() : scanDataSet.ScanDataTable.Rows[i]["centercode"].ToString();
+                            string centercode = scanDataSet.ScanDataTable.Rows[i]["centercode"] == null ? i.ToString() : scanDataSet.ScanDataTable.Rows[i]["centercode"].ToString();
                             string centername = "";
                             DataTable dtname = new Business.DictProcess().GetItemByID(centercode).Tables[0];
                             if (dtname.Rows.Count > 0)
@@ -1146,18 +1200,21 @@ namespace scan
                             scanDataSet.ScanDataTable.Rows[i]["centername"] = centername;
 
                             //总费用转换失败保存为0   住院信息查询获取对应费用明细汇总，类型转换如整个表含有非数值类型，则转换失败，抛出异常
-                            string totalPrice= scanDataSet.ScanDataTable.Rows[i]["totalPrice"] == null ? i.ToString() : scanDataSet.ScanDataTable.Rows[i]["totalPrice"].ToString();
+                            string totalPrice = scanDataSet.ScanDataTable.Rows[i]["totalPrice"] == null ? i.ToString() : scanDataSet.ScanDataTable.Rows[i]["totalPrice"].ToString();
 
                             decimal d_totalPrice = 0;
                             if (!decimal.TryParse(totalPrice, out d_totalPrice))
                             {
                                 scanDataSet.ScanDataTable.Rows[i]["totalPrice"] = 0;
                             }
+
+                          }
                         }
 
 
 
                         new Business.ItemProcess().SaveAndUpdateDetail(scanDataSet.ScanDataTable);
+
                     }
                     else
                     {
@@ -1171,7 +1228,7 @@ namespace scan
 
                         this.TopMost = true;
 
-                        MessageBox.Show("保存成功!保存的条数:"+ rowcount.ToString(), "保存提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                        MessageBox.Show("保存成功!", "保存提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
 
 
                     }
@@ -1873,7 +1930,7 @@ namespace scan
         //出现不能通过已删除的行访问该行的信息  异常  需要分析   
         private void ScanDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex < this.scanDataSet.ScanDataTable.Rows.Count&& this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Detached)
+            if (e.RowIndex < this.scanDataSet.ScanDataTable.Rows.Count&& this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Detached && this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Deleted)
             {
                 try
                 {
@@ -1882,7 +1939,7 @@ namespace scan
 
                     // string mapCount = scanDataSet.ScanDataTable.Rows[e.RowIndex]["MapCount"] == DBNull.Value ? "0" : scanDataSet.ScanDataTable.Rows[e.RowIndex]["MapCount"].ToString();
                     string centerName = "";
-                    if (this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Detached)
+                    if (this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Detached&& this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Deleted)
                     {
                         centerName= scanDataSet.ScanDataTable.Rows[e.RowIndex]["CenterName"] == null ? "" : scanDataSet.ScanDataTable.Rows[e.RowIndex]["CenterName"].ToString();
                     }
@@ -1905,7 +1962,7 @@ namespace scan
                     
                     //扫描出的单位含有支、瓶、盒 且中心编码不为空  且项目类型不为 药品的
                     string unit = "";
-                    if (this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Detached && columnName== "CenterName")
+                    if (this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Detached && this.scanDataSet.ScanDataTable.Rows[e.RowIndex].RowState != DataRowState.Deleted && columnName== "CenterName")
                     {
                         unit = dr.Cells["unitDataGridViewTextBoxColumn"].Value==null?"": dr.Cells["unitDataGridViewTextBoxColumn"].Value.ToString();
                         string itemtype = dr.Cells["itemtype"].Value==null?"": dr.Cells["itemtype"].Value.ToString();
@@ -2068,17 +2125,25 @@ namespace scan
         private void GetTotalInfo()
         {
             //计算总金额
-            int count = scanDataSet.ScanDataTable.Count;
+            int count = scanDataSet.ScanDataTable.Rows.Count;
+            int count1 = 0;
             Decimal totalPrice = 0;
-            for (int r = 0; r < scanDataSet.ScanDataTable.Count; r++)
+            for (int r = 0; r < scanDataSet.ScanDataTable.Rows.Count; r++)
             {
-                ScanDataSet.ScanDataTableRow centerRow = scanDataSet.ScanDataTable[r];
-                if (centerRow.RowState != DataRowState.Detached && !centerRow.IsTotalPriceNull())
+
+                ScanDataSet.ScanDataTableRow centerRow = (ScanDataSet.ScanDataTableRow)scanDataSet.ScanDataTable.Rows[r];
+                if (centerRow.RowState != DataRowState.Detached && centerRow.RowState!=DataRowState.Deleted)
 
                 {
+
                     try
                     {
-                        totalPrice += Convert.ToDecimal(centerRow.TotalPrice);
+                        count1++;
+                        if (!centerRow.IsTotalPriceNull())
+                        {
+                            totalPrice += Convert.ToDecimal(centerRow.TotalPrice);
+                        }
+                        
                     }
                     catch (Exception ex)
                     {
@@ -2087,7 +2152,7 @@ namespace scan
                 }
             }
 
-            updatePanel("总条数:" + count.ToString(), "总金额:" + totalPrice.ToString());
+            updatePanel("总条数:" + count1.ToString(), "总金额:" + totalPrice.ToString());
 
 
         }
@@ -2340,6 +2405,42 @@ namespace scan
             {
                 MessageBox.Show("请选中要删除的行!");
                 return;
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //获取数据记录再拼包
+                //根据guid获取记录,guid由登记主信息之后，传过来的
+
+                DataSet dsZyjl = new Business.MainList().GetZyjlByGuid(this.guid);
+                if (dsZyjl.Tables[0].Rows.Count < 1)
+                {
+                    MessageBox.Show("未登记住院信息！");
+                    return;
+                }
+
+                DataRow dr= dsZyjl.Tables[0].Rows[0];
+                string pid = dr["id"].ToString();
+                string name= dr["name"].ToString();
+
+                DataSet ds = new Business.MainList().CombineFeeDetail(pid);
+
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel files (*.xls)|*.xls";
+                saveFileDialog.FilterIndex = 0;
+                saveFileDialog.RestoreDirectory = true;
+                saveFileDialog.CreatePrompt = false;
+                saveFileDialog.FileName = name + System.DateTime.Now.ToShortDateString() + ".xls";
+                if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
+                Util.Util.WriteExcel(ds.Tables[0], saveFileDialog.FileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 

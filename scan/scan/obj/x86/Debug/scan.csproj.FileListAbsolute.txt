@@ -464,4 +464,7 @@ D:\gitrepository\scan\scan\obj\x86\Debug\外诊扫描录入系统.exe.manifest
 D:\gitrepository\scan\scan\obj\x86\Debug\外诊扫描录入系统.application
 D:\gitrepository\scan\scan\obj\x86\Debug\外诊扫描录入系统.exe
 D:\gitrepository\scan\scan\obj\x86\Debug\外诊扫描录入系统.pdb
+D:\gitrepository\scan\scan\bin\Debug\NPOI.dll
+D:\gitrepository\scan\scan\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\gitrepository\scan\scan\bin\Debug\NPOI.xml
 D:\gitrepository\scan\scan\obj\x86\Debug\scan.csprojResolveAssemblyReference.cache

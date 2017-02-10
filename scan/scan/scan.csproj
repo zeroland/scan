@@ -33,7 +33,7 @@
     <PublisherName>新益华医学科技有限公司</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>40</ApplicationRevision>
+    <ApplicationRevision>42</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -99,6 +99,9 @@
     <Reference Include="Lucene.Net, Version=2.9.2.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>F:\DownLoad\NPOI 2.2.1 binary package\Release\Net20\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="PanGu, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -285,6 +288,7 @@
     </Compile>
     <Compile Include="Util\CJKAnalyzer.cs" />
     <Compile Include="Util\CJKTokenizer.cs" />
+    <Compile Include="Util\ExportExcel.cs" />
     <Compile Include="Util\SqlHelper.cs" />
     <Compile Include="Util\Util.cs" />
     <Compile Include="Util\XmlUtil.cs" />

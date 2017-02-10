@@ -35,7 +35,6 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.itemSearch1 = new scan.ItemSearch();
             this.ScanDataGridView = new System.Windows.Forms.DataGridView();
             this.ToolFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -53,6 +52,8 @@
             this.labelCount = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.messageToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.exportToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.itemSearch1 = new scan.ItemSearch();
             this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -174,19 +175,6 @@
             this.panel2.Size = new System.Drawing.Size(1110, 463);
             this.panel2.TabIndex = 4;
             // 
-            // itemSearch1
-            // 
-            this.itemSearch1.AutoScroll = true;
-            this.itemSearch1.ControlId = null;
-            this.itemSearch1.Count = 0;
-            this.itemSearch1.Location = new System.Drawing.Point(62, 116);
-            this.itemSearch1.Name = "itemSearch1";
-            this.itemSearch1.SearchText = null;
-            this.itemSearch1.SearchType = null;
-            this.itemSearch1.Size = new System.Drawing.Size(568, 255);
-            this.itemSearch1.TabIndex = 2;
-            this.itemSearch1.Visible = false;
-            // 
             // ScanDataGridView
             // 
             this.ScanDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -244,11 +232,12 @@
             this.toolStripSeparator2,
             this.saveToolStripButton,
             this.toolStripSeparator3,
-            this.uploadToolStripButton});
+            this.uploadToolStripButton,
+            this.exportToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(545, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(597, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -363,6 +352,29 @@
             this.messageToolStripStatusLabel.Text = "外诊扫描录入系统";
             this.messageToolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // exportToolStripButton
+            // 
+            this.exportToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("exportToolStripButton.Image")));
+            this.exportToolStripButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exportToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.exportToolStripButton.Name = "exportToolStripButton";
+            this.exportToolStripButton.Size = new System.Drawing.Size(52, 22);
+            this.exportToolStripButton.Text = "导出";
+            this.exportToolStripButton.Click += new System.EventHandler(this.exportToolStripButton_Click);
+            // 
+            // itemSearch1
+            // 
+            this.itemSearch1.AutoScroll = true;
+            this.itemSearch1.ControlId = null;
+            this.itemSearch1.Count = 0;
+            this.itemSearch1.Location = new System.Drawing.Point(62, 116);
+            this.itemSearch1.Name = "itemSearch1";
+            this.itemSearch1.SearchText = null;
+            this.itemSearch1.SearchType = null;
+            this.itemSearch1.Size = new System.Drawing.Size(568, 255);
+            this.itemSearch1.TabIndex = 2;
+            this.itemSearch1.Visible = false;
+            // 
             // 序号
             // 
             this.序号.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -396,7 +408,7 @@
             this.CenterCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CenterCode.DataPropertyName = "CenterCode";
             this.CenterCode.Frozen = true;
-            this.CenterCode.HeaderText = "农合代码";
+            this.CenterCode.HeaderText = "医保代码";
             this.CenterCode.Name = "CenterCode";
             this.CenterCode.ReadOnly = true;
             this.CenterCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -406,7 +418,7 @@
             // 
             this.CenterName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CenterName.DataPropertyName = "CenterName";
-            this.CenterName.HeaderText = "农合名称";
+            this.CenterName.HeaderText = "医保名称";
             this.CenterName.Name = "CenterName";
             this.CenterName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.CenterName.Width = 59;
@@ -558,6 +570,7 @@
         private System.Windows.Forms.ToolStripButton saveToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton uploadToolStripButton;
+        private System.Windows.Forms.ToolStripButton exportToolStripButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;

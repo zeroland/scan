@@ -70,6 +70,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.uploadToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.DictToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
@@ -514,6 +515,7 @@
             this.toolStripSeparator6,
             this.saveToolStripButton,
             this.uploadToolStripButton,
+            this.toolStripButton4,
             this.toolStripButton2,
             this.toolStripButton3,
             this.DictToolStripComboBox,
@@ -554,9 +556,19 @@
             this.uploadToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("uploadToolStripButton.Image")));
             this.uploadToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.uploadToolStripButton.Name = "uploadToolStripButton";
-            this.uploadToolStripButton.Size = new System.Drawing.Size(88, 20);
-            this.uploadToolStripButton.Text = "上传到农合";
+            this.uploadToolStripButton.Size = new System.Drawing.Size(52, 20);
+            this.uploadToolStripButton.Text = "上传";
             this.uploadToolStripButton.Click += new System.EventHandler(this.uploadToolStripButton_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(52, 20);
+            this.toolStripButton4.Text = "导出";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton2
             // 
@@ -579,7 +591,7 @@
             // DictToolStripComboBox
             // 
             this.DictToolStripComboBox.Name = "DictToolStripComboBox";
-            this.DictToolStripComboBox.Size = new System.Drawing.Size(121, 23);
+            this.DictToolStripComboBox.Size = new System.Drawing.Size(121, 25);
             // 
             // MapToolStripButton
             // 
@@ -884,7 +896,7 @@
             // 
             this.CenterName.DataPropertyName = "CenterName";
             this.CenterName.Frozen = true;
-            this.CenterName.HeaderText = "农合名称";
+            this.CenterName.HeaderText = "医保名称";
             this.CenterName.Name = "CenterName";
             this.CenterName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.CenterName.Width = 120;
@@ -892,7 +904,7 @@
             // CenterCode
             // 
             this.CenterCode.DataPropertyName = "CenterCode";
-            this.CenterCode.HeaderText = "农合代码";
+            this.CenterCode.HeaderText = "医保代码";
             this.CenterCode.Name = "CenterCode";
             this.CenterCode.ReadOnly = true;
             this.CenterCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -1118,6 +1130,7 @@
         private System.Windows.Forms.ToolStripButton InvertToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton DelFytoolStripButton;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn PageNum;

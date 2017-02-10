@@ -99,7 +99,7 @@ namespace scan
           
             string frcode = dr["frcode"].ToString();
             //管理员账号 不更新 ； 同步更新站点数 sdk等信息
-            if (!frcode.Equals("410000"))
+            if (!frcode.Equals("000000"))
             {
                 //更新县区编码
                 Util.Util.WriteAppSetting("rcode", frcode, false);

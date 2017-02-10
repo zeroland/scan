@@ -15,11 +15,17 @@ namespace scan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //Application.Run(new Test());
+            //string result = Util.Util.GetEncryptedValue("Server=192.168.0.109;Database=waizhen;User ID=sa;Password=xyh56850000");
+
+           // string old = Util.Util.GetDecryptedValue(result);
+
             LoginForm loginForm = new LoginForm();
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
                 //如果是管理员账号 登陆导航窗口
-                if (loginForm.frcode.Equals("410000"))
+                if (loginForm.frcode.Equals("000000"))
                 {
                     Application.Run(new NavForm());
                     return;
