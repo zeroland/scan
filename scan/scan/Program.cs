@@ -16,10 +16,20 @@ namespace scan
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new Test());
-            //string result = Util.Util.GetEncryptedValue("Server=192.168.0.109;Database=waizhen;User ID=sa;Password=xyh56850000");
+            //Application.Run(new Form1());
+           // string result = Util.Util.GetEncryptedValue("Server=10.120.12.20;Database=waizhen;User ID=sa;Password=xyh56850000");
 
-           // string old = Util.Util.GetDecryptedValue(result);
+            //string result = Util.Util.GetEncryptedValue("Server=192.168.1.9;Database=waizhen;User ID=sa;Password=abc");
+
+            // string old = Util.Util.GetDecryptedValue(result);
+
+            string startMode= Util.Util.GetAppSetting("startMode");
+            if (startMode.Equals("getEncValue"))
+            {
+                Application.Run(new GetEncValue());
+                return;
+            }
+
 
             LoginForm loginForm = new LoginForm();
             if (loginForm.ShowDialog() == DialogResult.OK)

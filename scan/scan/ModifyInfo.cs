@@ -1314,23 +1314,166 @@ namespace scan
 
         private void exportToolStripButton_Click(object sender, EventArgs e)
         {
+
             try
             {
-                //获取数据记录再拼包
-                //根据guid获取记录,guid由登记主信息之后，传过来的
+                new Business.MainList().ExportDataToExcelByGridCombine(this.pid);
+                //new Business.MainList().ExportDataToExcelByGrid(this.pid);
+
+                ////先计算 在再并导出
+
+                //Business.MainList mainList = new Business.MainList();
+
+                //bool result = mainList.ComputeFeeDetail(this.pid);
+
+                //if (result)
+                //{
+                //    DataSet ds = new Business.MainList().CombineFeeDetail(this.pid);
+                //    DataSet dsAll = new DataSet();
+                //    DataTable dtClassB;
+                //    DataTable dtClassBNew;
+                //    string classAFee = "";
+                //    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                //    {
+
+                //        DataTable dtCombineResult = ds.Tables[0];
+
+                //        //计算甲类费用 创建table
+                //        DataRow[] drClassA = dtCombineResult.Select("自付比=0 ");
+                //        if (drClassA.Length > 0)
+                //        {
+                //            DataTable dtClassA = new DataTable();
+                //            dtClassA.TableName = "ClassA";
+                //            dtClassA.Columns.Add("甲类总费用");
+                //            object obj = dtCombineResult.Compute("sum(金额)", "自付比=0 ");
+                //            if (obj != DBNull.Value)
+                //            {
+                //                classAFee = obj.ToString();
+                //            }
+
+                //        }
+
+                //        //计算乙类费用 创建table
+                //        DataRow[] drClassB = dtCombineResult.Select("自付比>0 and 自付比<1 ");
+
+                //        if (drClassB.Length > 0)
+                //        {
+                //            dtClassB = dtCombineResult.Clone();
+                //            foreach (DataRow drB in drClassB)
+                //            {
+                //                dtClassB.Rows.Add(drB.ItemArray);
+                //            }
+
+                //            dtClassBNew = dtClassB.DefaultView.ToTable(true, new string[] { "项目名称", "金额", "自付比", "自付金额" });
+                //            dtClassBNew.TableName = "ClassB";
+                //            dsAll.Tables.Add(dtClassBNew);
+                //        }
+
+                //        ////计算全自付费用 及超限价费用 创建 table
+                //        //DataRow[] drSelfFee = dtCombineResult.Select("自付比=1 or 超限价金额>0 ");
+                //        //if (drSelfFee.Length > 0)
+                //        //{
+                //        //    DataTable dtClassC = dtCombineResult.Clone();
+                //        //    foreach (DataRow drC in drSelfFee)
+                //        //    {
+                //        //        dtClassC.Rows.Add(drC.ItemArray);
+                //        //    }
+
+                //        //    DataTable dtClassCNew = dtClassC.DefaultView.ToTable(true, new string[] { "项目名称", "金额", "自付比", "超限价金额" });
+                //        //    dtClassCNew.TableName = "ClassC";
+                //        //    dsAll.Tables.Add(dtClassCNew);
+
+                //        //}
+
+                //        Util.ReportShow reportShow = new Util.ReportShow("shenhe.grf", dsAll);
+
+                //        reportShow.Report.LoadDataFromXML(dsAll.GetXml());
+
+                //        reportShow.Report.ParameterByName("ClassAFee").Value = classAFee;
+                //        reportShow.Show();
+
+                //    }
 
 
-                DataSet ds = new Business.MainList().CombineFeeDetail(this.pid);
+                //    //if (result)
+                //    //{
+                //    //    DataSet ds = new Business.MainList().CombineFeeDetail(this.pid);
+                //    //    DataSet dsAll = new DataSet();
+                //    //    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                //    //    {
+
+                //    //        DataTable dtCombineResult = ds.Tables[0];
 
 
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Excel files (*.xls)|*.xls";
-                saveFileDialog.FilterIndex = 0;
-                saveFileDialog.RestoreDirectory = true;
-                saveFileDialog.CreatePrompt = false;
-                saveFileDialog.FileName = this._name + System.DateTime.Now.ToShortDateString() + ".xls";
-                if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
-                Util.Util.WriteExcel(ds.Tables[0], saveFileDialog.FileName);
+                //    //        //计算甲类费用 创建table
+                //    //        DataRow[] drClassA = dtCombineResult.Select("自付比=0 ");
+                //    //        if (drClassA.Length > 0)
+                //    //        {
+                //    //            DataTable dtClassA = new DataTable();
+                //    //            dtClassA.TableName = "ClassA";
+                //    //            dtClassA.Columns.Add("甲类总费用");
+                //    //            object obj= dtCombineResult.Compute("sum(金额)", "自付比=0 ");
+                //    //            if (obj != DBNull.Value)
+                //    //            {
+                //    //                dtClassA.Rows.Add(obj.ToString());
+
+                //    //            }
+                //    //            dsAll.Tables.Add(dtClassA);
+                //    //        }
+
+                //    //        //计算乙类费用 创建table
+                //    //        DataRow[] drClassB = dtCombineResult.Select("自付比>0 and 自付比<1 ");
+
+                //    //        if (drClassB.Length > 0)
+                //    //        {
+                //    //            DataTable dtClassB = dtCombineResult.Clone();
+                //    //            foreach (DataRow drB in drClassB)
+                //    //            {
+                //    //                dtClassB.Rows.Add(drB.ItemArray);
+                //    //            }
+
+                //    //            DataTable dtClassBNew =  dtClassB.DefaultView.ToTable(true, new string[] { "项目名称", "金额", "自付比", "自付金额" });
+                //    //            dtClassBNew.TableName = "ClassB";
+                //    //            dsAll.Tables.Add(dtClassBNew);
+                //    //        }
+
+                //    //        //计算全自付费用 及超限价费用 创建 table
+                //    //        DataRow[] drSelfFee = dtCombineResult.Select("自付比=1 or 超限价金额>0 ");
+                //    //        if (drSelfFee.Length > 0)
+                //    //        {
+                //    //            DataTable dtClassC = dtCombineResult.Clone();
+                //    //            foreach (DataRow drC in drSelfFee)
+                //    //            {
+                //    //                dtClassC.Rows.Add(drC.ItemArray);
+                //    //            }
+
+                //    //            DataTable dtClassCNew= dtClassC.DefaultView.ToTable(true, new string[] { "项目名称", "金额", "自付比", "超限价金额" });
+                //    //            dtClassCNew.TableName = "ClassC";
+                //    //            dsAll.Tables.Add(dtClassCNew);
+
+                //    //        }
+
+
+                //    //    }
+
+
+
+                //    //    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                //    //    saveFileDialog.Filter = "Excel files (*.xls)|*.xls";
+                //    //    saveFileDialog.FilterIndex = 0;
+                //    //    saveFileDialog.RestoreDirectory = true;
+                //    //    saveFileDialog.CreatePrompt = false;
+                //    //    saveFileDialog.FileName = this._name + System.DateTime.Now.ToShortDateString() + ".xls";
+                //    //    if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
+                //    //    Util.Util.WriteExcels(dsAll, saveFileDialog.FileName);
+                //    //}
+
+                //}
+                //else
+                //{
+                //    MessageBox.Show("计算费用明细失败！");
+                //    return;
+                //}
             }
             catch (Exception ex)
             {

@@ -427,5 +427,38 @@ namespace scan.SqlServer
             return ds;
         }
 
+
+
+        public bool ComputeFeeDetail(string pid)
+        {
+            bool result = true;
+            SqlConnection sqlConnection = null;
+            try
+            {
+                sqlConnection = SqlHelper.GetConnection();
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand("prc_computedetail", sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.Add("@pid", SqlDbType.VarChar).Value = pid;
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                result = false;
+                throw e;
+            }
+            finally
+            {
+                if (sqlConnection.State != ConnectionState.Closed)
+                {
+                    SqlHelper.CloseConnection(sqlConnection);
+                }
+            }
+
+            return result;
+        }
+
     }
 }

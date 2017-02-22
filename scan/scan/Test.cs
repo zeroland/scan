@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
+using grproLib;
 
 namespace scan
 {
@@ -134,8 +135,11 @@ namespace scan
         private void button2_Click(object sender, EventArgs e)
         {
             string a = ".";
-            decimal sss = 0;
+            decimal sss = 0;          
+
             bool su = Decimal.TryParse(a, out sss);
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -192,5 +196,10 @@ namespace scan
             }
             
         }
+
+
+
+      
+
     }
 }

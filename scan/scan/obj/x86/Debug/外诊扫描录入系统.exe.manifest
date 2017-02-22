@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="外诊扫描录入系统.exe" version="1.0.0.42" publicKeyToken="0000000000000000" language="zh" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="外诊扫描录入系统.exe" version="1.0.0.45" publicKeyToken="0000000000000000" language="zh" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="scanico.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -65,7 +65,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4v1idQXnL7dJgk85hw2dMP0ee1Y=</dsig:DigestValue>
+        <dsig:DigestValue>bNrwKjRagTeNqdFelcxTxmUJjd4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -89,7 +89,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>z7bX8aaVXUL8HUIULaqFsiN+Uiw=</dsig:DigestValue>
+        <dsig:DigestValue>jKs0XI/oHVLlYrbX4jdk5s9gt+s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -101,7 +101,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>FOYXFmohWAZ7zxWA6CXF+7WrT8M=</dsig:DigestValue>
+        <dsig:DigestValue>+Uoskq3n5eaIstB3rCVfC2nPqmU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.grproLib.dll" size="303104">
+      <assemblyIdentity name="Interop.grproLib" version="5.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>L8v1aCB5kXIasteXzo8iB6n4Q1U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -166,14 +178,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="521760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="外诊扫描录入系统.exe" size="537632">
       <assemblyIdentity name="外诊扫描录入系统" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>jV8Hs6IeCoCL9S6mQz3rvLDmA1A=</dsig:DigestValue>
+        <dsig:DigestValue>iSrXHkJBbYAej2SxiOo1jx6vo/M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -555,6 +567,15 @@
       <dsig:DigestValue>HAoEVRWUqf03Cv5PXBsQcLe5GH0=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="lib\Interop.grproLib.dll" size="303104">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>L8v1aCB5kXIasteXzo8iB6n4Q1U=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="lib\log4net.dll" size="270336">
     <hash>
       <dsig:Transforms>
@@ -607,6 +628,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>5cBn5lQ6cCRa50PSQxHwLjLSv6I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ReportModel\a.grf" size="2488">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>2LMArNe1Khiw7fCd7GZqI4ndUmw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="scanico.ico" size="67646">
@@ -663,13 +693,13 @@
       <dsig:DigestValue>Ym0zX8G7i8zwXLGqBmVU2VypLhc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="外诊扫描录入系统.exe.config" size="2548">
+  <file name="外诊扫描录入系统.exe.config" size="2586">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>1lgY5+cSFeiV1qFUy0KF4CoFtYM=</dsig:DigestValue>
+      <dsig:DigestValue>Wb41nTQhBFH7hjcdbgcwBtWMAX0=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
